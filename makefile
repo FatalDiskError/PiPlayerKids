@@ -74,14 +74,17 @@ RFID_INCLUDE_PATH = -Ibcm2835/bcm2835-1.45/src
 RFID_LIBRARY_PATH = -Lbcm2835/bcm2835-1.45/src
 RFID_LIBS = -lbcm2835
 
-rfid: rfid_main rfid_rc522
-	g++ -std=c++11 rc522.o rfid_main.o -o bin/rfid $(RFID_INCLUDE_PATH) $(RFID_LIBRARY_PATH) $(RFID_LIBS)
+rfid: rfid_main rfid_rc522 rfid_rfid
+	g++ -std=c++11 rfid.o rc522.o rfid_main.o -o bin/rfid $(RFID_INCLUDE_PATH) $(RFID_LIBRARY_PATH) $(RFID_LIBS)
 
 rfid_main: src_rfid/rfid_main.cpp
 	g++ -std=c++11 -c src_rfid/rfid_main.cpp $(RFID_INCLUDE_PATH)
 
 rfid_rc522: src_rfid/rc522.c src_rfid/rc522.h
 	g++ -std=c++11 -c src_rfid/rc522.c
+	
+rfid_rfid: src_rfid/rfid.c src_rfid/rfid.h
+	g++ -std=c++11 -c src_rfid/rfid.c
 
 # -g - turn on debugging (so GDB gives more friendly output)
 # -Wall - turns on most warnings
