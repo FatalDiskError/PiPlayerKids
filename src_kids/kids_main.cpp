@@ -6,19 +6,26 @@ using namespace mp3lib;
 
 void start_player(string);
 
-int main(int argc, char **argv){
-	if(argc==1){
+int main(int argc, char **argv)
+{
+	if(argc==1)
+	{
 		start_player("./library");
-	}else if(argc==2){
+	}
+	else if(argc==2)
+	{
 		start_player(string(argv[1]));
-	}else{
+	}
+	else
+	{
 		perror("wrong number of arguments. Use \"pi_player_kids [path_to_lib]\"");
 		return -1;
 	}
 	return 0;
 }
 
-void start_player(string path_to_lib){
+void start_player(string path_to_lib)
+{
 	Mp3Lib *mp3 = new Mp3Lib(path_to_lib);
 
 	cout << "01 "; mp3->showSeries();
