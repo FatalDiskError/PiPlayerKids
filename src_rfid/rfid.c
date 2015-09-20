@@ -25,13 +25,13 @@ tag_stat select_tag_sn(uint8_t * sn, uint8_t * len){
 	if (PcdSelect(PICC_ANTICOLL1,buff)!=TAG_OK) {return TAG_ERR;}
 	if (buff[0]==0x88) {
 		memcpy(sn,&buff[1],3);
-		if (PcdAnticoll(PICC_ANTICOLL2,buff)!=TAG_OK) {
-			return TAG_ERR;}
+		
+		if (PcdAnticoll(PICC_ANTICOLL2,buff)!=TAG_OK) {return TAG_ERR;}
 		if (PcdSelect(PICC_ANTICOLL2,buff)!=TAG_OK) {return TAG_ERR;}
 		if (buff[0]==0x88) {
 			memcpy(sn+3,&buff[1],3);
-			if (PcdAnticoll(PICC_ANTICOLL3,buff)!=TAG_OK) {
-				return TAG_ERR;}
+			
+			if (PcdAnticoll(PICC_ANTICOLL3,buff)!=TAG_OK) {return TAG_ERR;}
 			if (PcdSelect(PICC_ANTICOLL3,buff)!=TAG_OK) {return TAG_ERR;}
 			memcpy(sn+6,buff,4);
 			*len=10;
@@ -63,7 +63,7 @@ tag_stat read_tag_str(uint8_t addr, char * str) {
 	}else if (tmp==TAG_ERRCRC){
 		sprintf(p,"CRC Error");
 	}else{
-		sprintf(p,"Unknown error");
+		sprintf(p,"Unknown error: %i", tmp);
 	}
 	return tmp;
 }

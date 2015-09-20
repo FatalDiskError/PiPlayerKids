@@ -22,9 +22,13 @@ int main(int argc, char **argv)
 	uint16_t CType=0;
 	uint8_t SN_len=0;
 	char status;
-	int tmp;
+	int tmp, i;
+	char str[255];
 	char *p;
 	char sn_str[23];
+
+	int num_blocks=0;
+	uint8_t block_size=0;
 	
 	uint8_t use_gpio=1;
 	uint8_t gpio=18;
@@ -92,62 +96,77 @@ int main(int argc, char **argv)
 		*(p++)=']';
 		*(p++)=0;
 
+		/*
 		if(use_gpio){
 			bcm2835_gpio_write(gpio, HIGH);
 		}
+		*/
 		
 		cout << " > Found tag: type=" << setfill('0') << setw(4) << setbase(16) << CType;
 		cout << " SNlen=" << setbase(10) << int(SN_len);
 		cout << " SN=" << int(SN);
 		cout << " SN=" << sn_str << endl;
 
+		switch (CType) {
+		case 0x4400:
+			num_blocks=0x0f;
+			block_size=4;
+			break;
+		case 0x0400:
+			/*
+			PcdHalt();
+			if (use_gpio){
+				bcm2835_gpio_write(gpio, LOW);
+			}
+			continue;
+			*/
+			/*
+			16 sectors, 64 blocks, 1024 bytes:
+				each sector has 4 blocks
+				each block has 16 bytes
+			*/
+			num_blocks=0x3f;
+			block_size=1;
+			break;
+		default:
+			break;
+		}
+		p=str;
 		/*
-		if (save_mem) {
-			switch (CType) {
-			case 0x4400:
-				max_page=0x0f;
-				page_step=4;
-				break;
-			case 0x0400:
-				PcdHalt();
-				if (use_gpio) bcm2835_gpio_write(gpio, LOW);
-				continue;
-				max_page=0x3f;
-				page_step=1;
-				break;
-			default:
-				break;
-			}
-			p=str;
-			sprintf(p,"%s",fmem_path);
-			p+=strlen(p);
-			for (tmp=0;tmp<SN_len;tmp++) {
-				sprintf(p,"%02x",SN[tmp]);
-				p+=2;
-			}
-			sprintf(p,".txt");
-			if ((fmem_str=fopen(str,"r"))!=NULL) {
-				fclose(fmem_str);
-				PcdHalt();
-				if (use_gpio) bcm2835_gpio_write(gpio, LOW);
-				continue;
-			}
-			if ((fmem_str=fopen(str,"w"))==NULL) {
-				syslog(LOG_DAEMON|LOG_ERR,"Cant open file for write: %s",str);
-				PcdHalt();
-				if (use_gpio) bcm2835_gpio_write(gpio, LOW);
-				continue;
-			}
-			for (i=0;i<max_page;i+=page_step) {
-				read_tag_str(i,str);
-				fprintf(fmem_str,"%02x: %s\n",i,str);
-			}
+		sprintf(p,"%s",fmem_path);
+		p+=strlen(p);
+		for (tmp=0;tmp<SN_len;tmp++) {
+			sprintf(p,"%02x",SN[tmp]);
+			p+=2;
+		}
+		sprintf(p,".txt");
+		if ((fmem_str=fopen(str,"r"))!=NULL) {
 			fclose(fmem_str);
+			PcdHalt();
+			if (use_gpio) bcm2835_gpio_write(gpio, LOW);
+			continue;
+		}
+		if ((fmem_str=fopen(str,"w"))==NULL) {
+			syslog(LOG_DAEMON|LOG_ERR,"Cant open file for write: %s",str);
+			PcdHalt();
+			if (use_gpio) bcm2835_gpio_write(gpio, LOW);
+			continue;
 		}
 		*/
+		for (i=0; i<num_blocks; i+=block_size) {
+			/*
+			//16 bytes á 8 bit
+			read_tag_str(i,str);
+			//fprintf(fmem_str,"%02x: %s\n",i,str);
+			cout << " > " << setfill('0') << setw(2) << setbase(16) << i;
+			cout << "=" << str << endl;
+			*/
+		}
 			
 		PcdHalt();
-		if (use_gpio) bcm2835_gpio_write(gpio, LOW);
+		if (use_gpio){
+			bcm2835_gpio_write(gpio, LOW);
+		}
 	}
 
 	bcm2835_spi_end();
