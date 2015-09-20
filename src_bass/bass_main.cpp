@@ -138,7 +138,7 @@ int main(int argc, char **argv)
 	log.clear();
 	
 	for(int i=0; i<10; i++){
-		usleep(2000000);
+		usleep(200000);
 		log << "wait " << i;
 		printLog(log.str());
 		log.str("");
