@@ -2,10 +2,8 @@
 #include <iterator>
 #include <algorithm>
 #include "mp3lib.hpp"
-//#include <boost/locale.hpp>
 #include <boost/filesystem.hpp>
 using namespace std;
-//using namespace boost::locale;
 using namespace boost::filesystem;
 
 namespace mp3lib {

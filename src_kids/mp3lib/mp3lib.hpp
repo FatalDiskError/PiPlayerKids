@@ -3,15 +3,13 @@
 #define SILENT_SERIES_CORE
 #define SILENT_SERIES_INFO
 #define SILENT_EPISODE_CORE
-#define SILENT_EPISODE_INFO
+#define xSILENT_EPISODE_INFO
 #define SILENT_FILEBROWSER
 #ifndef MP3LIB
 #define MP3LIB
 #include <string>
 #include <map>
 #include <boost/filesystem.hpp>
-#include <fmod.hpp>
-#include "common.h"
 
 using namespace std;
 using namespace boost::filesystem;
@@ -63,16 +61,6 @@ namespace mp3lib {
 					vector<path> _mp3Files;
 					vector<path>::iterator _mp3FilesIterator;
 					path* _pMp3File;
-
-					int FMOD_Main(void);
-
-					FMOD::System     *system;
-					FMOD::Sound      *sound, *sound_to_play;
-					FMOD::Channel    *channel = 0;
-					FMOD_RESULT       result;
-					unsigned int      version;
-					void             *extradriverdata = 0;
-					int               numsubsounds;
 				public:
 					Episode(path p);
 					~Episode(void);
