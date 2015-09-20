@@ -2,6 +2,7 @@
 #include <sstream>
 #include <stdlib.h>
 #include <curses.h>
+#include <unistd.h>
 #include "bass.h"
 
 using namespace std;
@@ -104,16 +105,15 @@ int main(int argc, char **argv)
 	string file = "./bin/1.mp3";
 	HSTREAM streamHandle;
 	bool success;
-	ostringstream log1;
-	ostringstream log2;
-	ostringstream log3;
-	ostringstream log4;
+	ostringstream log;
 	
 	/* Initialize output device */
 	success = BASS_Init(device, frequency, 0, 0, NULL);
-	log1 << "BASS_Init(" << device << ", " << frequency << ", 0, 0, NULL) ";
-	log1 << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
-	printLog(log1.str());
+	log << "BASS_Init(" << device << ", " << frequency << ", 0, 0, NULL) ";
+	log << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
+	printLog(log.str());
+	log.str("");
+	log.clear();
 	
 	/*
 	// does not work on raspi
@@ -124,14 +124,26 @@ int main(int argc, char **argv)
 	*/
 	
 	streamHandle = BASS_StreamCreateFile(FALSE, file.c_str(), 0, 0, 0);
-	log3 << "BASS_StreamCreateFile(FALSE, " << file << ", 0, 0, 0) ";
-	log3 << streamHandle << " with errorCode: " << BASS_ErrorGetCode();
-	printLog(log3.str());
+	log << "BASS_StreamCreateFile(FALSE, " << file << ", 0, 0, 0) ";
+	log << "streamHandle: " << streamHandle << " with errorCode: " << BASS_ErrorGetCode();
+	printLog(log.str());
+	log.str("");
+	log.clear();
 	
 	success = BASS_ChannelPlay(streamHandle, true);
-	log4 << "BASS_ChannelPlay(" << streamHandle << ", true) ";
-	log4 << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
-	printLog(log4.str());
+	log << "BASS_ChannelPlay(" << streamHandle << ", true) ";
+	log << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
+	printLog(log.str());
+	log.str("");
+	log.clear();
+	
+	for(int i=0; i<10; i++){
+		usleep(2000000);
+		log << "wait " << i;
+		printLog(log.str());
+		log.str("");
+		log.clear();
+	}
 
 	/*
 	"initscr is normally the first curses routine to call when initializing a
