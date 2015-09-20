@@ -1,4 +1,4 @@
-all: rfid
+all: bass
 
 clear:
 	rm *.o
@@ -8,9 +8,12 @@ clear:
 # +++   KIDS   +++
 # ++++++++++++++++
 
-KIDS_INCLUDE_PATH = -Ic:/boost/boost_1_58_0/include/boost-1_58 -Ic:/PROGRA~2/FMODSO~1/FMODST~1/api/lowlevel/inc
-KIDS_LIBRARY_PATH = -Lc:/boost/boost_1_58_0/lib/ -Lc:/PROGRA~2/FMODSO~1/FMODST~1/api/lowlevel/lib/
-KIDS_LIBS = -lboost_filesystem-mgw49-mt-1_58 -lboost_locale-mgw49-mt-1_58 -lboost_system-mgw49-mt-1_58 -lfmod64
+#KIDS_INCLUDE_PATH = -Ic:/boost/boost_1_58_0/include/boost-1_58 -Ic:/PROGRA~2/FMODSO~1/FMODST~1/api/lowlevel/inc
+#KIDS_LIBRARY_PATH = -Lc:/boost/boost_1_58_0/lib/ -Lc:/PROGRA~2/FMODSO~1/FMODST~1/api/lowlevel/lib/
+#KIDS_LIBS = -lboost_filesystem-mgw49-mt-1_58 -lboost_locale-mgw49-mt-1_58 -lboost_system-mgw49-mt-1_58 -lfmod64
+KIDS_INCLUDE_PATH = -I/usr/include/boost/filesystem
+KIDS_LIBRARY_PATH = -L/usr/lib/
+KIDS_LIBS = -lboost_filesystem -lboost_locale -lboost_system
 
 MP3LIB = mp3lib_mp3lib mp3lib_series mp3lib_episode mp3lib_filebrowser
 MP3LIB_OBJ = $(MP3LIB:%=%.o)
@@ -91,6 +94,6 @@ rfid_rfid: src_rfid/rfid.c src_rfid/rfid.h
 # -O or -O2 - turn on optimizations
 # -o <name> - name of the output file
 # -c - output an object file (.o)
-# -I<include path> - specify an include directory
-# -L<library path> - specify a lib directory (header)
+# -I<include path> - specify an include directory (.h / .hpp)
+# -L<library path> - specify a lib directory (lib___.so / lib___.a)
 # -l<library> - link with library lib<library>.a
