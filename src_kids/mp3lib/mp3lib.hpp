@@ -75,31 +75,31 @@ namespace mp3lib {
 			};
 
 			class Series
-				{
-					private:
-						path _coverFile;
-						path _path;
-						vector<Episode*> _episodes;
-						vector<Episode*>::iterator _episodesIterator;
-						Episode* _pEpisode;
-					public:
-						Series(path p);
-						~Series(void);
-						string getSeriesName(void);
+			{
+				private:
+					path _coverFile;
+					path _path;
+					vector<Episode*> _episodes;
+					vector<Episode*>::iterator _episodesIterator;
+					Episode* _pEpisode;
+				public:
+					Series(path p);
+					~Series(void);
+					string getSeriesName(void);
 
-						// episodes
-						void showEpisode(void);
-						void nextEpisode(void);
-						void previousEpisode(void);
-						void enterEpisode(void);
-						void exitEpisode(void);
-						// mp3
-						void showMp3(void);
-						void nextMp3(void);
-						void previousMp3(void);
-						void playMp3(void);
-						void pauseMp3(void);
-				};
+					// episodes
+					void showEpisode(void);
+					void nextEpisode(void);
+					void previousEpisode(void);
+					void enterEpisode(void);
+					void exitEpisode(void);
+					// mp3
+					void showMp3(void);
+					void nextMp3(void);
+					void previousMp3(void);
+					void playMp3(void);
+					void pauseMp3(void);
+			};
 
 			path _path;
 			vector<Series*> _series;

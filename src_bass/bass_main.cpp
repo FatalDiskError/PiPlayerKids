@@ -1,72 +1,36 @@
 #include <iostream>
 #include <sstream>
 #include <stdlib.h>
-#include <curses.h>
 #include <unistd.h>
+#include <curses.h>
 #include "bass.h"
+#include "console.hpp"
 
 using namespace std;
+using namespace console;
+//using namespace boost::threads;
 
-int dimensionX, dimensionY;
-int xMin, yMin, xMax, yMax;
-int yLog, yLogMin, yLogMax;
+ostringstream out;
+ostringstream log;
+Console *con = new Console(HORIZONTAL);
 
-void drawDot(char cr, int y, int x)
+void printOut(ostringstream *out)
 {
-	move(y, x);
-	addch(cr);
+	con->printOut(out->str());
+	out->str("");
+	out->clear();
 }
 
-void drawHLine(char cr, int y)
+void printLog(ostringstream *log)
 {
-	for(int x=0; x<dimensionX; ++x)
-		drawDot(cr, y, x);
-}
-
-void drawVLine(char cr, int x)
-{
-	for(int y=0; y<dimensionY; ++y)
-		drawDot(cr, y, x);
-}
-
-void drawBorder(char cr)
-{
-	drawHLine(cr, 0);
-	drawHLine(cr, dimensionY-1);
-	
-	drawVLine(cr, 0);
-	drawVLine(cr, dimensionX-1);
-}
-
-void printLog(string log)
-{
-	move(yLog, xMin);
-	printw((" > " + log).c_str());
-	++yLog;
-	if(yLog > yLogMax)
-		yLog = yLogMin;
+	con->printLog(log->str());
+	log->str("");
+	log->clear();
 }
 
 int main(int argc, char **argv)
 {
-	int x, y;
-	WINDOW *wnd = initscr();				// init screen
-	cbreak();								// get keys without <ENTER>
-	noecho();								// don't echo keystrokes
-	getmaxyx(wnd, dimensionY, dimensionX);	// get max rows and columns
-	clear();								// clear screen
-	refresh();								// update screen
-	
-	xMin = 3;
-	xMax = dimensionX - xMin;
-	yMin = 2;
-	yMax = dimensionY - yMin;
-
-	drawBorder('#');
-
-	x = xMin;
-	y = yMin;
-	
+	//con = new Console(HORIZONTAL);
 	int device = -1, numDevices, numActiveDevices = 0;
 	BASS_DEVICEINFO deviceInfo;
 	for (numDevices = 0; BASS_GetDeviceInfo(numDevices, &deviceInfo); numDevices++)
@@ -77,43 +41,27 @@ int main(int argc, char **argv)
 		if (deviceInfo.flags & BASS_DEVICE_ENABLED)
 			numActiveDevices++;
 		
-		move(y, x);
-		printw("%i [%c] [%s] Device: %s",
-			numDevices, 
-			(deviceInfo.flags & BASS_DEVICE_DEFAULT) ? 'x' : ' ',
-			(deviceInfo.flags & BASS_DEVICE_ENABLED) ? "act" : "   ", 
-			deviceInfo.name
-		);
-		++y;
+		out << numDevices;
+		out << " [" << ((deviceInfo.flags & BASS_DEVICE_DEFAULT) ? "x" : " ") << "]";
+		out << " [" << ((deviceInfo.flags & BASS_DEVICE_ENABLED) ? "act" : "   ") << "]";
+		out << " Device: " << deviceInfo.name;
+		printOut(&out);
 	}
 	
-	move(y, x);
-	printw("Active devices: %i of %i", numActiveDevices, numDevices);
-	
-	++y;
-	++y;
-	drawHLine('#', y);
-	++y;
-	++y;
-	move(y, x);
-	printw("Log:");
-	yLogMin = yLog = y+1;
-	yLogMax = yMax;
+	out << "Active devices: " << numActiveDevices << " of " << numDevices;
+	printOut(&out);
 	
 	int frequency = 44100;
 	float volume = 0.1;
 	string file = "./bin/1.mp3";
 	HSTREAM streamHandle;
 	bool success;
-	ostringstream log;
 	
 	/* Initialize output device */
 	success = BASS_Init(device, frequency, 0, 0, NULL);
 	log << "BASS_Init(" << device << ", " << frequency << ", 0, 0, NULL) ";
 	log << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
-	printLog(log.str());
-	log.str("");
-	log.clear();
+	printLog(&log);
 	
 	/*
 	// does not work on raspi
@@ -126,23 +74,17 @@ int main(int argc, char **argv)
 	streamHandle = BASS_StreamCreateFile(FALSE, file.c_str(), 0, 0, 0);
 	log << "BASS_StreamCreateFile(FALSE, " << file << ", 0, 0, 0) ";
 	log << "streamHandle: " << streamHandle << " with errorCode: " << BASS_ErrorGetCode();
-	printLog(log.str());
-	log.str("");
-	log.clear();
+	printLog(&log);
 	
 	success = BASS_ChannelPlay(streamHandle, true);
 	log << "BASS_ChannelPlay(" << streamHandle << ", true) ";
 	log << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
-	printLog(log.str());
-	log.str("");
-	log.clear();
+	printLog(&log);
 	
-	for(int i=0; i<10; i++){
-		usleep(200000);
+	for(int i=0; i<5; i++){
+		usleep(20000);
 		log << "wait " << i;
-		printLog(log.str());
-		log.str("");
-		log.clear();
+		printLog(&log);
 	}
 
 	/*
