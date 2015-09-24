@@ -11,12 +11,12 @@ namespace console {
 	class Console
 	{
 		private:
-			const int X_OFFSET = 3;
+			const int X_OFFSET = 2;
 			const int Y_OFFSET = 2;
 			const char BORDER_CHAR = '#';
 			const char EMPTY_CHAR = ' ';
-			const string OUT_PREFIX = "";
-			const string LOG_PREFIX = " > ";
+			const string OUT_PREFIX = "> ";
+			const string LOG_PREFIX = "> ";
 			
 			ConsoleLayout layout;
 			WINDOW *window;

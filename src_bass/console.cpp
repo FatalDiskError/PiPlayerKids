@@ -29,20 +29,20 @@ namespace console {
 			xLogMin = X_OFFSET;
 			xLogMax = dimensionX - X_OFFSET;
 			yLogMin = middle + Y_OFFSET;
-			yLogMax = dimensionY - Y_OFFSET;
+			yLogMax = dimensionY - 1 - Y_OFFSET;
 		}else if(layout==VERTICAL){
 			middle = dimensionX / 2;
 			drawVLine(BORDER_CHAR, middle);
 
 			xOutMin = X_OFFSET;
-			xOutMax = middle - X_OFFSET;
+			xOutMax = middle + 1 - X_OFFSET;
 			yOutMin = Y_OFFSET;
 			yOutMax = dimensionY - Y_OFFSET;
 
 			xLogMin = middle + X_OFFSET;
 			xLogMax = dimensionX - X_OFFSET;
 			yLogMin = Y_OFFSET;
-			yLogMax = dimensionY - Y_OFFSET;
+			yLogMax = dimensionY - 1 - Y_OFFSET;
 		}else{
 			xOutMin = X_OFFSET;
 			xOutMax = dimensionX - X_OFFSET;
@@ -95,13 +95,13 @@ namespace console {
 
 	void Console::clearOutLine(void)
 	{
-		for(int x=xOutMin; x<=xOutMax; ++x)
+		for(int x=xOutMin; x<xOutMax; ++x)
 			drawDot(EMPTY_CHAR, yOut, x);
 	}
 
 	void Console::clearLogLine(void)
 	{
-		for(int x=xLogMin; x<=xLogMax; ++x)
+		for(int x=xLogMin; x<xLogMax; ++x)
 			drawDot(EMPTY_CHAR, yLog, x);
 	}
 
@@ -117,7 +117,7 @@ namespace console {
 				printw(OUT_PREFIX.c_str());
 			}
 			move(yOut, xOutMin + OUT_PREFIX.length());
-			line = log.substr(pos, pos + outLineLength - 1);
+			line = log.substr(pos, outLineLength);
 			printw(line.c_str());
 			pos += outLineLength;
 			
@@ -125,6 +125,8 @@ namespace console {
 			if(yOut > yOutMax)
 				yOut = yOutMin;
 		}
+
+		refresh();
 	}
 
 	void Console::printLog(string log)
@@ -143,7 +145,7 @@ namespace console {
 				printw(LOG_PREFIX.c_str());
 			}
 			move(yLog, xLogMin + LOG_PREFIX.length());
-			line = log.substr(pos, pos + logLineLength - 1);
+			line = log.substr(pos, logLineLength);
 			printw(line.c_str());
 			pos += logLineLength;
 			
@@ -151,5 +153,7 @@ namespace console {
 			if(yLog > yLogMax)
 				yLog = yLogMin;
 		}
+
+		refresh();
 	}
 }

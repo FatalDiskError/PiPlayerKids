@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <vector>
 #include <stdlib.h>
 #include <unistd.h>
 #include <curses.h>
@@ -12,7 +13,7 @@ using namespace console;
 
 ostringstream out;
 ostringstream log;
-Console *con = new Console(HORIZONTAL);
+Console *con = new Console(VERTICAL);
 
 void printOut(ostringstream *out)
 {
@@ -30,7 +31,6 @@ void printLog(ostringstream *log)
 
 int main(int argc, char **argv)
 {
-	//con = new Console(HORIZONTAL);
 	int device = -1, numDevices, numActiveDevices = 0;
 	BASS_DEVICEINFO deviceInfo;
 	for (numDevices = 0; BASS_GetDeviceInfo(numDevices, &deviceInfo); numDevices++)
@@ -51,9 +51,30 @@ int main(int argc, char **argv)
 	out << "Active devices: " << numActiveDevices << " of " << numDevices;
 	printOut(&out);
 	
+	/*
+	for(int i=0; i<15; i++){
+		usleep(20000);
+		out << "wait " << i;
+		printOut(&out);
+	}
+	*/
+	
 	int frequency = 44100;
 	float volume = 0.1;
 	string file = "./bin/1.mp3";
+	vector<string> files = {
+		"./bin/2.mp3",
+		"./bin/3.mp3",
+		"./bin/4.mp3",
+		"./bin/5.mp3",
+		"./bin/6.mp3"/*,
+		"./bin/library/Benjamin Blümchen/47 - als Baggerfahrer/placeholder_1.mp3",
+		"./bin/library/Benjamin Blümchen/47 - als Baggerfahrer/placeholder_2.mp3",
+		"./bin/library/Benjamin Blümchen/47 - als Baggerfahrer/placeholder_3.mp3",
+		"./bin/library/Benjamin Blümchen/47 - als Baggerfahrer/placeholder_4.mp3",
+		"./bin/library/Benjamin Blümchen/47 - als Baggerfahrer/placeholder_5.mp3"
+		*/
+	};
 	HSTREAM streamHandle;
 	bool success;
 	
@@ -71,6 +92,7 @@ int main(int argc, char **argv)
 	printLog(log2.str());
 	*/
 	
+	/*
 	streamHandle = BASS_StreamCreateFile(FALSE, file.c_str(), 0, 0, 0);
 	log << "BASS_StreamCreateFile(FALSE, " << file << ", 0, 0, 0) ";
 	log << "streamHandle: " << streamHandle << " with errorCode: " << BASS_ErrorGetCode();
@@ -80,13 +102,38 @@ int main(int argc, char **argv)
 	log << "BASS_ChannelPlay(" << streamHandle << ", true) ";
 	log << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
 	printLog(&log);
+	*/
 	
-	for(int i=0; i<5; i++){
+	for(int i = 0; i<files.size(); i++){
+		usleep(5000000);
+		
+		streamHandle = BASS_StreamCreateFile(FALSE, files[i].c_str(), 0, 0, 0);
+		log << "BASS_StreamCreateFile(FALSE, " << files[i] << ", 0, 0, 0) ";
+		log << "streamHandle: " << streamHandle << " with errorCode: " << BASS_ErrorGetCode();
+		printLog(&log);
+		
+		success = BASS_ChannelPlay(streamHandle, true);
+		log << "BASS_ChannelPlay(" << streamHandle << ", true) ";
+		log << (success ? "success" : "failed") << " with errorCode: " << BASS_ErrorGetCode();
+		printLog(&log);
+	}
+
+	/*
+	for(int i=0; i<10; i++){
 		usleep(20000);
 		log << "wait " << i;
 		printLog(&log);
 	}
+	*/
 
+	/*
+	log << "****************************************************************************************************";
+	printLog(&log);
+	
+	log << "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789";
+	printLog(&log);
+	*/
+	
 	/*
 	"initscr is normally the first curses routine to call when initializing a
 	program. The initscr code determines the terminal type and initializes all curses
