@@ -17,7 +17,7 @@ namespace console {
 		refresh();									// update screen
 		
 		int middle;
-		if(layout==HORIZONTAL){
+		if(layout==HORIZONTAL_LAYOUT){
 			middle = dimensionY / 2;
 			drawHLine(BORDER_CHAR, middle);
 			
@@ -30,7 +30,7 @@ namespace console {
 			xLogMax = dimensionX - X_OFFSET;
 			yLogMin = middle + Y_OFFSET;
 			yLogMax = dimensionY - 1 - Y_OFFSET;
-		}else if(layout==VERTICAL){
+		}else if(layout==VERTICAL_LAYOUT){
 			middle = dimensionX / 2;
 			drawVLine(BORDER_CHAR, middle);
 
@@ -131,7 +131,7 @@ namespace console {
 
 	void Console::printLog(string log)
 	{
-		if(layout==NO_LOG){
+		if(layout==NO_LOG_LAYOUT){
 			return;
 		}
 		

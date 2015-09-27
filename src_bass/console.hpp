@@ -1,13 +1,13 @@
-#include <curses.h>
+﻿#include <curses.h>
 
 using namespace std;
 
 namespace console {
 	enum ConsoleLayout
 	{
-		HORIZONTAL, VERTICAL, NO_LOG
+		HORIZONTAL_LAYOUT, VERTICAL_LAYOUT, NO_LOG_LAYOUT
 	};
-	
+
 	class Console
 	{
 		private:
