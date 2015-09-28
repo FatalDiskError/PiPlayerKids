@@ -11,17 +11,44 @@ namespace mp3lib {
 		cout << "Mp3Lib::Mp3Lib(" << dir << ")" << endl;
 		#endif
 
-		_path = FileBrowser::getPath(dir);
+		_libraryBasePath = FileBrowser::getPath(dir);
+		_libraryFilePath = FileBrowser::getFile(_libraryBasePath, LIBRARY);
 		_pSeries = NULL;
 
 		#ifndef SILENT_LIB_CORE
 		cout << "Mp3Lib::init(void)" << endl;
 		#endif
+	}
 
-		vector<path> subDirs = FileBrowser::getSubDirectories(_path);
+	Mp3Lib::~Mp3Lib(void)
+	{
+		#ifndef SILENT_LIB_CORE
+		cout << "Mp3Lib::~Mp3Lib(void)" << endl;
+		#endif
+	}
+	
+	void Mp3Lib::resetLibrary(void)
+	{
+		#ifndef SILENT_LIB_INFO
+		cout << "Mp3Lib " << _libraryBasePath << " is reseting library" << endl;
+		#endif
+		remove(_libraryFilePath);
+	}
+	
+	void Mp3Lib::loadLibrary(void)
+	{
+	}
+	
+	void Mp3Lib::writeLibrary(void)
+	{
+	}
+	
+	void Mp3Lib::parseSeries(void)
+	{
+		vector<path> subDirs = FileBrowser::getSubDirectories(_libraryBasePath);
 
 		#ifndef SILENT_LIB_INFO
-		cout << "Mp3Lib " << _path << " is parsing series" << endl;
+		cout << "Mp3Lib " << _libraryBasePath << " is parsing series" << endl;
 		#endif
 		for(vector<path>::iterator it = subDirs.begin(); it!=subDirs.end(); ++it)
 		{
@@ -30,14 +57,7 @@ namespace mp3lib {
 		}
 		_seriesIterator = _series.begin();
 		#ifndef SILENT_LIB_INFO
-		cout << "Mp3Lib " << _path << " parsing series done" << endl;
-		#endif
-	}
-
-	Mp3Lib::~Mp3Lib(void)
-	{
-		#ifndef SILENT_LIB_CORE
-		cout << "Mp3Lib::~Mp3Lib(void)" << endl;
+		cout << "Mp3Lib " << _libraryBasePath << " parsing series done" << endl;
 		#endif
 	}
 
@@ -182,37 +202,4 @@ namespace mp3lib {
 		}
 		_pSeries->pauseMp3();
 	}
-
-/*
-	string Mp3Lib::getPath(void)
-	{
-		return _path.generic_string();
-	}
-
-	vector<Series*>* Mp3Lib::getSeries(void)
-	{
-		return &_series;
-	}
-
-	void Mp3Lib::testlib(void)
-	{
-		cout << "|-- " << getPath() << endl;
-
-		list<Series*>::iterator series;
-		list<Episode*>::iterator episodes;
-		list<string>::iterator mp3Files;
-		for(series = getSeries()->begin(); series != getSeries()->end(); ++series)
-		{
-			cout << "       |--" << (*series)->getPath() << " ### " << (*series)->getCover() << endl;
-			for(episodes = (*series)->getEpisodes()->begin(); episodes != (*series)->getEpisodes()->end(); ++episodes)
-			{
-				cout << "              |--" << (*episodes)->getPath() << " ### " << (*episodes)->getCover() << endl;
-				for(mp3Files = (*episodes)->getMp3Files()->begin(); mp3Files != (*episodes)->getMp3Files()->end(); ++mp3Files)
-				{
-					cout << "                     |--" << *mp3Files << endl;
-				}
-			}
-		}
-	}
-*/
 }

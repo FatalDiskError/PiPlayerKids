@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 
 	if(argc==1)
 	{
-		//start_player("./library");
+		_pKidsPlayer->start();
 	}
 	else if(argc==2)
 	{
@@ -41,7 +41,7 @@ namespace kidsplayer
 	KidsPlayer::KidsPlayer(void)
 	{
 		_pConsole = new Console(NO_LOG_LAYOUT);
-		_pLibrary = new Mp3lib(/////////////////////////////////////////////////////);
+		_pLibrary = new Mp3lib("./library/");
 	}
 	
 	KidsPlayer::~KidsPlayer(void)
@@ -49,6 +49,11 @@ namespace kidsplayer
 		delete _pConsole;
 	}
 	
+	void KidsPlayer::start(void)
+	{
+		
+	}
+
 	void KidsPlayer::help(bool isArgumentWrong=false)
 	{
 		if(isArgumentWrong)
@@ -61,11 +66,14 @@ namespace kidsplayer
 		_pConsole->printOut("   -reset   Delete current library. WARNING: all RFID codes will be deleted!");
 	}
 
-	void KidsPlayer::scan()
+	void KidsPlayer::scan(void)
 	{
 	}
 
-	void KidsPlayer::reset()
+	void KidsPlayer::reset(void)
 	{
+		_pConsole->printOut("Do you really want to reset the library? This will delete all RFID codes! No mp3/cover files will be deleted)");
+		_pConsole->printOut("[y/n]");
+		_pLibrary->resetLibrary();
 	}
 }

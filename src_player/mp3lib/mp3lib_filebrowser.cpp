@@ -30,6 +30,8 @@ namespace mp3lib {
 		{
 			cout << ex.what() << endl;
 		}
+		
+		return NULL;
 	}
 
 	vector<path> Mp3Lib::FileBrowser::getSubDirectories(path p)
@@ -90,6 +92,47 @@ namespace mp3lib {
 		{
 			cout << ex.what() << endl;
 		}
+		return NULL;
+	}
+
+	path Mp3Lib::FileBrowser::getFile(path p, FileNames fileNames)
+	{
+		try
+		{
+			if(exists(p))
+			{
+				if(is_directory(p))
+				{
+					#ifndef SILENT_FILEBROWSER
+					cout << endl << "FileBrowser::getFile(" << p << "):" << endl;
+					#endif
+
+					for(directory_iterator di(p); di!=directory_iterator(); di++){
+						if(conditional_check(di->path(), fileExtension))
+						{
+							#ifndef SILENT_FILEBROWSER
+							cout << di->path() << " - " << di->path().filename() << endl;
+							cout << "FileBrowser::getFiles(" << p << ") end" << endl << endl;
+							#endif
+							return di->path();
+						}
+					}
+				}
+				else
+				{
+					cout << p << " is not a directory" << endl;
+				}
+			}
+			else
+			{
+				cout << p << " does not exist" << endl;
+			}
+		}
+		catch (const filesystem_error& ex)
+		{
+			cout << ex.what() << endl;
+		}
+		return NULL;
 	}
 
 	bool Mp3Lib::FileBrowser::conditional_check(path p, FileExtensions fileExtension)
@@ -105,8 +148,19 @@ namespace mp3lib {
 			case JPG:
 				return is_regular_file(p) && p.extension()==fileExtensionMap[JPG];
 				break;
+		}
+		return false;
+	}
+
+	bool Mp3Lib::FileBrowser::conditional_check(path p, FileNames fileName)
+	{
+		switch(fileName)
+		{
+			case LIBRARY:
+				return is_regular_file(p) && p.filename()==fileNamesMap[XML];
+				break;
 			case COVER:
-				return is_regular_file(p) && p.filename()==fileExtensionMap[COVER];
+				return is_regular_file(p) && p.filename()==fileNamesMap[COVER];
 				break;
 			case DEFAULT_COVER:
 				break;

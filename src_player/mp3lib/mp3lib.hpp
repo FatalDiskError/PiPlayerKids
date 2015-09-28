@@ -17,24 +17,36 @@ using namespace boost::filesystem;
 namespace mp3lib {
 	enum FileExtensions
 	{
-		CURRENT_PATH, PREV_PATH, MP3, JPG, COVER, DEFAULT_COVER
+		CURRENT_PATH, PREV_PATH, MP3, JPG
 	};
-
-	struct EnumMap : map<FileExtensions, string>
+	struct FileExtensionsMap : map<FileExtensions, string>
 	{
-		EnumMap()
+		FileExtensionsMap()
 		{
 			this->operator[](CURRENT_PATH) = ".";
 			this->operator[](PREV_PATH) = "..";
 			this->operator[](MP3) = ".mp3";
 			this->operator[](JPG) = ".jpg";
+		};
+		~FileExtensionsMap(){};
+	};
+	static FileExtensionsMap fileExtensionMap;
+
+	enum FileNames
+	{
+		LIBRARY, COVER, DEFAULT_COVER
+	};
+	struct FileNamesMap : map<FileNames, string>
+	{
+		FileNamesMap()
+		{
+			this->operator[](LIBRARY) = "library.xml";
 			this->operator[](COVER) = "cover.jpg";
 			this->operator[](DEFAULT_COVER) = "no_cover.jpg";
 		};
-		~EnumMap(){};
+		~FileNamesMap(){};
 	};
-	static EnumMap fileExtensionMap;
-
+	static FileNamesMap fileNamesMap;
 
 
 	class Mp3Lib
@@ -46,10 +58,12 @@ namespace mp3lib {
 					FileBrowser(void);
 					~FileBrowser(void);
 				public:
-					static path getPath(string dir);
-					static vector<path> getSubDirectories(path p);
-					static vector<path> getFiles(path p, FileExtensions fileExtension);
-					static bool conditional_check(path p, FileExtensions fileExtension);
+					static path getPath(string);
+					static vector<path> getSubDirectories(path);
+					static vector<path> getFiles(path, FileExtensions);
+					static path getFile(path, FileNames);
+					static bool conditional_check(path, FileExtensions);
+					static bool conditional_check(path, FileNames);
 			};
 
 			class Episode
@@ -101,13 +115,19 @@ namespace mp3lib {
 					void pauseMp3(void);
 			};
 
-			path _path;
+			path _libraryBasePath;
+			path _libraryFilePath;
 			vector<Series*> _series;
 			vector<Series*>::iterator _seriesIterator;
 			Series* _pSeries;
 		public:
 			Mp3Lib(string dir);
 			~Mp3Lib(void);
+			resetLibrary(void);
+			loadLibrary(void);
+			writeLibrary(void);
+			
+			parseSeries(void);
 			// series
 			void showSeries(void);
 			void nextSeries(void);

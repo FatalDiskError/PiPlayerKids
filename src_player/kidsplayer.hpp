@@ -31,8 +31,9 @@ namespace kidsplayer {
 		public:
 			KidsPlayer(void);
 			~KidsPlayer(void);
+			void start(void);
 			void help(bool);
-			void scan();
-			void reset();
+			void scan(void);
+			void reset(void);
 	};
 }
