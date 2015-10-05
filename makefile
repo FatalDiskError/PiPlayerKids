@@ -57,21 +57,25 @@ fmod_common_platform: src_fmod/common_platform.cpp
 
 BASSPATH = ../libraries/bass_arm
 # BASSPATH := $(shell cd $(BASSPATH); pwd)
-BASS_INCLUDE_PATH = -I$(BASSPATH)
-BASS_LIBRARY_PATH = -L$(BASSPATH) -L$(BASSPATH)/hardfp
-#BASS_INCLUDE_PATH = -I../libraries/bass_arm
-#BASS_LIBRARY_PATH = -L../libraries/bass_arm
-BASS_LIBS = -lbass -lm -lncurses
+BASS_INCLUDE_PATH = -I$(BASSPATH) -Ibcm2835/bcm2835-1.45/src
+BASS_LIBRARY_PATH = -L$(BASSPATH) -L$(BASSPATH)/hardfp -Lbcm2835/bcm2835-1.45/src
+BASS_LIBS = -lbass -lm -lncurses -lbcm2835
 BASS_FLAGS = -Wl,-rpath,$(BASSPATH):$(BASSPATH)/hardfp
 
-bass: bass_main bass_console
-	g++ -std=c++11 bass_main.o console.o -o bin/bass $(BASS_INCLUDE_PATH) $(BASS_LIBRARY_PATH) $(BASS_LIBS) $(BASS_FLAGS)
+bass: bass_main bass_console bass_rc522 bass_rfid
+	g++ -std=c++11 bass_main.o console.o rfid.o rc522.o -o bin/bass $(BASS_INCLUDE_PATH) $(BASS_LIBRARY_PATH) $(BASS_LIBS) $(BASS_FLAGS)
 
 bass_main: src_bass/bass_main.cpp
 	g++ -std=c++11 -c src_bass/bass_main.cpp $(BASS_INCLUDE_PATH)
 
 bass_console: src_bass/console.cpp src_bass/console.hpp
 	g++ -std=c++11 -c src_bass/console.cpp
+
+bass_rc522: src_bass/rc522.c src_bass/rc522.h
+	g++ -std=c++11 -c src_bass/rc522.c
+	
+bass_rfid: src_bass/rfid.c src_bass/rfid.h
+	g++ -std=c++11 -c src_bass/rfid.c
 
 # ++++++++++++++++
 # +++   RFID   +++
