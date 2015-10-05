@@ -4,13 +4,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-//#include <syslog.h>
 #include <sys/wait.h>
 #include <signal.h>
 #include "rfid.h"
 #include "rc522.h"
 #include "bcm2835.h"
-//#include "../bcm2835/bcm2835-1.45/src/bcm2835.h"
 using namespace std;
 
 int init_rfid();
