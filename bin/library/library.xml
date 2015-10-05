@@ -1,0 +1,114 @@
+﻿<library>
+	<series>
+		<title>Benjamin Blümchen</title>
+		<cover></cover>
+		<episode>
+			<title>Der Wetterelefant</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>01</file>
+				<file>02</file>
+				<file>03</file>
+			</files>
+		</episode>
+		<episode>
+			<title>Als Detektiv</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>02</file>
+				<file>04</file>
+				<file>06</file>
+				<file>08</file>
+				<file>10</file>
+				<file>12</file>
+			</files>
+		</episode>
+		<episode>
+			<title>Als Feuerwehrmann</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>01</file>
+			</files>
+		</episode>
+	</series>
+	<series>
+		<title>Drei ??? Kids</title>
+		<cover></cover>
+		<episode>
+			<title>Z</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>01</file>
+			</files>
+		</episode>
+		<episode>
+			<title>T</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>05</file>
+				<file>04</file>
+				<file>03</file>
+				<file>02</file>
+				<file>01</file>
+			</files>
+		</episode>
+		<episode>
+			<title>A</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>a</file>
+				<file>b</file>
+			</files>
+		</episode>
+	</series>
+	<series>
+		<title>Wieso, Weshalb, Warum</title>
+		<cover></cover>
+		<episode>
+			<title>Ritter</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>01</file>
+			</files>
+		</episode>
+		<episode>
+			<title>Polizei</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>01</file>
+				<file>02</file>
+				<file>03</file>
+				<file>04</file>
+				<file>05</file>
+			</files>
+		</episode>
+		<episode>
+			<title>Weltall</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>01</file>
+				<file>02</file>
+				<file>03</file>
+				<file>04</file>
+				<file>05</file>
+			</files>
+		</episode>
+		<episode>
+			<title>Wetter</title>
+			<cover></cover>
+			<rfid></rfid>
+			<files file=2 timestamp=1245873>
+				<file>01</file>
+			</files>
+		</episode>
+	</series>
+</library>
