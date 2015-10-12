@@ -70,12 +70,15 @@ void start(char* pWorkingDir)
 	Library* _pLibrary = new Library(pWorkingDir, &_pConsole);
 	Player* _pPlayer = new Player(&_pConsole);
 	Rfid* _pRfid = new Rfid(&_pConsole);
-
+	
+	_pLibrary->writeCurrentFile("", "");
+	_pLibrary->getFile("ghjkghjk");
+	_pLibrary->getFile("hfghsdfgr");
+	_pLibrary->getFile("56785678");
+	
 	//delete _pRfid;
 	//delete _pPlayer;
 	//delete _pLibrary;
-	int inputChar = _pConsole->waitForChar();
-	_pConsole->printLog(to_string(inputChar));
 	delete _pConsole;
 }
 

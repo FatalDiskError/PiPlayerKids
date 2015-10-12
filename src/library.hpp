@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <map>
 #include <string>
 
 #include <rapidxml.hpp>
@@ -56,6 +57,8 @@ namespace library {
 			File* _pCurrentFile;
 			Episode* _pCurrentEpisode;
 			vector<Series*> _pSeries;
+			
+			map<string, xml_node<>*> rfidMap;
 
 			void parseLibraryFile(void);
 			//void parseNode(xml_node<>*, string);

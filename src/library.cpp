@@ -30,31 +30,6 @@ namespace library {
 
 	Library::~Library(void){}
 
-	/*
-	fstream Library::openLibraryFile(void)
-	{
-		fstream libraryFileStream;
-		libraryFileStream.exceptions(failbit | badbit);
-		try
-		{
-			libraryFileStream.open(LIBRARY_FILE_NAME, in | out | app);
-			return fstream libraryFileStream;;
-		}
-		catch(failure e)
-		{
-			perror("unable to load library file");
-			exit(-1);
-		}
-	}
-	
-	void Library::closeLibraryFile(fstream libraryFileStream)
-	{
-		if(libraryFileStream.is_open())
-		{
-			libraryFileStream.close();
-		}
-	}
-	*/
 	void Library::parseLibraryFile(void)
 	{
 		/*
@@ -71,27 +46,10 @@ namespace library {
 		doc.parse<0>(xmlFile.data());
 
 		xml_node<>* pLibrary = doc.first_node(LibraryTags::TAG_LIBRARY);
-		outStream << "Name of library node is: ";
-		outStream << pLibrary->name() << endl;
+		outStream << pLibrary->name();
 		(*_pLinkToConsole)->printOut(&outStream);
 
 		parseSeries(pLibrary);
-
-		/*
-		xml_node<>* node = doc.first_node(LibraryTags::TAG_SERIES);
-		outStream << "Node " << LibraryTags::TAG_SERIES << " has value ";
-		outStream << node->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
-		
-		for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
-		{
-			outStream << "Node foobar has attribute ";
-			outStream << attr->name() << " ";
-			outStream << "with value ";
-			outStream << attr->value() << endl;
-			(*_pLinkToConsole)->printOut(&outStream);
-		}
-		*/
 	}
 
 	/*
@@ -112,10 +70,7 @@ namespace library {
 	{
 		for(xml_node<>* pSeriesNode = pLibrary->first_node(LibraryTags::TAG_SERIES); pSeriesNode; pSeriesNode = pSeriesNode->next_sibling())
 		{
-			outStream << "Name of series node is: ";
-			outStream << pSeriesNode->name() << endl;
-			(*_pLinkToConsole)->printOut(&outStream);
-			
+			outStream << "  " << pSeriesNode->name();
 			parseSeriesNode(pSeriesNode);
 		}
 	}
@@ -123,22 +78,14 @@ namespace library {
 	void Library::parseSeriesNode(xml_node<>* pSeries)
 	{
 		xml_node<>* pTitle = pSeries->first_node(LibraryTags::TAG_TITLE);
-		outStream << "Name of title node is: ";
-		outStream << pTitle->name() << endl;
+		outStream << " [" << pTitle->name() << ": " << pTitle->value() << "]";
 		(*_pLinkToConsole)->printOut(&outStream);
-		
-		outStream << "Value of title node is: ";
-		outStream << pTitle->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
-		
+
+		/*
 		xml_node<>* pCover = pSeries->first_node(LibraryTags::TAG_COVER);
-		outStream << "Name of cover node is: ";
-		outStream << pCover->name() << endl;
+		outStream << pCover->name() << ": " << pCover->value() << endl;
 		(*_pLinkToConsole)->printOut(&outStream);
-		
-		outStream << "Value of cover node is: ";
-		outStream << pCover->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
+		*/
 
 		parseEpisodes(pSeries);
 	}
@@ -147,10 +94,7 @@ namespace library {
 	{
 		for(xml_node<>* pEpisode = pSeries->first_node(LibraryTags::TAG_EPISODE); pEpisode; pEpisode = pEpisode->next_sibling())
 		{
-			outStream << "Name of episode node is: ";
-			outStream << pEpisode->name() << endl;
-			(*_pLinkToConsole)->printOut(&outStream);
-			
+			outStream << "    " << pEpisode->name();
 			parseEpisodeNode(pEpisode);
 		}
 	}
@@ -158,31 +102,21 @@ namespace library {
 	void Library::parseEpisodeNode(xml_node<>* pEpisode)
 	{
 		xml_node<>* pTitle = pEpisode->first_node(LibraryTags::TAG_TITLE);
-		outStream << "Name of title node is: ";
-		outStream << pTitle->name() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
-		
-		outStream << "Value of title node is: ";
-		outStream << pTitle->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
-		
-		xml_node<>* pCover = pEpisode->first_node(LibraryTags::TAG_COVER);
-		outStream << "Name of cover node is: ";
-		outStream << pCover->name() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
-		
-		outStream << "Value of cover node is: ";
-		outStream << pCover->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
-		
 		xml_node<>* pRfid = pEpisode->first_node(LibraryTags::TAG_RFID);
-		outStream << "Name of rfid node is: ";
-		outStream << pRfid->name() << endl;
+		outStream << " [" << pTitle->name() << ": " << pTitle->value() << " / " << pRfid->name() << ": " << pRfid->value() << "]";
 		(*_pLinkToConsole)->printOut(&outStream);
+
+		string rfidSerialNumber = pRfid->value();
+		if(!rfidSerialNumber.empty())
+		{
+			rfidMap[rfidSerialNumber] = pEpisode;
+		}
 		
-		outStream << "Value of rfid node is: ";
-		outStream << pRfid->value() << endl;
+		/*
+		xml_node<>* pCover = pEpisode->first_node(LibraryTags::TAG_COVER);
+		outStream << pCover->name() << ": " << pCover->value() << endl;
 		(*_pLinkToConsole)->printOut(&outStream);
+		*/
 
 		parseFiles(pEpisode);
 	}
@@ -190,18 +124,15 @@ namespace library {
 	void Library::parseFiles(xml_node<>* pEpisode)
 	{
 		xml_node<>* pFiles = pEpisode->first_node(LibraryTags::TAG_FILES);
-		outStream << "Name of files node is: ";
-		outStream << pFiles->name() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
+		outStream << "      " << pFiles->name() << " [";
 		
 		for (xml_attribute<>* pAttribute = pFiles->first_attribute(); pAttribute; pAttribute = pAttribute->next_attribute())
 		{
-			outStream << "Node files has attribute ";
-			outStream << pAttribute->name() << " ";
-			outStream << "with value ";
-			outStream << pAttribute->value() << endl;
-			(*_pLinkToConsole)->printOut(&outStream);
+			outStream << pAttribute->name() << ": " << pAttribute->value() << " - ";
 		}
+		
+		outStream << "]";
+		(*_pLinkToConsole)->printOut(&outStream);
 		
 		for(xml_node<>* pFile = pFiles->first_node(LibraryTags::TAG_FILE); pFile; pFile = pFile->next_sibling())
 		{
@@ -211,17 +142,28 @@ namespace library {
 	
 	void Library::parseFileNode(xml_node<>* pFile)
 	{
-		outStream << "Name of file node is: ";
-		outStream << pFile->name() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
-		
-		outStream << "Value of file node is: ";
-		outStream << pFile->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
+		//outStream << "   " << pFile->name() << ": " << pFile->value() << endl;
+		//(*_pLinkToConsole)->printOut(&outStream);
 	}
-	
+
+
+
+
+
+
+
+
+
+
 	Library::File* Library::getFile(string rfidSerialNumber)
 	{
+		map<string, xml_node<>*>::iterator it;
+		it = rfidMap.find(rfidSerialNumber);
+		if(it != rfidMap.end())
+		{
+			logStream << rfidMap.size();
+			(*_pLinkToConsole)->printLog(&logStream);
+		}
 		return NULL;
 	}
 	
@@ -232,6 +174,11 @@ namespace library {
 	
 	void Library::writeCurrentFile(string rfidSerialNumber, string name)
 	{
+		for(map<string, xml_node<>*>::iterator it=rfidMap.begin(); it!=rfidMap.end(); ++it)
+		{
+			outStream << "### " << it->first << ": " << it->second;
+			(*_pLinkToConsole)->printOut(&outStream);
+		}
 	}
 	
 	void Library::writeCurrentTime(string rfidSerialNumber, string timestamp)
