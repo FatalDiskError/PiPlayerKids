@@ -38,7 +38,7 @@ namespace library {
 				vector<Episode> episodes;
 			} Series;
 			
-			Library(char*, Console**);
+			Library(string, Console**);
 			~Library(void);
 			File* getFile(string);
 			File* getNextFile();
@@ -46,13 +46,13 @@ namespace library {
 			void writeCurrentTime(string, string);
 			
 		private:
-			static constexpr const char* LIBRARY_FILE_NAME = "library/library.xml";
-			char* _pLibraryPath;
-			//const string LIBRARY_FILE_NAME = "./library/library.xml";
+			const string DIRECTORY_DIVIDER = "/";
+			const string LIBRARY_FILE_NAME = "/library/library.xml";
+			string _libraryPath;
 
 			Console** _pLinkToConsole;
-			ostringstream outStream;
-			ostringstream logStream;
+			ostringstream _outStream;
+			ostringstream _logStream;
 			
 			File* _pCurrentFile;
 			Episode* _pCurrentEpisode;

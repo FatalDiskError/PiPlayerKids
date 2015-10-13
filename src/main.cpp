@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <string>
 
 #include "console.hpp"
 #include "library.hpp"
@@ -12,9 +13,9 @@ using namespace library;
 using namespace player;
 using namespace rfid;
 
-void start(char*);
+void start(string);
 void printHelp(bool = false);
-void resetLibrary(char*);
+void resetLibrary(string);
 void scanLibrary(void);
 
 enum Params
@@ -35,23 +36,20 @@ static ParamsMap paramsMap;
 
 int main(int argc, char **argv)
 {
-	char* pEndChar = strrchr(argv[0], '/');
-	int endPos = pEndChar-argv[0]+1;
-	char workingDir[endPos];
-	strncpy(workingDir, argv[0], endPos);
-
+	string applicationPath = argv[0];
+	
 	if(argc==1)
 	{
-		start(workingDir);
+		start(applicationPath);
 	}
 	else if(argc==2)
 	{
-		string param = string(argv[1]);
+		string param = argv[1];
 		
 		if(param == paramsMap[HELP])
 			printHelp();
 		else if(param == paramsMap[RESET])
-			resetLibrary(workingDir);
+			resetLibrary(applicationPath);
 		else if(param == paramsMap[SCAN])
 			scanLibrary();
 	}
@@ -64,10 +62,10 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-void start(char* pWorkingDir)
+void start(string applicationPath)
 {
 	Console* _pConsole = new Console(VERTICAL_LAYOUT);
-	Library* _pLibrary = new Library(pWorkingDir, &_pConsole);
+	Library* _pLibrary = new Library(applicationPath, &_pConsole);
 	Player* _pPlayer = new Player(&_pConsole);
 	Rfid* _pRfid = new Rfid(&_pConsole);
 	
@@ -94,7 +92,7 @@ void printHelp(bool isArgumentWrong)
 	cout << "   -scan    Scan for new files. Reorder files for episodes. Assign RFID codes to episodes." << endl;
 }
 
-void resetLibrary(char* pWorkingDir)
+void resetLibrary(string applicationPath)
 {
 }
 

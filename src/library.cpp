@@ -1,3 +1,5 @@
+#define XML_LOG_OUTPUT
+
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -17,12 +19,14 @@ using namespace rapidxml;
 using namespace console;
 
 namespace library {
-	Library::Library(char* pWorkingDir, Console** ppConsole=NULL)
+	Library::Library(string applicationPath, Console** ppConsole=NULL)
 	{
-		char libraryPath[strlen(pWorkingDir) + strlen(LIBRARY_FILE_NAME)];
-		strcpy(libraryPath, pWorkingDir);
-		strcat(libraryPath, LIBRARY_FILE_NAME);
-		_pLibraryPath = libraryPath;
+		size_t lastDirectoryDividerPos = applicationPath.rfind(DIRECTORY_DIVIDER);
+		if (lastDirectoryDividerPos!=string::npos)
+		{
+			_libraryPath = applicationPath.substr(0, lastDirectoryDividerPos);
+			_libraryPath.append(LIBRARY_FILE_NAME);
+		}
 		
 		_pLinkToConsole=ppConsole;
 		parseLibraryFile();
@@ -32,22 +36,16 @@ namespace library {
 
 	void Library::parseLibraryFile(void)
 	{
-		/*
-		ifstream libXmlFile LIBRARY_FILE_NAME;
-		vector<char> buffer((istreambuf_iterator<char>(libXmlFile)), istreambuf_iterator<char>());
-		buffer.push_back('\0');
-		doc.parse<0>(&buffer[0]);
-		*/
-
-		//cout << _pLibraryPath << endl;
-		//file<> xmlFile(LIBRARY_FILE_NAME);
-		file<> xmlFile("./bin/library/library.xml");
+		_logStream << "opening " << _libraryPath;
+		(*_pLinkToConsole)->printLog(&_logStream);
+		
+		file<> xmlFile(_libraryPath.c_str());
 		xml_document<> doc;
 		doc.parse<0>(xmlFile.data());
 
 		xml_node<>* pLibrary = doc.first_node(LibraryTags::TAG_LIBRARY);
-		outStream << pLibrary->name();
-		(*_pLinkToConsole)->printOut(&outStream);
+		_outStream << pLibrary->name();
+		(*_pLinkToConsole)->printOut(&_outStream);
 
 		parseSeries(pLibrary);
 	}
@@ -57,9 +55,9 @@ namespace library {
 	{
 		for(xml_node<>* pNode = pParent->first_node(tagName); pNode; pNode = pNode->next_sibling())
 		{
-			outStream << "Name of node is: ";
-			outStream << pNode->name() << endl;
-			(*_pLinkToConsole)->printOut(&outStream);
+			_outStream << "Name of node is: ";
+			_outStream << pNode->name() << endl;
+			(*_pLinkToConsole)->printOut(&_outStream);
 			
 			parseSeriesNode(pSeriesNode);
 		}
@@ -70,7 +68,9 @@ namespace library {
 	{
 		for(xml_node<>* pSeriesNode = pLibrary->first_node(LibraryTags::TAG_SERIES); pSeriesNode; pSeriesNode = pSeriesNode->next_sibling())
 		{
-			outStream << "  " << pSeriesNode->name();
+			#ifdef XML_LOG_OUTPUT
+			_outStream << "  " << pSeriesNode->name();
+			#endif
 			parseSeriesNode(pSeriesNode);
 		}
 	}
@@ -78,14 +78,16 @@ namespace library {
 	void Library::parseSeriesNode(xml_node<>* pSeries)
 	{
 		xml_node<>* pTitle = pSeries->first_node(LibraryTags::TAG_TITLE);
-		outStream << " [" << pTitle->name() << ": " << pTitle->value() << "]";
-		(*_pLinkToConsole)->printOut(&outStream);
 
+		#ifdef XML_LOG_OUTPUT
+		_outStream << " [" << pTitle->name() << ": " << pTitle->value() << "]";
+		(*_pLinkToConsole)->printOut(&_outStream);
 		/*
 		xml_node<>* pCover = pSeries->first_node(LibraryTags::TAG_COVER);
-		outStream << pCover->name() << ": " << pCover->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
+		_outStream << pCover->name() << ": " << pCover->value() << endl;
+		(*_pLinkToConsole)->printOut(&_outStream);
 		*/
+		#endif
 
 		parseEpisodes(pSeries);
 	}
@@ -94,56 +96,68 @@ namespace library {
 	{
 		for(xml_node<>* pEpisode = pSeries->first_node(LibraryTags::TAG_EPISODE); pEpisode; pEpisode = pEpisode->next_sibling())
 		{
-			outStream << "    " << pEpisode->name();
+			#ifdef XML_LOG_OUTPUT
+			_outStream << "    " << pEpisode->name();
+			#endif
 			parseEpisodeNode(pEpisode);
 		}
 	}
 	
 	void Library::parseEpisodeNode(xml_node<>* pEpisode)
 	{
-		xml_node<>* pTitle = pEpisode->first_node(LibraryTags::TAG_TITLE);
 		xml_node<>* pRfid = pEpisode->first_node(LibraryTags::TAG_RFID);
-		outStream << " [" << pTitle->name() << ": " << pTitle->value() << " / " << pRfid->name() << ": " << pRfid->value() << "]";
-		(*_pLinkToConsole)->printOut(&outStream);
 
 		string rfidSerialNumber = pRfid->value();
 		if(!rfidSerialNumber.empty())
 		{
 			rfidMap[rfidSerialNumber] = pEpisode;
 		}
+
+		#ifdef XML_LOG_OUTPUT
+		xml_node<>* pTitle = pEpisode->first_node(LibraryTags::TAG_TITLE);
 		
+		_outStream << " [" << pTitle->name() << ": " << pTitle->value() << " / " << pRfid->name() << ": " << pRfid->value() << "]";
+		(*_pLinkToConsole)->printOut(&_outStream);
 		/*
 		xml_node<>* pCover = pEpisode->first_node(LibraryTags::TAG_COVER);
-		outStream << pCover->name() << ": " << pCover->value() << endl;
-		(*_pLinkToConsole)->printOut(&outStream);
+		_outStream << pCover->name() << ": " << pCover->value() << endl;
+		(*_pLinkToConsole)->printOut(&_outStream);
 		*/
+		#endif
 
-		parseFiles(pEpisode);
+		//parseFiles(pEpisode);
 	}
 	
 	void Library::parseFiles(xml_node<>* pEpisode)
 	{
 		xml_node<>* pFiles = pEpisode->first_node(LibraryTags::TAG_FILES);
-		outStream << "      " << pFiles->name() << " [";
+		
+		#ifdef XML_LOG_OUTPUT
+		_outStream << "      " << pFiles->name() << " [";
 		
 		for (xml_attribute<>* pAttribute = pFiles->first_attribute(); pAttribute; pAttribute = pAttribute->next_attribute())
 		{
-			outStream << pAttribute->name() << ": " << pAttribute->value() << " - ";
+			_outStream << pAttribute->name() << ": " << pAttribute->value() << " - ";
 		}
 		
-		outStream << "]";
-		(*_pLinkToConsole)->printOut(&outStream);
-		
+		_outStream << "]";
+		(*_pLinkToConsole)->printOut(&_outStream);
+		#endif
+
+		/*
 		for(xml_node<>* pFile = pFiles->first_node(LibraryTags::TAG_FILE); pFile; pFile = pFile->next_sibling())
 		{
 			parseFileNode(pFile);
 		}
+		*/
 	}
 	
 	void Library::parseFileNode(xml_node<>* pFile)
 	{
-		//outStream << "   " << pFile->name() << ": " << pFile->value() << endl;
-		//(*_pLinkToConsole)->printOut(&outStream);
+		#ifdef XML_LOG_OUTPUT
+		_outStream << "   " << pFile->name() << ": " << pFile->value() << endl;
+		(*_pLinkToConsole)->printOut(&_outStream);
+		#endif
 	}
 
 
@@ -161,9 +175,13 @@ namespace library {
 		it = rfidMap.find(rfidSerialNumber);
 		if(it != rfidMap.end())
 		{
-			logStream << rfidMap.size();
-			(*_pLinkToConsole)->printLog(&logStream);
+			_logStream << rfidMap.size();
 		}
+		else
+		{
+			_logStream << "rfid not found";
+		}
+		(*_pLinkToConsole)->printLog(&_logStream);
 		return NULL;
 	}
 	
@@ -176,8 +194,10 @@ namespace library {
 	{
 		for(map<string, xml_node<>*>::iterator it=rfidMap.begin(); it!=rfidMap.end(); ++it)
 		{
-			outStream << "### " << it->first << ": " << it->second;
-			(*_pLinkToConsole)->printOut(&outStream);
+			_outStream << "rfid: " << it->first << ": " << it->second;
+			(*_pLinkToConsole)->printOut(&_outStream);
+			
+			parseFiles(it->second);
 		}
 	}
 	
