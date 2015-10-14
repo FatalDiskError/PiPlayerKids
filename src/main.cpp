@@ -66,13 +66,18 @@ void start(string applicationPath)
 {
 	Console* _pConsole = new Console(VERTICAL_LAYOUT);
 	Library* _pLibrary = new Library(applicationPath, &_pConsole);
+	
 	Player* _pPlayer = new Player(&_pConsole);
 	Rfid* _pRfid = new Rfid(&_pConsole);
 	
-	_pLibrary->writeCurrentFile("", "");
-	_pLibrary->getFile("ghjkghjk");
-	_pLibrary->getFile("hfghsdfgr");
-	_pLibrary->getFile("56785678");
+	_pLibrary->logOutRfidMap();
+	
+	_pLibrary->getFile("x11111111");
+	_pLibrary->getFile("x12121212");
+	_pLibrary->getFile("x13131313");
+	_pLibrary->getFile("xxxxxxxxx");
+	_pLibrary->getFile("x21212121");
+	_pLibrary->getFile("x22222222");
 	
 	//delete _pRfid;
 	//delete _pPlayer;

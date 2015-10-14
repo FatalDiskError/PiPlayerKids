@@ -44,30 +44,30 @@ namespace library {
 			File* getNextFile();
 			void writeCurrentFile(string, string);
 			void writeCurrentTime(string, string);
+			void logOutRfidMap(void);
 			
 		private:
-			const string DIRECTORY_DIVIDER = "/";
-			const string LIBRARY_FILE_NAME = "/library/library.xml";
-			string _libraryPath;
-
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
 			ostringstream _logStream;
+			
+			const string DIRECTORY_DIVIDER = "/";
+			const string LIBRARY_FILE_NAME = "/library/library.xml";
+			string _libraryPath;
+			map<string, xml_node<>*> rfidMap;
 			
 			File* _pCurrentFile;
 			Episode* _pCurrentEpisode;
 			vector<Series*> _pSeries;
 			
-			map<string, xml_node<>*> rfidMap;
-
-			void parseLibraryFile(void);
 			//void parseNode(xml_node<>*, string);
+			
+			void parseLibraryFile(void);
 			void parseSeries(xml_node<>*);
 			void parseSeriesNode(xml_node<>*);
 			void parseEpisodes(xml_node<>*);
 			void parseEpisodeNode(xml_node<>*);
 			void parseFiles(xml_node<>*);
-			void parseFileNode(xml_node<>*);
 	};
 }
 

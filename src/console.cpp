@@ -66,12 +66,12 @@ namespace console
 
 		drawBorder(BORDER_CHAR);
 
-		printOut("initialized console");
+		printLog("constructing console");
 	}
 
 	Console::~Console(void)
 	{
-		printOut("deleting console. press any key to continue");
+		printOut("destructing console. press any key to continue");
 		getch();
 
 		clear();

@@ -6,8 +6,7 @@
 		<episode>
 			<title>Der Wetterelefant</title>
 			<cover></cover>
-			<rfid>qwerqwer</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x11111111" current_file="3" timestamp="11111111">
 				<file>01</file>
 				<file>02</file>
 				<file>03</file>
@@ -16,8 +15,7 @@
 		<episode>
 			<title>Als Detektiv</title>
 			<cover></cover>
-			<rfid>asdfasdf</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x12121212" current_file="2" timestamp="12121212">
 				<file>02</file>
 				<file>04</file>
 				<file>06</file>
@@ -29,8 +27,7 @@
 		<episode>
 			<title>Als Feuerwehrmann</title>
 			<cover></cover>
-			<rfid>yxcvyxcv</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x13131313" current_file="1" timestamp="13131313">
 				<file>01</file>
 			</files>
 		</episode>
@@ -41,16 +38,14 @@
 		<episode>
 			<title>Z</title>
 			<cover></cover>
-			<rfid>12341234</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x21212121" current_file="1" timestamp="21212121">
 				<file>01</file>
 			</files>
 		</episode>
 		<episode>
 			<title>T</title>
 			<cover></cover>
-			<rfid>56785678</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x22222222" current_file="4" timestamp="22222222">
 				<file>05</file>
 				<file>04</file>
 				<file>03</file>
@@ -61,8 +56,7 @@
 		<episode>
 			<title>A</title>
 			<cover></cover>
-			<rfid></rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="" current_file="1" timestamp="23232323">
 				<file>a</file>
 				<file>b</file>
 			</files>
@@ -74,16 +68,14 @@
 		<episode>
 			<title>Ritter</title>
 			<cover></cover>
-			<rfid>tzuitzui</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x31313131" current_file="1" timestamp="31313131">
 				<file>01</file>
 			</files>
 		</episode>
 		<episode>
 			<title>Polizei</title>
 			<cover></cover>
-			<rfid>ghjkghjk</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x32323232" current_file="5" timestamp="32323232">
 				<file>01</file>
 				<file>02</file>
 				<file>03</file>
@@ -94,8 +86,7 @@
 		<episode>
 			<title>Weltall</title>
 			<cover></cover>
-			<rfid>bnm,bnm,</rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="x33333333" current_file="2" timestamp="33333333">
 				<file>01</file>
 				<file>02</file>
 				<file>03</file>
@@ -106,10 +97,20 @@
 		<episode>
 			<title>Wetter</title>
 			<cover></cover>
-			<rfid></rfid>
-			<files file="2" timestamp="1245873">
+			<files rfid="" current_file="1" timestamp="34343434">
 				<file>01</file>
 			</files>
 		</episode>
 	</series>
 </library>
+<!--
+	1	39877302
+	2	fb9eb50b
+	3	d856fb0e
+	4	dbac170b
+	5	4933a102
+	6	59f07302
+	7	19ba5302
+	8	19c57502
+	9	fb20f60b
+//-->
