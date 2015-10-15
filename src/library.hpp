@@ -67,7 +67,7 @@ namespace library {
 			void parseSeriesNode(xml_node<>*);
 			void parseEpisodes(xml_node<>*);
 			void parseEpisodeNode(xml_node<>*);
-			void parseFiles(xml_node<>*);
+			void parseFiles(xml_node<>*, bool = false);
 	};
 }
 

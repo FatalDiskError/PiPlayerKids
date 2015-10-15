@@ -18,9 +18,9 @@ namespace console
 		public:
 			Console(ConsoleLayout);
 			~Console(void);
-			void printOut(string);
+			void printOut(string, int = 0);
+			void printOut(ostringstream*, int = 0);
 			void printLog(string);
-			void printOut(ostringstream*);
 			void printLog(ostringstream*);
 			int waitForChar(void);
 			
@@ -35,7 +35,7 @@ namespace console
 			ConsoleLayout layout;
 			WINDOW *window;
 			int dimensionX, dimensionY;
-			int xOut, yOut, xOutMin, yOutMin, xOutMax, yOutMax, outLineLength;
+			int xOut, yOut, xOutMin, yOutMin, xOutMax, yOutMax, outLineLength, yOutPrev;
 			int xLog, yLog, xLogMin, yLogMin, xLogMax, yLogMax, logLineLength;
 			
 			void drawDot(char, int, int);

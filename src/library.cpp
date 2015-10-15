@@ -153,7 +153,7 @@ namespace library {
 	/*******************
 	 * FILE OPERATIONS *
 	 *******************/
-	void Library::parseFiles(xml_node<>* pFiles)
+	void Library::parseFiles(xml_node<>* pFiles, bool again)
 	{
 		#ifdef XML_LOG_OUTPUT
 		xml_attribute<>* pRfid = pFiles->first_attribute(LibraryTags::ATTRIBUTE_RFID);
@@ -161,9 +161,8 @@ namespace library {
 		xml_attribute<>* pTimestamp = pFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
 		
 		int i = 1;
-		char chr = (char)pCurrentFile->value();
-		int currentFile = (int)chr;
-		_outStream << "<" << currentFile << "/" << chr << "> " << pFiles->name() << " @ " << pRfid->value() << ": ";
+		int currentFileIndex = atoi(pCurrentFile->value());;
+		_outStream << "<" << currentFileIndex << "> " << pFiles->name() << " @ " << pRfid->value() << ": ";
 		for(xml_node<>* pFile = pFiles->first_node(LibraryTags::TAG_FILE); pFile; pFile = pFile->next_sibling())
 		{
 			if(i != 1)
@@ -171,7 +170,7 @@ namespace library {
 				_outStream << ", ";
 			}
 
-			if(i == currentFile)
+			if(i == currentFileIndex)
 			{
 				_outStream << "[" << pFile->value() << "]";
 			}
@@ -179,10 +178,17 @@ namespace library {
 			{
 				_outStream << pFile->value();
 			}
-			_outStream << " (" << i << ")";
 			i++;
 		}
-		(*_pLinkToConsole)->printOut(&_outStream);
+		
+		if(again)
+		{
+			(*_pLinkToConsole)->printOut(&_outStream, -2);
+		}
+		else
+		{
+			(*_pLinkToConsole)->printOut(&_outStream);
+		}
 		#endif
 	}
 	
@@ -193,32 +199,35 @@ namespace library {
 		if(it != rfidMap.end())
 		{
 			_logStream << "rfid [" << rfidSerialNumber << "] found";
+			(*_pLinkToConsole)->printLog(&_logStream);
 			parseFiles(it->second);
+			
+			(*_pLinkToConsole)->printOut("    [c]ontinue, [n]ext, [p]revious: ");
+			bool isLoop = true;
+			while(isLoop)
+			{
+				int charCode = (*_pLinkToConsole)->waitForChar();
+				_logStream << "charCode: " << charCode << " - char: " << (char)charCode;
+				(*_pLinkToConsole)->printLog(&_logStream);
+				
+				switch((char)charCode)
+				{
+					case 'c': //99
+						isLoop = false;
+						break;
+					case 'n': //110
+						parseFiles(it->second, true);
+						break;
+					case 'p': //112
+						parseFiles(it->second, true);
+						break;
+				}
+			}
 		}
 		else
 		{
 			_logStream << "rfid [" << rfidSerialNumber << "] not found";
-		}
-		(*_pLinkToConsole)->printLog(&_logStream);
-		
-		(*_pLinkToConsole)->printOut("[c]ontinue, [n]ext, [p]revious: ");
-		bool isLoop = true;
-		while(isLoop)
-		{
-			int charCode = (*_pLinkToConsole)->waitForChar();
-			_logStream << "charCode: " << charCode << " - char: " << (char)charCode;
 			(*_pLinkToConsole)->printLog(&_logStream);
-			
-			switch((char)charCode)
-			{
-				case 'c': //99
-					isLoop = false;
-					break;
-				case 'n': //110
-					break;
-				case 'p': //112
-					break;
-			}
 		}
 		return NULL;
 	}

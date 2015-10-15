@@ -58,14 +58,16 @@ namespace console
 		
 		xOut = xOutMin;
 		yOut = yOutMin;
+		yOutPrev = yOut;
 		outLineLength = xOutMax - xOutMin - OUT_PREFIX.length();
 		
 		xLog = xLogMin;
 		yLog = yLogMin;
 		logLineLength = xLogMax - xLogMin - LOG_PREFIX.length();
-
+		
 		drawBorder(BORDER_CHAR);
-
+		move(yOut, xOut);
+		
 		printLog("constructing console");
 	}
 
@@ -120,19 +122,28 @@ namespace console
 			drawDot(EMPTY_CHAR, yLog, x);
 	}
 
-	void Console::printOut(string log)
+	void Console::printOut(string out, int lineOffset)
 	{
 		string line;
 		int pos = 0;
+		yOut += lineOffset;
+		if(yOut > yOutMax)
+		{
+			yOut = yOutMin + (yOut - yOutMax);
+		}
+		else if(yOut < yOutMin)
+		{
+			yOut = yOutMax + (yOut - yOutMin);
+		}
 		
-		while(pos<log.length()){
+		while(pos<out.length()){
 			clearOutLine();
 			if(pos==0){
 				move(yOut, xOutMin);
 				printw(OUT_PREFIX.c_str());
 			}
 			move(yOut, xOutMin + OUT_PREFIX.length());
-			line = log.substr(pos, outLineLength);
+			line = out.substr(pos, outLineLength);
 			printw(line.c_str());
 			pos += outLineLength;
 			
@@ -140,12 +151,21 @@ namespace console
 			if(yOut > yOutMax)
 				yOut = yOutMin;
 		}
-
 		refresh();
 	}
-
+	
+	void Console::printOut(ostringstream* out, int lineOffset)
+	{
+		printOut(out->str(), lineOffset);
+		out->str("");
+		out->clear();
+	}
+	
 	void Console::printLog(string log)
 	{
+		int outY, outX;
+		getyx(window, outY, outX);
+		
 		if(layout==NO_LOG_LAYOUT){
 			return;
 		}
@@ -168,24 +188,17 @@ namespace console
 			if(yLog > yLogMax)
 				yLog = yLogMin;
 		}
-
+		move(outY, outX);
 		refresh();
 	}
-
-	void Console::printOut(ostringstream* out)
-	{
-		printOut(out->str());
-		out->str("");
-		out->clear();
-	}
-
+	
 	void Console::printLog(ostringstream* log)
 	{
 		printLog(log->str());
 		log->str("");
 		log->clear();
 	}
-
+	
 	int Console::waitForChar(void)
 	{
 		return getch();
