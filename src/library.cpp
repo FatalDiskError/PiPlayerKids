@@ -1,3 +1,4 @@
+#define XML_OUT_OUTPUT
 #define XML_LOG_OUTPUT
 
 #include <fstream>
@@ -57,7 +58,7 @@ namespace library {
 		}
 	}
 	*/
-	
+	// Library
 	void Library::parseLibraryFile(void)
 	{
 		_logStream << "opening " << _libraryPath;
@@ -66,30 +67,33 @@ namespace library {
 		file<> xmlFile(_libraryPath.c_str());
 		xml_document<> doc;
 		doc.parse<0>(xmlFile.data());
-
+		
 		xml_node<>* pLibrary = doc.first_node(LibraryTags::TAG_LIBRARY);
+		
+		#ifdef XML_OUT_OUTPUT
 		_outStream << "+-- " << pLibrary->name();
 		(*_pLinkToConsole)->printOut(&_outStream);
-
+		#endif
+		
 		parseSeries(pLibrary);
 	}
-	
+
+	// Series
 	void Library::parseSeries(xml_node<>* pLibrary)
 	{
 		for(xml_node<>* pSeriesNode = pLibrary->first_node(LibraryTags::TAG_SERIES); pSeriesNode; pSeriesNode = pSeriesNode->next_sibling())
 		{
-			#ifdef XML_LOG_OUTPUT
+			#ifdef XML_OUT_OUTPUT
 			_outStream << "| +-- " << pSeriesNode->name();
 			#endif
 			parseSeriesNode(pSeriesNode);
 		}
 	}
-	
 	void Library::parseSeriesNode(xml_node<>* pSeries)
 	{
 		xml_node<>* pTitle = pSeries->first_node(LibraryTags::TAG_TITLE);
 
-		#ifdef XML_LOG_OUTPUT
+		#ifdef XML_OUT_OUTPUT
 		_outStream << " [" << pTitle->name() << ": " << pTitle->value() << "]";
 		(*_pLinkToConsole)->printOut(&_outStream);
 		/*
@@ -101,21 +105,21 @@ namespace library {
 
 		parseEpisodes(pSeries);
 	}
-	
+
+	// Episodes
 	void Library::parseEpisodes(xml_node<>* pSeries)
 	{
 		for(xml_node<>* pEpisode = pSeries->first_node(LibraryTags::TAG_EPISODE); pEpisode; pEpisode = pEpisode->next_sibling())
 		{
-			#ifdef XML_LOG_OUTPUT
+			#ifdef XML_OUT_OUTPUT
 			_outStream << "| | +-- " << pEpisode->name();
 			#endif
 			parseEpisodeNode(pEpisode);
 		}
 	}
-	
 	void Library::parseEpisodeNode(xml_node<>* pEpisode)
 	{
-		#ifdef XML_LOG_OUTPUT
+		#ifdef XML_OUT_OUTPUT
 		xml_node<>* pTitle = pEpisode->first_node(LibraryTags::TAG_TITLE);
 		
 		_outStream << " [" << pTitle->name() << ": " << pTitle->value() << "]";
@@ -129,7 +133,7 @@ namespace library {
 		
 		xml_node<>* pFiles = pEpisode->first_node(LibraryTags::TAG_FILES);
 		
-		#ifdef XML_LOG_OUTPUT
+		#ifdef XML_OUT_OUTPUT
 		_outStream << "| | | +-- " << pFiles->name() << " [";
 		
 		for (xml_attribute<>* pAttribute = pFiles->first_attribute(); pAttribute; pAttribute = pAttribute->next_attribute())
@@ -153,16 +157,18 @@ namespace library {
 	/*******************
 	 * FILE OPERATIONS *
 	 *******************/
+	// Files
 	void Library::parseFiles(xml_node<>* pFiles, bool again)
 	{
-		#ifdef XML_LOG_OUTPUT
+		#ifdef XML_OUT_OUTPUT
+		#endif
 		xml_attribute<>* pRfid = pFiles->first_attribute(LibraryTags::ATTRIBUTE_RFID);
 		xml_attribute<>* pCurrentFile = pFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
 		xml_attribute<>* pTimestamp = pFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
 		
 		int i = 1;
-		int currentFileIndex = atoi(pCurrentFile->value());;
-		_outStream << "<" << currentFileIndex << "> " << pFiles->name() << " @ " << pRfid->value() << ": ";
+		int currentFileIndex = atoi(pCurrentFile->value());
+		_outStream << pFiles->name() << " [rfid: " << pRfid->value() << "]: ";
 		for(xml_node<>* pFile = pFiles->first_node(LibraryTags::TAG_FILE); pFile; pFile = pFile->next_sibling())
 		{
 			if(i != 1)
@@ -189,10 +195,9 @@ namespace library {
 		{
 			(*_pLinkToConsole)->printOut(&_outStream);
 		}
-		#endif
 	}
 	
-	Library::File* Library::getFile(string rfidSerialNumber)
+	void Library::getEpisodeFiles(string rfidSerialNumber)
 	{
 		map<string, xml_node<>*>::iterator it;
 		it = rfidMap.find(rfidSerialNumber);
@@ -200,12 +205,26 @@ namespace library {
 		{
 			_logStream << "rfid [" << rfidSerialNumber << "] found";
 			(*_pLinkToConsole)->printLog(&_logStream);
-			parseFiles(it->second);
-			
-			(*_pLinkToConsole)->printOut("    [c]ontinue, [n]ext, [p]revious: ");
+
+			//parseFiles(it->second);
+			_pCurrentEpisodeFiles = it->second;
 			bool isLoop = true;
 			while(isLoop)
 			{
+				xml_attribute<>* pRfid = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_RFID);
+				xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
+				xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
+				
+				int currentFile = atoi(pCurrentFile->value());
+				int timestamp = atoi(pTimestamp->value());
+				
+				parseFiles?????????????????????????????????????
+				
+				
+				
+				
+				(*_pLinkToConsole)->printOut("    [c]ontinue, [n]ext, [p]revious: ");
+				
 				int charCode = (*_pLinkToConsole)->waitForChar();
 				_logStream << "charCode: " << charCode << " - char: " << (char)charCode;
 				(*_pLinkToConsole)->printLog(&_logStream);
@@ -216,10 +235,12 @@ namespace library {
 						isLoop = false;
 						break;
 					case 'n': //110
-						parseFiles(it->second, true);
+						getNextFile():
+						//parseFiles(it->second, true);
 						break;
 					case 'p': //112
-						parseFiles(it->second, true);
+						getPreviousFile();
+						//parseFiles(it->second, true);
 						break;
 				}
 			}
@@ -229,12 +250,21 @@ namespace library {
 			_logStream << "rfid [" << rfidSerialNumber << "] not found";
 			(*_pLinkToConsole)->printLog(&_logStream);
 		}
-		return NULL;
+		return;
 	}
 	
-	Library::File* Library::getNextFile()
+	void Library::getFile(string rfidSerialNumber)
 	{
-		return NULL;
+	}
+	
+	void Library::getNextFile()
+	{
+		return;
+	}
+	
+	void Library::getPreviousFile()
+	{
+		return;
 	}
 	
 	void Library::writeCurrentFile(string rfidSerialNumber, string name)
@@ -250,6 +280,7 @@ namespace library {
 	 *************/
 	void Library::logOutRfidMap(void)
 	{
+		#ifdef XML_LOG_OUTPUT
 		(*_pLinkToConsole)->printLog("|--- rfid map:");
 		for(map<string, xml_node<>*>::iterator it=rfidMap.begin(); it!=rfidMap.end(); ++it)
 		{
@@ -257,5 +288,6 @@ namespace library {
 			(*_pLinkToConsole)->printLog(&_logStream);
 		}
 		(*_pLinkToConsole)->printLog("|---------");
+		#endif
 	}
 }

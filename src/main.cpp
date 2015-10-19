@@ -72,16 +72,16 @@ void start(string applicationPath)
 	
 	_pLibrary->logOutRfidMap();
 	
-	_pLibrary->getFile("x11111111");
-	_pLibrary->getFile("x12121212");
-	_pLibrary->getFile("x13131313");
-	_pLibrary->getFile("xxxxxxxxx");
-	_pLibrary->getFile("x21212121");
-	_pLibrary->getFile("x22222222");
+	_pLibrary->getEpisode("x11111111");
+	_pLibrary->getEpisode("x12121212");
+	_pLibrary->getEpisode("x13131313");
+	_pLibrary->getEpisode("xxxxxxxxx");
+	_pLibrary->getEpisode("x21212121");
+	_pLibrary->getEpisode("x22222222");
 	
 	//delete _pRfid;
 	//delete _pPlayer;
-	//delete _pLibrary;
+	delete _pLibrary;
 	delete _pConsole;
 }
 

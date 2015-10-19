@@ -40,8 +40,11 @@ namespace library {
 			
 			Library(string, Console**);
 			~Library(void);
-			File* getFile(string);
-			File* getNextFile();
+			void getEpisodeFiles(string);
+			void getFile(string);
+			void getNextFile();
+			void getPreviousFile();
+			
 			void writeCurrentFile(string, string);
 			void writeCurrentTime(string, string);
 			void logOutRfidMap(void);
@@ -56,8 +59,8 @@ namespace library {
 			string _libraryPath;
 			map<string, xml_node<>*> rfidMap;
 			
-			File* _pCurrentFile;
-			Episode* _pCurrentEpisode;
+			xml_node<>* _pCurrentEpisodeFiles;
+			xml_node<>* _pCurrentFile;
 			vector<Series*> _pSeries;
 			
 			//void parseNode(xml_node<>*, string);
