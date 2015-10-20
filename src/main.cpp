@@ -1,6 +1,9 @@
 #include <iostream>
+#include <sstream>
 #include <cstring>
 #include <string>
+
+#include <signals2.hpp>
 
 #include "console.hpp"
 #include "library.hpp"
@@ -12,6 +15,7 @@ using namespace console;
 using namespace library;
 using namespace player;
 using namespace rfid;
+using namespace boost::signals2;
 
 void start(string);
 void printHelp(bool = false);
@@ -33,6 +37,9 @@ struct ParamsMap : map<Params, string>
 	~ParamsMap(){};
 };
 static ParamsMap paramsMap;
+
+ostringstream _outStream;
+ostringstream _logStream;
 
 int main(int argc, char **argv)
 {
@@ -72,12 +79,47 @@ void start(string applicationPath)
 	
 	_pLibrary->logOutRfidMap();
 	
-	_pLibrary->getEpisode("x11111111");
-	_pLibrary->getEpisode("x12121212");
-	_pLibrary->getEpisode("x13131313");
-	_pLibrary->getEpisode("xxxxxxxxx");
-	_pLibrary->getEpisode("x21212121");
-	_pLibrary->getEpisode("x22222222");
+	signal<void (string)> rfidSignal;
+	rfidSignal.connect(_pLibrary->getEpisodeFiles); //&print_args
+	
+	bool isLoop = true;
+	while(isLoop)
+	{
+		int charCode = _pConsole->waitForChar();
+		_logStream << "charCode: " << charCode << " - char: " << (char)charCode;
+		_pConsole->printLog(&_logStream);
+		
+		switch((char)charCode)
+		{
+			case 'c': //99
+				isLoop = false;
+				break;
+			case 'n': //110
+				_pLibrary->nextFile():
+				break;
+			case 'p': //112
+				_pLibrary->previousFile();
+				break;
+			case '1':
+				rfidSignal("x11111111");
+				break;
+			case '2':
+				rfidSignal("x12121212");
+				break;
+			case '3':
+				rfidSignal("x13131313");
+				break;
+			case '4':
+				rfidSignal("xxxxxxxxx");
+				break;
+			case '5':
+				rfidSignal("x21212121");
+				break;
+			case '6':
+				rfidSignal("x22222222");
+				break;
+		}
+	}
 	
 	//delete _pRfid;
 	//delete _pPlayer;

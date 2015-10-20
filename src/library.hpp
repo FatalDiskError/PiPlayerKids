@@ -21,32 +21,12 @@ namespace library {
 	class Library
 	{
 		public:
-			typedef struct
-			{
-				string name;
-				int timestamp;
-			} File;
-			typedef struct
-			{
-				string name;
-				string rfidSerialNumber;
-				vector<string> files;
-			} Episode;
-			typedef struct
-			{
-				string name;
-				vector<Episode> episodes;
-			} Series;
-			
 			Library(string, Console**);
 			~Library(void);
-			void getEpisodeFiles(string);
-			void getFile(string);
-			void getNextFile();
-			void getPreviousFile();
+			void setEpisode(string);
+			void nextFile();
+			void previousFile();
 			
-			void writeCurrentFile(string, string);
-			void writeCurrentTime(string, string);
 			void logOutRfidMap(void);
 			
 		private:
@@ -59,18 +39,26 @@ namespace library {
 			string _libraryPath;
 			map<string, xml_node<>*> rfidMap;
 			
+			xml_document<> _doc;
 			xml_node<>* _pCurrentEpisodeFiles;
 			xml_node<>* _pCurrentFile;
-			vector<Series*> _pSeries;
 			
-			//void parseNode(xml_node<>*, string);
+			signal<void (string, int)> playSignal;
 			
 			void parseLibraryFile(void);
 			void parseSeries(xml_node<>*);
 			void parseSeriesNode(xml_node<>*);
 			void parseEpisodes(xml_node<>*);
 			void parseEpisodeNode(xml_node<>*);
-			void parseFiles(xml_node<>*, bool = false);
+			
+			void setFile();
+			
+			int getChildCount(xmlnode<>*);
+			xmlnode<>* getChildAt(xmlnode<>*, int);
+			int getCurrentFileIndex(void);
+			void setCurrentFileIndex(int);
+			int getCurrentTimestamp(void);
+			void setCurrentTimestamp(int);
 	};
 }
 

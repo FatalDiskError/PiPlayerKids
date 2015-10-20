@@ -10,6 +10,7 @@
 
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
+#include <signals2.hpp>
 
 #include "library.hpp"
 #include "library_tags.hpp"
@@ -45,19 +46,6 @@ namespace library {
 	/*****************
 	 * PARSE LIBRARY *
 	 *****************/
-	/*
-	void Library::parseNode(xml_node<>* pParent, string tagName)
-	{
-		for(xml_node<>* pNode = pParent->first_node(tagName); pNode; pNode = pNode->next_sibling())
-		{
-			_outStream << "Name of node is: ";
-			_outStream << pNode->name() << endl;
-			(*_pLinkToConsole)->printOut(&_outStream);
-			
-			parseSeriesNode(pSeriesNode);
-		}
-	}
-	*/
 	// Library
 	void Library::parseLibraryFile(void)
 	{
@@ -65,10 +53,8 @@ namespace library {
 		(*_pLinkToConsole)->printLog(&_logStream);
 		
 		file<> xmlFile(_libraryPath.c_str());
-		xml_document<> doc;
-		doc.parse<0>(xmlFile.data());
-		
-		xml_node<>* pLibrary = doc.first_node(LibraryTags::TAG_LIBRARY);
+		_doc.parse<0>(xmlFile.data());
+		xml_node<>* pLibrary = _doc.first_node(LibraryTags::TAG_LIBRARY);
 		
 		#ifdef XML_OUT_OUTPUT
 		_outStream << "+-- " << pLibrary->name();
@@ -158,46 +144,28 @@ namespace library {
 	 * FILE OPERATIONS *
 	 *******************/
 	// Files
-	void Library::parseFiles(xml_node<>* pFiles, bool again)
+	void Library::setFile()
 	{
-		#ifdef XML_OUT_OUTPUT
-		#endif
-		xml_attribute<>* pRfid = pFiles->first_attribute(LibraryTags::ATTRIBUTE_RFID);
-		xml_attribute<>* pCurrentFile = pFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
-		xml_attribute<>* pTimestamp = pFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
-		
-		int i = 1;
-		int currentFileIndex = atoi(pCurrentFile->value());
-		_outStream << pFiles->name() << " [rfid: " << pRfid->value() << "]: ";
-		for(xml_node<>* pFile = pFiles->first_node(LibraryTags::TAG_FILE); pFile; pFile = pFile->next_sibling())
+		int currentFileIndex = getCurrentFileIndex();
+		xmlnode<>* pFile = getChildAt(_pCurrentEpisodeFiles, currentFileIndex-1);
+		if(pFile != NULL)
 		{
-			if(i != 1)
-			{
-				_outStream << ", ";
-			}
-
-			if(i == currentFileIndex)
-			{
-				_outStream << "[" << pFile->value() << "]";
-			}
-			else
-			{
-				_outStream << pFile->value();
-			}
-			i++;
-		}
-		
-		if(again)
-		{
-			(*_pLinkToConsole)->printOut(&_outStream, -2);
+			_logStream << "file [index " << currentFileIndex << "] found";
+			(*_pLinkToConsole)->printLog(&_logStream);
+			
+			_pCurrentFile = pFile;
+			
+			int timestamp = getCurrentTimestamp();
+			playSignal(_pCurrentFile->value(), timestamp);
 		}
 		else
 		{
-			(*_pLinkToConsole)->printOut(&_outStream);
+			_logStream << "file [index " << currentFileIndex << "] not found";
+			(*_pLinkToConsole)->printLog(&_logStream);
 		}
 	}
 	
-	void Library::getEpisodeFiles(string rfidSerialNumber)
+	void Library::setEpisode(string rfidSerialNumber)
 	{
 		map<string, xml_node<>*>::iterator it;
 		it = rfidMap.find(rfidSerialNumber);
@@ -205,45 +173,10 @@ namespace library {
 		{
 			_logStream << "rfid [" << rfidSerialNumber << "] found";
 			(*_pLinkToConsole)->printLog(&_logStream);
-
-			//parseFiles(it->second);
+			
 			_pCurrentEpisodeFiles = it->second;
-			bool isLoop = true;
-			while(isLoop)
-			{
-				xml_attribute<>* pRfid = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_RFID);
-				xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
-				xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
-				
-				int currentFile = atoi(pCurrentFile->value());
-				int timestamp = atoi(pTimestamp->value());
-				
-				parseFiles?????????????????????????????????????
-				
-				
-				
-				
-				(*_pLinkToConsole)->printOut("    [c]ontinue, [n]ext, [p]revious: ");
-				
-				int charCode = (*_pLinkToConsole)->waitForChar();
-				_logStream << "charCode: " << charCode << " - char: " << (char)charCode;
-				(*_pLinkToConsole)->printLog(&_logStream);
-				
-				switch((char)charCode)
-				{
-					case 'c': //99
-						isLoop = false;
-						break;
-					case 'n': //110
-						getNextFile():
-						//parseFiles(it->second, true);
-						break;
-					case 'p': //112
-						getPreviousFile();
-						//parseFiles(it->second, true);
-						break;
-				}
-			}
+			
+			setFile();
 		}
 		else
 		{
@@ -253,26 +186,34 @@ namespace library {
 		return;
 	}
 	
-	void Library::getFile(string rfidSerialNumber)
+	void Library::nextFile()
 	{
+		if(_pCurrentEpisodeFiles == NULL)
+		{
+			return;
+		}
+		
+		int nextIndex = getCurrentFileIndex()++;
+		if(nextIndex <= getChildCount())
+		{
+			setCurrentFileIndex(nextIndex);
+			setFile();
+		}
 	}
 	
-	void Library::getNextFile()
+	void Library::previousFile()
 	{
-		return;
-	}
-	
-	void Library::getPreviousFile()
-	{
-		return;
-	}
-	
-	void Library::writeCurrentFile(string rfidSerialNumber, string name)
-	{
-	}
-	
-	void Library::writeCurrentTime(string rfidSerialNumber, string timestamp)
-	{
+		if(_pCurrentEpisodeFiles == NULL)
+		{
+			return;
+		}
+		
+		int previousIndex = getCurrentFileIndex()--;
+		if(previousIndex > 0)
+		{
+			setCurrentFileIndex(previousIndex);
+			setFile();
+		}
 	}
 	
 	/*************
@@ -289,5 +230,61 @@ namespace library {
 		}
 		(*_pLinkToConsole)->printLog("|---------");
 		#endif
+	}
+	
+	
+	/***************
+	 * XML HELPERS *
+	 ***************/
+	int Library::getChildCount(xmlnode<>* pNode)
+	{
+		int i = 0;
+		for (xmlnode<>* pChild = pNode->first_node(); pChild != NULL; pChild = pChild->next_sibling())
+		{
+			i++;
+		} 
+		return i;
+	}
+	
+	xmlnode<>* Library::getChildAt(xmlnode<>* pNode, int index)
+	{
+		int i = 0;
+		for (xmlnode<>* pChild = pNode->first_node(); pChild != NULL; pChild = pChild->next_sibling())
+		{
+			if(i == index)
+			{
+				return pChild;
+			}
+			i++;
+		} 
+		return NULL;
+	}
+	
+	int Library::getCurrentFileIndex(void)
+	{
+		xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
+		return stoi(pCurrentFile->value());
+	}
+	
+	void Library::setCurrentFileIndex(int index)
+	{
+		xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
+		string newIndex = to_string(index);
+		const char* text = _doc.allocate_string(newIndex.c_str(), strlen(newIndex.c_str()));
+		pCurrentFile->value(text);
+	}
+	
+	int Library::getCurrentTimestamp(void)
+	{
+		xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
+		return = stoi(pTimestamp->value());
+	}
+	
+	void Library::setCurrentTimestamp(int timestamp)
+	{
+		xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
+		string newTimestamp = to_string(timestamp);
+		const char* text = _doc.allocate_string(newTimestamp.c_str(), strlen(newTimestamp.c_str()));
+		pTimestamp->value(text);
 	}
 }
