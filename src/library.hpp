@@ -9,26 +9,31 @@
 
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
+#include <boost/signals2.hpp>
 
 #include "library_tags.hpp"
 #include "console.hpp"
 
 using namespace std;
 using namespace rapidxml;
+using namespace boost::signals2;
 using namespace console;
 
 namespace library {
 	class Library
 	{
 		public:
+			enum class Navigation
+			{
+				NEXT, PREVIOUS, RESET
+			};
+			
 			Library(string, Console**);
 			~Library(void);
 			void setEpisode(string);
-			void nextFile();
-			void previousFile();
+			void navigate(Navigation);
 			
 			void logOutRfidMap(void);
-			
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
@@ -52,9 +57,12 @@ namespace library {
 			void parseEpisodeNode(xml_node<>*);
 			
 			void setFile();
+			void nextFile();
+			void previousFile();
+			void resetFiles();
 			
-			int getChildCount(xmlnode<>*);
-			xmlnode<>* getChildAt(xmlnode<>*, int);
+			int getChildCount(xml_node<>*);
+			xml_node<>* getChildAt(xml_node<>*, int);
 			int getCurrentFileIndex(void);
 			void setCurrentFileIndex(int);
 			int getCurrentTimestamp(void);

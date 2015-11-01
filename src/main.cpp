@@ -3,7 +3,7 @@
 #include <cstring>
 #include <string>
 
-#include <signals2.hpp>
+#include <boost/signals2.hpp>
 
 #include "console.hpp"
 #include "library.hpp"
@@ -15,6 +15,7 @@ using namespace console;
 using namespace library;
 using namespace player;
 using namespace rfid;
+using namespace boost;
 using namespace boost::signals2;
 
 void start(string);
@@ -80,7 +81,10 @@ void start(string applicationPath)
 	_pLibrary->logOutRfidMap();
 	
 	signal<void (string)> rfidSignal;
-	rfidSignal.connect(_pLibrary->getEpisodeFiles); //&print_args
+	rfidSignal.connect(bind(&Library::setEpisode, _pLibrary, _1));
+	
+	signal<void (Library::Navigation)> navigationSignal;
+	navigationSignal.connect(bind(&Library::navigate, _pLibrary, _1));
 	
 	bool isLoop = true;
 	while(isLoop)
@@ -95,27 +99,30 @@ void start(string applicationPath)
 				isLoop = false;
 				break;
 			case 'n': //110
-				_pLibrary->nextFile():
+				navigationSignal(Library::Navigation::NEXT);
 				break;
 			case 'p': //112
-				_pLibrary->previousFile();
+				navigationSignal(Library::Navigation::PREVIOUS);
 				break;
-			case '1':
+			case 'r': //
+				navigationSignal(Library::Navigation::RESET);
+				break;
+			case '1': //49
 				rfidSignal("x11111111");
 				break;
-			case '2':
+			case '2': //50
 				rfidSignal("x12121212");
 				break;
-			case '3':
+			case '3': //51
 				rfidSignal("x13131313");
 				break;
-			case '4':
+			case '4': //52
 				rfidSignal("xxxxxxxxx");
 				break;
-			case '5':
+			case '5': //53
 				rfidSignal("x21212121");
 				break;
-			case '6':
+			case '6': //54
 				rfidSignal("x22222222");
 				break;
 		}

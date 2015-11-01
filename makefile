@@ -5,7 +5,7 @@ clear:
 	clear
 
 BOOST_PATH = /usr/include/boost
-BOOST_INCLUDE_PATH = -I$(BOOST_PATH)/filesystem
+BOOST_INCLUDE_PATH = -I$(BOOST_PATH)/filesystem -I$(BOOST_PATH)/signals2
 BOOST_LIBRARY_PATH = -L/usr/lib/
 BOOST_LIBS = -lboost_filesystem
 #-lboost_locale -lboost_system
