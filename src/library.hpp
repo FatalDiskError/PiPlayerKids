@@ -9,15 +9,17 @@
 
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
-#include <boost/signals2.hpp>
+//#include <boost/signals2.hpp>
+//#include <sigc++/sigc++.h>
 
 #include "library_tags.hpp"
 #include "console.hpp"
 
 using namespace std;
-using namespace rapidxml;
-using namespace boost::signals2;
 using namespace console;
+using namespace rapidxml;
+//using namespace boost::signals2;
+//using namespace sigc;
 
 namespace library {
 	class Library
@@ -34,6 +36,10 @@ namespace library {
 			void navigate(Navigation);
 			
 			void logOutRfidMap(void);
+			//signal<void (string, int)> playSignal;
+			//signal<void, string, int> playSignal;
+			//slot<void, string> setEpisodeSlot;
+			//slot<void, Navigation> navigateSlot;
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
@@ -48,7 +54,6 @@ namespace library {
 			xml_node<>* _pCurrentEpisodeFiles;
 			xml_node<>* _pCurrentFile;
 			
-			signal<void (string, int)> playSignal;
 			
 			void parseLibraryFile(void);
 			void parseSeries(xml_node<>*);
@@ -69,5 +74,4 @@ namespace library {
 			void setCurrentTimestamp(int);
 	};
 }
-
 #endif

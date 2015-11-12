@@ -10,16 +10,18 @@
 
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
-#include <boost/signals2.hpp>
+//#include <boost/signals2.hpp>
+//#include <sigc++/sigc++.h>
 
 #include "library.hpp"
 #include "library_tags.hpp"
 #include "console.hpp"
 
 using namespace std;
-using namespace rapidxml;
-using namespace boost::signals2;
 using namespace console;
+using namespace rapidxml;
+//using namespace boost::signals2;
+//using namespace sigc;
 
 namespace library {
 	/***************
@@ -30,6 +32,9 @@ namespace library {
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing library");
 		
+		//setEpisodeSlot = mem_fun(this, &Library::setEpisode);
+		//navigateSlot = mem_fun(this, &Library::navigate);
+
 		size_t lastDirectoryDividerPos = applicationPath.rfind(DIRECTORY_DIVIDER);
 		if (lastDirectoryDividerPos!=string::npos)
 		{
@@ -204,7 +209,7 @@ namespace library {
 			// set current-file to found <file>-node
 			_pCurrentFile = pFile;
 			// send signal to play current file at given timestamp
-			playSignal(_pCurrentFile->value(), timestamp);
+			//playSignal(_pCurrentFile->value(), timestamp);
 		}
 		// <file>-node not found
 		else

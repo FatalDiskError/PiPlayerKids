@@ -3,7 +3,9 @@
 #include <cstring>
 #include <string>
 
-#include <boost/signals2.hpp>
+//#include <boost/signals2.hpp>
+//#include <sigc++/sigc++.h>
+#include <ev.h>
 
 #include "console.hpp"
 #include "library.hpp"
@@ -15,15 +17,15 @@ using namespace console;
 using namespace library;
 using namespace player;
 using namespace rfid;
-using namespace boost;
-using namespace boost::signals2;
+//using namespace boost::signals2;
+//using namespace sigc;
 
 void start(string);
 void printHelp(bool = false);
 void resetLibrary(string);
 void scanLibrary(void);
 
-enum Params
+enum class Params
 {
 	HELP, RESET, SCAN
 };
@@ -31,9 +33,9 @@ struct ParamsMap : map<Params, string>
 {
 	ParamsMap()
 	{
-		this->operator[](HELP) = "-h";
-		this->operator[](RESET) = "-reset";
-		this->operator[](SCAN) = "-scan";
+		this->operator[](Params::HELP) = "-h";
+		this->operator[](Params::RESET) = "-reset";
+		this->operator[](Params::SCAN) = "-scan";
 	};
 	~ParamsMap(){};
 };
@@ -54,11 +56,11 @@ int main(int argc, char **argv)
 	{
 		string param = argv[1];
 		
-		if(param == paramsMap[HELP])
+		if(param == paramsMap[Params::HELP])
 			printHelp();
-		else if(param == paramsMap[RESET])
+		else if(param == paramsMap[Params::RESET])
 			resetLibrary(applicationPath);
-		else if(param == paramsMap[SCAN])
+		else if(param == paramsMap[Params::SCAN])
 			scanLibrary();
 	}
 	else
@@ -80,11 +82,26 @@ void start(string applicationPath)
 	
 	_pLibrary->logOutRfidMap();
 	
+	/*
 	signal<void (string)> rfidSignal;
 	rfidSignal.connect(bind(&Library::setEpisode, _pLibrary, _1));
 	
 	signal<void (Library::Navigation)> navigationSignal;
 	navigationSignal.connect(bind(&Library::navigate, _pLibrary, _1));
+	*/
+	
+	/*
+	rfidSignal.connect(sigc::ptr_fun(_pLibrary, &Library::setEpisode));
+	rfidSignal.connect(sigc::mem_fun(_pLibrary, &Library::setEpisode));
+	*/
+	
+	/*
+	signal<void, string> rfidSignal;
+	rfidSignal.connect(_pLibrary->setEpisodeSlot);
+	
+	signal<void, Library::Navigation> navigationSignal;
+	navigationSignal.connect(_pLibrary->navigateSlot);
+	*/
 	
 	bool isLoop = true;
 	while(isLoop)
@@ -99,31 +116,31 @@ void start(string applicationPath)
 				isLoop = false;
 				break;
 			case 'n': //110
-				navigationSignal(Library::Navigation::NEXT);
+				//navigationSignal(Library::Navigation::NEXT);
 				break;
 			case 'p': //112
-				navigationSignal(Library::Navigation::PREVIOUS);
+				//navigationSignal(Library::Navigation::PREVIOUS);
 				break;
 			case 'r': //
-				navigationSignal(Library::Navigation::RESET);
+				//navigationSignal(Library::Navigation::RESET);
 				break;
 			case '1': //49
-				rfidSignal("x11111111");
+				//rfidSignal("x11111111");
 				break;
 			case '2': //50
-				rfidSignal("x12121212");
+				//rfidSignal("x12121212");
 				break;
 			case '3': //51
-				rfidSignal("x13131313");
+				//rfidSignal("x13131313");
 				break;
 			case '4': //52
-				rfidSignal("xxxxxxxxx");
+				//rfidSignal("xxxxxxxxx");
 				break;
 			case '5': //53
-				rfidSignal("x21212121");
+				//rfidSignal("x21212121");
 				break;
 			case '6': //54
-				rfidSignal("x22222222");
+				//rfidSignal("x22222222");
 				break;
 		}
 	}
