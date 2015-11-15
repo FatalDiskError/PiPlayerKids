@@ -12,6 +12,7 @@
 #include <rapidxml_utils.hpp>
 //#include <boost/signals2.hpp>
 //#include <sigc++/sigc++.h>
+#include <Signal.h>
 
 #include "library.hpp"
 #include "library_tags.hpp"
@@ -22,6 +23,7 @@ using namespace console;
 using namespace rapidxml;
 //using namespace boost::signals2;
 //using namespace sigc;
+using namespace Gallant;
 
 namespace library {
 	/***************

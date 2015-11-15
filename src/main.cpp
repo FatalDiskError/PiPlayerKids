@@ -5,7 +5,8 @@
 
 //#include <boost/signals2.hpp>
 //#include <sigc++/sigc++.h>
-#include <ev.h>
+//#include <ev.h>
+#include <Signal.h>
 
 #include "console.hpp"
 #include "library.hpp"
@@ -19,6 +20,7 @@ using namespace player;
 using namespace rfid;
 //using namespace boost::signals2;
 //using namespace sigc;
+using namespace Gallant;
 
 void start(string);
 void printHelp(bool = false);
@@ -83,6 +85,7 @@ void start(string applicationPath)
 	_pLibrary->logOutRfidMap();
 	
 	/*
+	 * Boost
 	signal<void (string)> rfidSignal;
 	rfidSignal.connect(bind(&Library::setEpisode, _pLibrary, _1));
 	
@@ -91,16 +94,30 @@ void start(string applicationPath)
 	*/
 	
 	/*
+	 * libsigc++
+	 * 
 	rfidSignal.connect(sigc::ptr_fun(_pLibrary, &Library::setEpisode));
 	rfidSignal.connect(sigc::mem_fun(_pLibrary, &Library::setEpisode));
 	*/
 	
 	/*
+	 * libsigc++
+	 * 
 	signal<void, string> rfidSignal;
 	rfidSignal.connect(_pLibrary->setEpisodeSlot);
 	
 	signal<void, Library::Navigation> navigationSignal;
 	navigationSignal.connect(_pLibrary->navigateSlot);
+	*/
+
+	/*
+	 * pbhogan_signals
+	 * 
+	Signal1<string> rfidSignal;
+	rfidSignal.Connect(_pLibrary, &Library::setEpisode);
+	
+	Signal1<Library::Navigation> navigationSignal;
+	navigationSignal.Connect(_pLibrary, &Library::navigate);
 	*/
 	
 	bool isLoop = true;
