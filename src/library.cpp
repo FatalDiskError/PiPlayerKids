@@ -7,12 +7,12 @@
 #include <string>
 #include <iostream>
 #include <cstring>
+#include <iterator> // test
 
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
-//#include <boost/signals2.hpp>
-//#include <sigc++/sigc++.h>
-#include <Signal.h>
+#include <rapidxml_print.hpp> // test
+#include <Signal.h> // https://github.com/pbhogan/Signals
 
 #include "library.hpp"
 #include "library_tags.hpp"
@@ -21,9 +21,6 @@
 using namespace std;
 using namespace console;
 using namespace rapidxml;
-//using namespace boost::signals2;
-//using namespace sigc;
-using namespace Gallant;
 
 namespace library {
 	/***************
@@ -34,9 +31,6 @@ namespace library {
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing library");
 		
-		//setEpisodeSlot = mem_fun(this, &Library::setEpisode);
-		//navigateSlot = mem_fun(this, &Library::navigate);
-
 		size_t lastDirectoryDividerPos = applicationPath.rfind(DIRECTORY_DIVIDER);
 		if (lastDirectoryDividerPos!=string::npos)
 		{
@@ -62,6 +56,7 @@ namespace library {
 		// open library.xml-file
 		file<> xmlFile(_libraryPath.c_str());
 		_doc.parse<0>(xmlFile.data());
+		
 		// get <library>-node
 		xml_node<>* pLibrary = _doc.first_node(LibraryTags::TAG_LIBRARY);
 		
@@ -157,6 +152,21 @@ namespace library {
 		if(!rfidSerialNumber.empty())
 		{
 			rfidMap[rfidSerialNumber] = pFiles;
+			
+			_logStream << "test pFiles: " << pFiles;
+			(*_pLinkToConsole)->printLog(&_logStream);
+			_logStream << "test pFiles->name(): " << pFiles->name();
+			(*_pLinkToConsole)->printLog(&_logStream);
+			_logStream << "test pFiles->value(): " << pFiles->value();
+			(*_pLinkToConsole)->printLog(&_logStream);
+			
+			
+			string s;
+			print(back_inserter(s), *pFiles, 0);
+			_logStream << "pFiles node: " << s;
+			(*_pLinkToConsole)->printLog(&_logStream);
+			
+			
 		}
 	}
 	
@@ -176,8 +186,22 @@ namespace library {
 			_logStream << "found <files> with rfid [" << rfidSerialNumber << "]";
 			(*_pLinkToConsole)->printLog(&_logStream);
 			#endif
+			
 			// set current-episode-files to <files>-node of found rfid-serial-number
 			_pCurrentEpisodeFiles = it->second;
+			
+			_logStream << "test _pCurrentEpisodeFiles: " << _pCurrentEpisodeFiles;
+			(*_pLinkToConsole)->printLog(&_logStream);
+			_logStream << "test _pCurrentEpisodeFiles->name(): " << _pCurrentEpisodeFiles->name();
+			(*_pLinkToConsole)->printLog(&_logStream);
+			
+			
+			
+			string s;
+			print(back_inserter(s), *_pCurrentEpisodeFiles, 0);
+			_logStream << "_pCurrentEpisodeFiles node: " << s;
+			(*_pLinkToConsole)->printLog(&_logStream);
+			
 			
 			// set file for current
 			setFile();
@@ -236,7 +260,6 @@ namespace library {
 			setFile();
 		}
 	}
-	
 	void Library::previousFile()
 	{
 		if(_pCurrentEpisodeFiles == NULL)
@@ -252,7 +275,6 @@ namespace library {
 			setFile();
 		}
 	}
-	
 	void Library::resetFiles()
 	{
 		if(_pCurrentEpisodeFiles == NULL)
@@ -263,7 +285,6 @@ namespace library {
 		setCurrentFileIndex(1);
 		setFile();
 	}
-	
 	void Library::navigate(Navigation op)
 	{
 		switch(op)
@@ -329,10 +350,21 @@ namespace library {
 	{
 		// get [current_file]-attribute of <files>-node
 		xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
+		
+		// *************************************************************
+		_logStream << "pCurrentFile: " << pCurrentFile;
+		(*_pLinkToConsole)->printLog(&_logStream);
+		
+		_logStream << "pCurrentFile->name(): " << pCurrentFile->name();
+		(*_pLinkToConsole)->printLog(&_logStream);
+		
+		_logStream << "pCurrentFile->value(): " << pCurrentFile->value();
+		(*_pLinkToConsole)->printLog(&_logStream);
+		// *************************************************************
+		
 		// parse string to int
 		return stoi(pCurrentFile->value());
 	}
-	
 	void Library::setCurrentFileIndex(int index)
 	{
 		xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
@@ -340,7 +372,6 @@ namespace library {
 		const char* text = _doc.allocate_string(newIndex.c_str(), strlen(newIndex.c_str()));
 		pCurrentFile->value(text);
 	}
-	
 	int Library::getCurrentTimestamp(void)
 	{
 		// get [timestamp]-attribute of <files>-node
@@ -348,7 +379,6 @@ namespace library {
 		// parse string to int
 		return stoi(pTimestamp->value());
 	}
-	
 	void Library::setCurrentTimestamp(int timestamp)
 	{
 		xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);

@@ -3,10 +3,7 @@
 #include <cstring>
 #include <string>
 
-//#include <boost/signals2.hpp>
-//#include <sigc++/sigc++.h>
-//#include <ev.h>
-#include <Signal.h>
+#include <Signal.h> // https://github.com/pbhogan/Signals
 
 #include "console.hpp"
 #include "library.hpp"
@@ -18,9 +15,6 @@ using namespace console;
 using namespace library;
 using namespace player;
 using namespace rfid;
-//using namespace boost::signals2;
-//using namespace sigc;
-using namespace Gallant;
 
 void start(string);
 void printHelp(bool = false);
@@ -80,45 +74,25 @@ void start(string applicationPath)
 	Library* _pLibrary = new Library(applicationPath, &_pConsole);
 	
 	Player* _pPlayer = new Player(&_pConsole);
+	//_pLibrary->addSlot(_pPlayer, &Player::playFile);
+	
+	//_pPlayer.connect(_pLibrary->playSignal);
+	//_pConsole->printLog("aaa");
+	//Gallant::Signal2<string, int> *pTest = _pLibrary->playSignal;
+	//_pConsole->printLog("bbb");
+	//pTest->Connect(_pPlayer, &Player::playFile);
+	//_pConsole->printLog("ccc");
+	//(_pLibrary->playSignal).Connect(_pPlayer, &Player::playFile);
+	
 	Rfid* _pRfid = new Rfid(&_pConsole);
 	
 	_pLibrary->logOutRfidMap();
 	
-	/*
-	 * Boost
-	signal<void (string)> rfidSignal;
-	rfidSignal.connect(bind(&Library::setEpisode, _pLibrary, _1));
-	
-	signal<void (Library::Navigation)> navigationSignal;
-	navigationSignal.connect(bind(&Library::navigate, _pLibrary, _1));
-	*/
-	
-	/*
-	 * libsigc++
-	 * 
-	rfidSignal.connect(sigc::ptr_fun(_pLibrary, &Library::setEpisode));
-	rfidSignal.connect(sigc::mem_fun(_pLibrary, &Library::setEpisode));
-	*/
-	
-	/*
-	 * libsigc++
-	 * 
-	signal<void, string> rfidSignal;
-	rfidSignal.connect(_pLibrary->setEpisodeSlot);
-	
-	signal<void, Library::Navigation> navigationSignal;
-	navigationSignal.connect(_pLibrary->navigateSlot);
-	*/
-
-	/*
-	 * pbhogan_signals
-	 * 
-	Signal1<string> rfidSignal;
+	Gallant::Signal1<string> rfidSignal;
 	rfidSignal.Connect(_pLibrary, &Library::setEpisode);
 	
-	Signal1<Library::Navigation> navigationSignal;
+	Gallant::Signal1<Library::Navigation> navigationSignal;
 	navigationSignal.Connect(_pLibrary, &Library::navigate);
-	*/
 	
 	bool isLoop = true;
 	while(isLoop)
@@ -133,31 +107,31 @@ void start(string applicationPath)
 				isLoop = false;
 				break;
 			case 'n': //110
-				//navigationSignal(Library::Navigation::NEXT);
+				navigationSignal(Library::Navigation::NEXT);
 				break;
 			case 'p': //112
-				//navigationSignal(Library::Navigation::PREVIOUS);
+				navigationSignal(Library::Navigation::PREVIOUS);
 				break;
 			case 'r': //
-				//navigationSignal(Library::Navigation::RESET);
+				navigationSignal(Library::Navigation::RESET);
 				break;
 			case '1': //49
-				//rfidSignal("x11111111");
+				rfidSignal("x11111111");
 				break;
 			case '2': //50
-				//rfidSignal("x12121212");
+				rfidSignal("x12121212");
 				break;
 			case '3': //51
-				//rfidSignal("x13131313");
+				rfidSignal("x13131313");
 				break;
 			case '4': //52
-				//rfidSignal("xxxxxxxxx");
+				rfidSignal("xxxxxxxxx");
 				break;
 			case '5': //53
-				//rfidSignal("x21212121");
+				rfidSignal("x21212121");
 				break;
 			case '6': //54
-				//rfidSignal("x22222222");
+				rfidSignal("x22222222");
 				break;
 		}
 	}

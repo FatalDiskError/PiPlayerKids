@@ -9,9 +9,7 @@
 
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
-//#include <boost/signals2.hpp>
-//#include <sigc++/sigc++.h>
-#include <Signal.h>
+#include <Signal.h> // https://github.com/pbhogan/Signals
 
 #include "library_tags.hpp"
 #include "console.hpp"
@@ -19,9 +17,6 @@
 using namespace std;
 using namespace console;
 using namespace rapidxml;
-//using namespace boost::signals2;
-//using namespace sigc;
-using namespace Gallant;
 
 namespace library {
 	class Library
@@ -38,11 +33,7 @@ namespace library {
 			void navigate(Navigation);
 			
 			void logOutRfidMap(void);
-			//signal<void (string, int)> playSignal;
-			//signal<void, string, int> playSignal;
-			//slot<void, string> setEpisodeSlot;
-			//slot<void, Navigation> navigateSlot;
-			//Signal2<string, int> playSignal;
+			Gallant::Signal2<string, int> playSignal;
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
