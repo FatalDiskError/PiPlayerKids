@@ -14,9 +14,11 @@
 #include <Signal.h>
 
 #include "library_tags.hpp"
+#include "player.hpp"
 #include "console.hpp"
 
 using namespace std;
+using namespace player;
 using namespace console;
 using namespace rapidxml;
 //using namespace boost::signals2;
@@ -32,7 +34,7 @@ namespace library {
 				NEXT, PREVIOUS, RESET
 			};
 			
-			Library(string, Console**);
+			Library(string, Player**, Console**);
 			~Library(void);
 			void setEpisode(string);
 			void navigate(Navigation);
@@ -42,7 +44,7 @@ namespace library {
 			//signal<void, string, int> playSignal;
 			//slot<void, string> setEpisodeSlot;
 			//slot<void, Navigation> navigateSlot;
-			//Signal2<string, int> playSignal;
+			Signal2<string, int> playSignal;
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;

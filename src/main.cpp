@@ -77,9 +77,9 @@ int main(int argc, char **argv)
 void start(string applicationPath)
 {
 	Console* _pConsole = new Console(VERTICAL_LAYOUT);
-	Library* _pLibrary = new Library(applicationPath, &_pConsole);
-	
 	Player* _pPlayer = new Player(&_pConsole);
+	Library* _pLibrary = new Library(applicationPath, &_pPlayer, &_pConsole);
+	
 	Rfid* _pRfid = new Rfid(&_pConsole);
 	
 	_pLibrary->logOutRfidMap();
@@ -113,12 +113,12 @@ void start(string applicationPath)
 	/*
 	 * pbhogan_signals
 	 * 
+	*/
 	Signal1<string> rfidSignal;
 	rfidSignal.Connect(_pLibrary, &Library::setEpisode);
 	
 	Signal1<Library::Navigation> navigationSignal;
 	navigationSignal.Connect(_pLibrary, &Library::navigate);
-	*/
 	
 	bool isLoop = true;
 	while(isLoop)
@@ -133,37 +133,37 @@ void start(string applicationPath)
 				isLoop = false;
 				break;
 			case 'n': //110
-				//navigationSignal(Library::Navigation::NEXT);
+				navigationSignal(Library::Navigation::NEXT);
 				break;
 			case 'p': //112
-				//navigationSignal(Library::Navigation::PREVIOUS);
+				navigationSignal(Library::Navigation::PREVIOUS);
 				break;
 			case 'r': //
-				//navigationSignal(Library::Navigation::RESET);
+				navigationSignal(Library::Navigation::RESET);
 				break;
 			case '1': //49
-				//rfidSignal("x11111111");
+				rfidSignal("x11111111");
 				break;
 			case '2': //50
-				//rfidSignal("x12121212");
+				rfidSignal("x12121212");
 				break;
 			case '3': //51
-				//rfidSignal("x13131313");
+				rfidSignal("x13131313");
 				break;
 			case '4': //52
-				//rfidSignal("xxxxxxxxx");
+				rfidSignal("xxxxxxxxx");
 				break;
 			case '5': //53
-				//rfidSignal("x21212121");
+				rfidSignal("x21212121");
 				break;
 			case '6': //54
-				//rfidSignal("x22222222");
+				rfidSignal("x22222222");
 				break;
 		}
 	}
 	
 	//delete _pRfid;
-	//delete _pPlayer;
+	delete _pPlayer;
 	delete _pLibrary;
 	delete _pConsole;
 }

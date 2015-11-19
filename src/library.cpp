@@ -16,9 +16,11 @@
 
 #include "library.hpp"
 #include "library_tags.hpp"
+#include "player.hpp"
 #include "console.hpp"
 
 using namespace std;
+using namespace player;
 using namespace console;
 using namespace rapidxml;
 //using namespace boost::signals2;
@@ -29,10 +31,12 @@ namespace library {
 	/***************
 	 * CONSTRUCTOR *
 	 ***************/
-	Library::Library(string applicationPath, Console** ppConsole=NULL)
+	Library::Library(string applicationPath, Player** ppPlayer, Console** ppConsole=NULL)
 	{
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing library");
+		
+		playSignal.Connect((*ppPlayer), &Player::playFile);
 		
 		//setEpisodeSlot = mem_fun(this, &Library::setEpisode);
 		//navigateSlot = mem_fun(this, &Library::navigate);
@@ -211,7 +215,7 @@ namespace library {
 			// set current-file to found <file>-node
 			_pCurrentFile = pFile;
 			// send signal to play current file at given timestamp
-			//playSignal(_pCurrentFile->value(), timestamp);
+			playSignal(_pCurrentFile->value(), timestamp);
 		}
 		// <file>-node not found
 		else
