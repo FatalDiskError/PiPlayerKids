@@ -37,6 +37,8 @@ namespace library {
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing library");
 		
+		_pPlayer = new Player(ppConsole);
+		
 		//playSignal.Connect((*ppPlayer), &Player::playFile);
 		
 		//setEpisodeSlot = mem_fun(this, &Library::setEpisode);
@@ -49,8 +51,6 @@ namespace library {
 			_libraryPath.append(LIBRARY_FILE_NAME);
 		}
 		parseLibraryFile();
-		
-		_pPlayer = new Player(ppConsole);
 	}
 	Library::~Library(void)
 	{
@@ -164,10 +164,6 @@ namespace library {
 		if(!rfidSerialNumber.empty())
 		{
 			rfidMap[rfidSerialNumber] = pFiles;
-			cout << "pFiles **********************************************" << endl;
-			print(std::cout, _doc, 0);
-			//cout << pFiles << endl;
-			cout << "*****************************************************" << endl;
 		}
 	}
 	
@@ -189,11 +185,6 @@ namespace library {
 			#endif
 			// set current-episode-files to <files>-node of found rfid-serial-number
 			_pCurrentEpisodeFiles = it->second;
-			cout << "_doc ************************************************" << endl;
-			cout << _doc << endl;
-			cout << "_pCurrentEpisodeFiles *******************************" << endl;
-			cout << _pCurrentEpisodeFiles << endl;
-			cout << "*****************************************************" << endl;
 			// set file for current
 			setFile();
 		}
@@ -221,10 +212,6 @@ namespace library {
 		{
 			#ifdef XML_LOG_OUTPUT
 				_logStream << "found <file> at index [" << currentFileIndex << "]";
-				(*_pLinkToConsole)->printLog(&_logStream);
-				
-				_logStream << "this [" << this << "] ";
-				_logStream << "_pPlayer [" << _pPlayer << "]";
 				(*_pLinkToConsole)->printLog(&_logStream);
 			#endif
 			// set current-file to found <file>-node
@@ -349,9 +336,8 @@ namespace library {
 	{
 		// get [current_file]-attribute of <files>-node
 		xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
-		string currentFileString = pCurrentFile->value();
 		// parse string to int
-		return stoi(currentFileString);
+		return stoi(pCurrentFile->value());
 	}
 	
 	void Library::setCurrentFileIndex(int index)

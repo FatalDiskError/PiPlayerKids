@@ -120,8 +120,9 @@ namespace player {
 	
 	void Player::playFile(string fileName, int timestamp)
 	{
-		_logStream << "this [" << this << "] ";
-		//_logStream << "streamHandle [" << streamHandle << "]";
+		_logStream << "fileName [" << fileName << "] ";
+		_logStream << "timestamp [" << timestamp << "] ";
+		_logStream << "streamHandle [" << streamHandle << "]";
 		(*_pLinkToConsole)->printLog(&_logStream);
 		
 		/*
