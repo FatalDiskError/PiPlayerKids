@@ -7,61 +7,58 @@
 			<title>Der Wetterelefant</title>
 			<cover></cover>
 			<files rfid="x11111111" current_file="3" timestamp="11111111">
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_0_benjamin_bluemchen.mp3</file>
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_1.mp3</file>
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_2.mp3</file>
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_3.mp3</file>
+				<file>01</file>
+				<file>02</file>
+				<file>03</file>
 			</files>
 		</episode>
 		<episode>
 			<title>Als Detektiv</title>
 			<cover></cover>
 			<files rfid="x12121212" current_file="2" timestamp="12121212">
-				<file>benjamin_bluemchen/als_detektiv/placeholder_0_benjamin_bluemchen.mp3</file>
-				<file>benjamin_bluemchen/als_detektiv/placeholder_1.mp3</file>
-				<file>benjamin_bluemchen/als_detektiv/placeholder_3.mp3</file>
-				<file>benjamin_bluemchen/als_detektiv/placeholder_7.mp3</file>
+				<file>02</file>
+				<file>04</file>
+				<file>06</file>
+				<file>08</file>
+				<file>10</file>
+				<file>12</file>
 			</files>
 		</episode>
 		<episode>
-			<title>Als Baggerfahrer</title>
+			<title>Als Feuerwehrmann</title>
 			<cover></cover>
 			<files rfid="x13131313" current_file="1" timestamp="13131313">
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_0_benjamin_bluemchen.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_1.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_2.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_3.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_4.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_5.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_10.mp3</file>
+				<file>01</file>
 			</files>
 		</episode>
 	</series>
 	<series>
-		<title>Drei Fragezeichen Kids</title>
+		<title>Drei ??? Kids</title>
 		<cover></cover>
 		<episode>
-			<title>gefaehrliche Raetsel</title>
+			<title>Z</title>
 			<cover></cover>
 			<files rfid="x21212121" current_file="1" timestamp="21212121">
-				<file>drei_fragezeichen_kids/01_gefaehrlich_raetsel/placeholder_0_drei_fragezeichen_kids.mp3</file>
-				<file>drei_fragezeichen_kids/01_gefaehrlich_raetsel/placeholder_1.mp3</file>
+				<file>01</file>
 			</files>
 		</episode>
 		<episode>
-			<title>spannende Ferien</title>
+			<title>T</title>
 			<cover></cover>
-			<files rfid="x22222222" current_file="1" timestamp="22222222">
-				<file>drei_fragezeichen_kids/02_spannende_ferien/placeholder_0_drei_fragezeichen_kids.mp3</file>
-				<file>drei_fragezeichen_kids/02_spannende_ferien/placeholder_2.mp3</file>
+			<files rfid="x22222222" current_file="4" timestamp="22222222">
+				<file>05</file>
+				<file>04</file>
+				<file>03</file>
+				<file>02</file>
+				<file>01</file>
 			</files>
 		</episode>
 		<episode>
-			<title>raetselhafte Kreise</title>
+			<title>A</title>
 			<cover></cover>
 			<files rfid="" current_file="1" timestamp="23232323">
-				<file>drei_fragezeichen_kids/03_raetselhafte_kreise/placeholder_0_drei_fragezeichen_kids.mp3</file>
-				<file>drei_fragezeichen_kids/03_raetselhafte_kreise/placeholder_3.mp3</file>
+				<file>a</file>
+				<file>b</file>
 			</files>
 		</episode>
 	</series>
@@ -72,59 +69,36 @@
 			<title>Ritter</title>
 			<cover></cover>
 			<files rfid="x31313131" current_file="1" timestamp="31313131">
-				<file>wieso_weshalb_warum/ritter/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/ritter/placeholder_1.mp3</file>
-				<file>wieso_weshalb_warum/ritter/placeholder_2.mp3</file>
-				<file>wieso_weshalb_warum/ritter/placeholder_3.mp3</file>
+				<file>01</file>
 			</files>
 		</episode>
 		<episode>
 			<title>Polizei</title>
 			<cover></cover>
 			<files rfid="x32323232" current_file="5" timestamp="32323232">
-				<file>wieso_weshalb_warum/polizei/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/polizei/placeholder_1.mp3</file>
-				<file>wieso_weshalb_warum/polizei/placeholder_3.mp3</file>
-				<file>wieso_weshalb_warum/polizei/placeholder_10.mp3</file>
+				<file>01</file>
+				<file>02</file>
+				<file>03</file>
+				<file>04</file>
+				<file>05</file>
 			</files>
 		</episode>
 		<episode>
 			<title>Weltall</title>
 			<cover></cover>
-			<files rfid="" current_file="2" timestamp="33333333">
-				<file>wieso_weshalb_warum/weltall/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_3.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_5.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_7.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_9.mp3</file>
+			<files rfid="x33333333" current_file="2" timestamp="33333333">
+				<file>01</file>
+				<file>02</file>
+				<file>03</file>
+				<file>04</file>
+				<file>05</file>
 			</files>
 		</episode>
 		<episode>
 			<title>Wetter</title>
 			<cover></cover>
-			<files rfid="x33333333" current_file="4" timestamp="34343434">
-				<file>wieso_weshalb_warum/wetter/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_1.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_2.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_3.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_4.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_5.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_6.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>Piraten</title>
-			<cover></cover>
 			<files rfid="" current_file="1" timestamp="34343434">
-				<file>wieso_weshalb_warum/piraten/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/piraten/placeholder_10.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>im Krankenhaus</title>
-			<cover></cover>
-			<files rfid="" current_file="1" timestamp="34343434">
-				<file>wieso_weshalb_warum/im_krankenhaus/placeholder_0_wieso_weshalb_warum.mp3</file>
+				<file>01</file>
 			</files>
 		</episode>
 	</series>

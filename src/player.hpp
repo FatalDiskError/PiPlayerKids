@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include <Signal.h> // https://github.com/pbhogan/Signals
+//#include <Signal.h> // https://github.com/pbhogan/Signals
 #include <bass.h>
 
 #include "console.hpp"

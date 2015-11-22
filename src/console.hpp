@@ -46,5 +46,4 @@ namespace console
 			void clearLogLine(void);
 	};
 }
-
 #endif

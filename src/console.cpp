@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include <sstream>
 #include <curses.h>
 #include "console.hpp"
@@ -9,7 +11,8 @@ namespace console
 	Console::Console(ConsoleLayout consoleLayout)
 	{
 		layout = consoleLayout;
-		
+
+		/*
 		window = initscr();							// init screen
 		cbreak();									// get keys without <ENTER>
 		noecho();									// don't echo keystrokes
@@ -67,13 +70,14 @@ namespace console
 		
 		drawBorder(BORDER_CHAR);
 		move(yOut, xOut);
-		
+		*/
 		printLog("constructing console");
 	}
 
 	Console::~Console(void)
 	{
 		printOut("destructing console. press any key to continue");
+		/*
 		getch();
 
 		clear();
@@ -81,49 +85,63 @@ namespace console
 		echo();
 		nocbreak();
 		endwin();
+		*/
 	}
 
 	void Console::drawDot(char cr, int y, int x)
 	{
+		/*
 		move(y, x);
 		addch(cr);
+		*/
 	}
 
 	void Console::drawHLine(char cr, int y)
 	{
+		/*
 		for(int x=0; x<dimensionX; ++x)
 			drawDot(cr, y, x);
+		*/
 	}
 
 	void Console::drawVLine(char cr, int x)
 	{
+		/*
 		for(int y=0; y<dimensionY; ++y)
 			drawDot(cr, y, x);
+		*/
 	}
 
 	void Console::drawBorder(char cr)
 	{
+		/*
 		drawHLine(cr, 0);
 		drawHLine(cr, dimensionY-1);
 		
 		drawVLine(cr, 0);
 		drawVLine(cr, dimensionX-1);
+		*/
 	}
 
 	void Console::clearOutLine(void)
 	{
+		/*
 		for(int x=xOutMin; x<xOutMax; ++x)
 			drawDot(EMPTY_CHAR, yOut, x);
+		*/
 	}
 
 	void Console::clearLogLine(void)
 	{
+		/*
 		for(int x=xLogMin; x<xLogMax; ++x)
 			drawDot(EMPTY_CHAR, yLog, x);
+		*/
 	}
 
 	void Console::printOut(string out, int lineOffset)
 	{
+		/*
 		string line;
 		int pos = 0;
 		yOut += lineOffset;
@@ -152,6 +170,8 @@ namespace console
 				yOut = yOutMin;
 		}
 		refresh();
+		*/
+		cout << "### OUT: " << out << endl;
 	}
 	
 	void Console::printOut(ostringstream* out, int lineOffset)
@@ -163,6 +183,7 @@ namespace console
 	
 	void Console::printLog(string log)
 	{
+		/*
 		int outY, outX;
 		getyx(window, outY, outX);
 		
@@ -190,6 +211,8 @@ namespace console
 		}
 		move(outY, outX);
 		refresh();
+		*/
+		cout << "*** LOG: " << log << endl;
 	}
 	
 	void Console::printLog(ostringstream* log)
@@ -201,6 +224,12 @@ namespace console
 	
 	int Console::waitForChar(void)
 	{
+		/*
 		return getch();
+		*/
+		string userInput;
+		getline(cin, userInput);
+		int charCode = userInput.at(0);
+		return charCode;
 	}
 }

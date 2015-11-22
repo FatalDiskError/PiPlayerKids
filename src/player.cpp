@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-#include <Signal.h> // https://github.com/pbhogan/Signals
+//#include <Signal.h> // https://github.com/pbhogan/Signals
 #include <bass.h>
 
 #include "player.hpp"
@@ -23,7 +23,43 @@ namespace player {
 		_pLinkToConsole=ppConsole;
 		(*_pLinkToConsole)->printLog("constructing player");
 		
-		int deviceId = getDeviceId();
+		//int deviceId = getDeviceId();
+		//bool init = BASS_Init(deviceId, DEFAULT_FREQUENCY, 0, 0, NULL);
+		
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
+		int deviceId = -1, numDevices, numActiveDevices = 0;
+		BASS_DEVICEINFO deviceInfo;
+		for (numDevices = 0; BASS_GetDeviceInfo(numDevices, &deviceInfo); numDevices++)
+		{
+			if (deviceInfo.flags & BASS_DEVICE_DEFAULT)
+				deviceId = numDevices;
+				
+			if (deviceInfo.flags & BASS_DEVICE_ENABLED)
+				numActiveDevices++;
+			
+			#ifdef XML_OUT_OUTPUT
+				_outStream << numDevices;
+				_outStream << " [" << ((deviceInfo.flags & BASS_DEVICE_DEFAULT) ? "x" : " ") << "]";
+				_outStream << " [" << ((deviceInfo.flags & BASS_DEVICE_ENABLED) ? "act" : "   ") << "]";
+				_outStream << " Device: " << deviceInfo.name;
+				(*_pLinkToConsole)->printOut(&_outStream);
+			#endif
+		}
+		
+		#ifdef XML_OUT_OUTPUT
+			_outStream << "Active devices: " << numActiveDevices << " of " << numDevices;
+			(*_pLinkToConsole)->printOut(&_outStream);
+		#endif
+		
+		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
 		bool init = BASS_Init(deviceId, DEFAULT_FREQUENCY, 0, 0, NULL);
 		#ifdef XML_LOG_OUTPUT
 			_logStream << "BASS_Init [" << deviceId << "]";
@@ -31,17 +67,6 @@ namespace player {
 			_logStream << " [error: " << BASS_ErrorGetCode() << "]";
 			(*_pLinkToConsole)->printLog(&_logStream);
 		#endif
-		
-		/*
-		float volume = 0.1;
-		bool vol = BASS_SetVolume(volume);
-		#ifdef XML_LOG_OUTPUT
-			_logStream << "BASS_SetVolume [" << volume << "]";
-			_logStream << " " << (vol ? "true" : "false");
-			_logStream << " [error: " << BASS_ErrorGetCode() << "]";
-			(*_pLinkToConsole)->printLog(&_logStream);
-		#endif
-		*/
 	}
 	
 	Player::~Player(void)
@@ -80,7 +105,7 @@ namespace player {
 				(*_pLinkToConsole)->printLog(&_logStream);
 			#endif
 			
-			_outStream << "please select your device (0-" << (deviceCount-1) << "): ";
+			_outStream << "please select your deviceId (0-" << (deviceCount-1) << "): ";
 			(*_pLinkToConsole)->printOut(&_outStream);
 			
 			int deviceId = DEFAULT_DEVICE_ID;
@@ -95,16 +120,21 @@ namespace player {
 	
 	void Player::playFile(string fileName, int timestamp)
 	{
+		_logStream << "this [" << this << "] ";
+		//_logStream << "streamHandle [" << streamHandle << "]";
+		(*_pLinkToConsole)->printLog(&_logStream);
+		
+		/*
+		if(streamHandle != 0){
+			BASS_ChannelStop(streamHandle);
+			_logStream << "BASS_ChannelStop [" << streamHandle << "]";
+			(*_pLinkToConsole)->printLog(&_logStream);
+		}
+		
 		string path = "/home/pi/projects/PiPlayerKids/bin/library/";
 		fileName.insert(0, path);
 		
-		#ifdef XML_LOG_OUTPUT
-			_logStream << "playFile(" << fileName << ", " << timestamp << ")";
-			_logStream << " [" << fileName.c_str() << "]";
-			(*_pLinkToConsole)->printLog(&_logStream);
-		#endif
-		
-		streamHandle = BASS_StreamCreateFile(FALSE, fileName.c_str(), 0, 0, 0);
+		streamHandle = BASS_StreamCreateFile(false, fileName.c_str(), 0, 0, BASS_STREAM_AUTOFREE);
 		#ifdef XML_LOG_OUTPUT
 			_logStream << "BASS_StreamCreateFile [" << fileName << "]";
 			_logStream << " " << streamHandle;
@@ -112,7 +142,6 @@ namespace player {
 			(*_pLinkToConsole)->printLog(&_logStream);
 		#endif
 		
-		/*
 		bool play = BASS_ChannelPlay(streamHandle, true);
 		#ifdef XML_LOG_OUTPUT
 			_logStream << "BASS_ChannelPlay [" << streamHandle << "]";
