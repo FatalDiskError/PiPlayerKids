@@ -1,18 +1,18 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <curses.h>
-#include "console.hpp"
+//#include <curses.h>
+//#include "console.hpp"
+#include "ncurse_console.hpp"
 
 using namespace std;
 
 namespace console
 {
-	Console::Console(ConsoleLayout consoleLayout)
+	NcurseConsole::NcurseConsole(ConsoleLayout consoleLayout) : Console()
 	{
 		layout = consoleLayout;
-
-		/*
+		
 		window = initscr();							// init screen
 		cbreak();									// get keys without <ENTER>
 		noecho();									// don't echo keystrokes
@@ -70,14 +70,13 @@ namespace console
 		
 		drawBorder(BORDER_CHAR);
 		move(yOut, xOut);
-		*/
+		
 		printLog("constructing console");
 	}
 
-	Console::~Console(void)
+	NcurseConsole::~NcurseConsole(void)
 	{
 		printOut("destructing console. press any key to continue");
-		/*
 		getch();
 
 		clear();
@@ -85,63 +84,49 @@ namespace console
 		echo();
 		nocbreak();
 		endwin();
-		*/
 	}
 
-	void Console::drawDot(char cr, int y, int x)
+	void NcurseConsole::drawDot(char cr, int y, int x)
 	{
-		/*
 		move(y, x);
 		addch(cr);
-		*/
 	}
 
-	void Console::drawHLine(char cr, int y)
+	void NcurseConsole::drawHLine(char cr, int y)
 	{
-		/*
 		for(int x=0; x<dimensionX; ++x)
 			drawDot(cr, y, x);
-		*/
 	}
 
-	void Console::drawVLine(char cr, int x)
+	void NcurseConsole::drawVLine(char cr, int x)
 	{
-		/*
 		for(int y=0; y<dimensionY; ++y)
 			drawDot(cr, y, x);
-		*/
 	}
 
-	void Console::drawBorder(char cr)
+	void NcurseConsole::drawBorder(char cr)
 	{
-		/*
 		drawHLine(cr, 0);
 		drawHLine(cr, dimensionY-1);
 		
 		drawVLine(cr, 0);
 		drawVLine(cr, dimensionX-1);
-		*/
 	}
 
-	void Console::clearOutLine(void)
+	void NcurseConsole::clearOutLine(void)
 	{
-		/*
 		for(int x=xOutMin; x<xOutMax; ++x)
 			drawDot(EMPTY_CHAR, yOut, x);
-		*/
 	}
 
-	void Console::clearLogLine(void)
+	void NcurseConsole::clearLogLine(void)
 	{
-		/*
 		for(int x=xLogMin; x<xLogMax; ++x)
 			drawDot(EMPTY_CHAR, yLog, x);
-		*/
 	}
 
-	void Console::printOut(string out, int lineOffset)
+	void NcurseConsole::printOut(string out, int lineOffset)
 	{
-		/*
 		string line;
 		int pos = 0;
 		yOut += lineOffset;
@@ -170,20 +155,17 @@ namespace console
 				yOut = yOutMin;
 		}
 		refresh();
-		*/
-		cout << "### OUT: " << out << endl;
 	}
 	
-	void Console::printOut(ostringstream* out, int lineOffset)
+	void NcurseConsole::printOut(ostringstream* out, int lineOffset)
 	{
 		printOut(out->str(), lineOffset);
 		out->str("");
 		out->clear();
 	}
 	
-	void Console::printLog(string log)
+	void NcurseConsole::printLog(string log)
 	{
-		/*
 		int outY, outX;
 		getyx(window, outY, outX);
 		
@@ -211,25 +193,17 @@ namespace console
 		}
 		move(outY, outX);
 		refresh();
-		*/
-		cout << "*** LOG: " << log << endl;
 	}
 	
-	void Console::printLog(ostringstream* log)
+	void NcurseConsole::printLog(ostringstream* log)
 	{
 		printLog(log->str());
 		log->str("");
 		log->clear();
 	}
 	
-	int Console::waitForChar(void)
+	int NcurseConsole::waitForChar(void)
 	{
-		/*
 		return getch();
-		*/
-		string userInput;
-		getline(cin, userInput);
-		int charCode = userInput.at(0);
-		return charCode;
 	}
 }

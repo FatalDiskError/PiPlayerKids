@@ -1,6 +1,4 @@
-#define XML_OUT_OUTPUT
-#define XML_LOG_OUTPUTx
-
+#include <typeinfo>
 #include <iostream>
 #include <sstream>
 #include <cstring>
@@ -11,7 +9,14 @@
 //#include <ev.h>
 //#include <Signal.h>
 
-#include "console.hpp"
+#if CONSOLE_TYPE == stdout
+	#include "console/stdout_console.hpp"
+	#define TEST "STD"
+#elif CONSOLE_TYPE == ncurse
+	#include "console/ncurse_console.hpp"
+	#define TEST "NCURSES"
+#endif
+
 #include "library.hpp"
 //#include "player.hpp"
 #include "rfid.hpp"
@@ -79,7 +84,16 @@ int main(int argc, char **argv)
 
 void start(string applicationPath)
 {
-	Console* _pConsole = new Console(VERTICAL_LAYOUT);
+	Console* _pConsole;
+	
+	#if CONSOLE_TYPE == stdout
+		_pConsole = new StdOutConsole();
+	#elif CONSOLE_TYPE == ncurse
+		_pConsole = new NcurseConsole(VERTICAL_LAYOUT);
+	#endif
+	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
+	_pConsole->printLog(&_logStream);
+	
 	Rfid* _pRfid = new Rfid(&_pConsole);
 	Library* _pLibrary = new Library(applicationPath, &_pConsole);
 	_pLibrary->logOutRfidMap();

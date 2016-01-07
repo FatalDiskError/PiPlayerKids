@@ -15,7 +15,7 @@
 
 #include "library_tags.hpp"
 #include "player.hpp"
-#include "console.hpp"
+#include "console/console.hpp"
 
 using namespace std;
 using namespace player;
@@ -54,8 +54,9 @@ namespace library {
 			const string DIRECTORY_DIVIDER = "/";
 			const string LIBRARY_FILE_NAME = "/library/library.xml";
 			string _libraryPath;
-			map<string, xml_node<>*> rfidMap;
+			map<string, xml_node<>*> _rfidMap;
 			
+			file<>* _pXmlFile;
 			xml_document<> _doc;
 			xml_node<>* _pCurrentEpisodeFiles;
 			xml_node<>* _pCurrentFile;

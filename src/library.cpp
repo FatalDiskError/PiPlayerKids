@@ -1,6 +1,3 @@
-#define XML_OUT_OUTPUTx
-#define XML_LOG_OUTPUT
-
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -18,7 +15,7 @@
 #include "library.hpp"
 #include "library_tags.hpp"
 #include "player.hpp"
-#include "console.hpp"
+#include "console/console.hpp"
 
 using namespace std;
 using namespace player;
@@ -67,8 +64,8 @@ namespace library {
 		(*_pLinkToConsole)->printLog(&_logStream);
 		
 		// open library.xml-file
-		file<> xmlFile(_libraryPath.c_str());
-		_doc.parse<0>(xmlFile.data());
+		_pXmlFile = new file<>(_libraryPath.c_str());
+		_doc.parse<0>(_pXmlFile->data());
 		// get <library>-node
 		xml_node<>* pLibrary = _doc.first_node(LibraryTags::TAG_LIBRARY);
 		
@@ -163,7 +160,7 @@ namespace library {
 		string rfidSerialNumber = pRfid->value();
 		if(!rfidSerialNumber.empty())
 		{
-			rfidMap[rfidSerialNumber] = pFiles;
+			_rfidMap[rfidSerialNumber] = pFiles;
 		}
 	}
 	
@@ -175,9 +172,9 @@ namespace library {
 	{
 		// search rfid-serial-number in map
 		map<string, xml_node<>*>::iterator it;
-		it = rfidMap.find(rfidSerialNumber);
+		it = _rfidMap.find(rfidSerialNumber);
 		// entry found
-		if(it != rfidMap.end())
+		if(it != _rfidMap.end())
 		{
 			#ifdef XML_LOG_OUTPUT
 				_logStream << "found <files> with rfid [" << rfidSerialNumber << "]";
@@ -295,7 +292,7 @@ namespace library {
 		// iterate map and print rfid-serial-numbers to log
 		#ifdef XML_LOG_OUTPUT
 			(*_pLinkToConsole)->printLog("|--- rfid map:");
-			for(map<string, xml_node<>*>::iterator it=rfidMap.begin(); it!=rfidMap.end(); ++it)
+			for(map<string, xml_node<>*>::iterator it=_rfidMap.begin(); it!=_rfidMap.end(); ++it)
 			{
 				_logStream << "|  rfid [" << it->first << "]: " << it->second;
 				(*_pLinkToConsole)->printLog(&_logStream);

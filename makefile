@@ -6,6 +6,45 @@ clear:
 	rm obj/*.o
 	clear
 
+##########################
+### CUSTOM DEFINITIONS ###
+##########################
+CONSOLE_STDOUT = stdout
+CONSOLE_NCURSE = ncurse
+CONSOLE_TYPE = $(CONSOLE_STDOUT)
+
+XML_OUT_OUTPUT = true
+XML_LOG_OUTPUT = true
+
+
+####################
+### CONSOLE LIBS ###
+####################
+ifeq ($(CONSOLE_TYPE), $(CONSOLE_STDOUT))
+NCURSES_LIBS =
+else
+ifeq ($(CONSOLE_TYPE), $(CONSOLE_NCURSE))
+NCURSES_LIBS = -lncurses
+else
+	$(error no console lib defined)
+endif
+endif
+
+######################
+### COMPILER FLAGS ###
+######################
+COMPILER_FLAGS = -std=c++11 -march=armv6 -mfloat-abi=hard -mfpu=vfp -DCONSOLE_TYPE=$(CONSOLE_TYPE)
+
+ifeq ($(XML_OUT_OUTPUT), true)
+COMPILER_FLAGS += -DXML_OUT_OUTPUT
+endif
+ifeq ($(XML_LOG_OUTPUT), true)
+COMPILER_FLAGS += -DXML_LOG_OUTPUT
+endif
+
+#################
+### LIBRARIES ###
+#################
 BOOST_PATH = /usr/include/boost
 BOOST_INCLUDE_PATH = -I$(BOOST_PATH)/filesystem
 # -I$(BOOST_PATH)/signals2
@@ -45,31 +84,58 @@ LIBSIG_INCLUDE_PATH = `pkg-config sigc++-2.0 --cflags`
 LIBSIG_LIBRARY_PATH = `pkg-config sigc++-2.0 --libs`
 #LIBSIG_LIBS = 
 
-NCURSES_LIBS = -lncurses
 
+#############################
+### COMPILER INCLUDE PATH ###
+#############################
 PLAYER_INCLUDE_PATH = $(BOOST_INCLUDE_PATH) $(BASS_INCLUDE_PATH) $(RFID_INCLUDE_PATH) $(RAPIDXML_INCLUDE_PATH)
 # $(PBHOGAN_SIGNALS_INCLUDE_PATH)
 # $(LIBSIG_INCLUDE_PATH)
 # $(LIBEV_INCLUDE_PATH)
+
+#############################
+### COMPILER LIBRARY PATH ###
+#############################
 PLAYER_LIBRARY_PATH = $(BOOST_LIBRARY_PATH) $(BASS_LIBRARY_PATH) $(RFID_LIBRARY_PATH) $(RAPIDXML_LIBRARY_PATH)
 # $(PBHOGAN_SIGNALS_LIBRARY_PATH)
 # $(LIBSIG_LIBRARY_PATH)
 # $(LIBEV_LIBRARY_PATH)
+
+########################
+### LINKER LIBRARIES ###
+########################
 PLAYER_LIBS = $(BOOST_LIBS) $(BASS_LIBS) $(RFID_LIBS) $(NCURSES_LIBS)
+
+########################
+### LINKER LIBRARIES ###
+########################
 PLAYER_LINKER_FLAGS = $(BASS_LINKER_FLAGS)
 
-PLAYER_FILES = main console library player rfid
+
+#################
+### COMPILING ###
+#################
+PLAYER_FILES = main library player rfid
 PLAYER_OBJECTS = $(PLAYER_FILES:%=obj/%.o)
 
-start: $(PLAYER_FILES) linking
+start: $(PLAYER_FILES) console linking
 
 %: src/%.cpp
-	g++ -std=c++11 -g -c $< -o obj/$@.o $(PLAYER_INCLUDE_PATH)
+	g++ $(COMPILER_FLAGS) -g -c $< -o obj/$@.o $(PLAYER_INCLUDE_PATH)
+
+console:
+	g++ $(COMPILER_FLAGS) -g -c src/console/$(CONSOLE_TYPE)_console.cpp -o obj/console.o $(PLAYER_INCLUDE_PATH)
+#	g++ $(COMPILER_FLAGS) -g -c src/console/ncurse_console.cpp -o obj/ncurse_console.o $(PLAYER_INCLUDE_PATH)
+#	g++ $(COMPILER_FLAGS) -g -c src/console/stdout_console.cpp -o obj/stdout_console.o $(PLAYER_INCLUDE_PATH)
 
 linking:
-	g++ -std=c++11 -g $(PLAYER_OBJECTS) -o bin/player $(PLAYER_LIBRARY_PATH) $(PLAYER_LIBS) $(PLAYER_LINKER_FLAGS)
+	g++ $(COMPILER_FLAGS) -g $(PLAYER_OBJECTS) obj/console.o -o bin/player $(PLAYER_LIBRARY_PATH) $(PLAYER_LIBS) $(PLAYER_LINKER_FLAGS)
 # $(BASS_INCLUDE_PATH)
 
+
+############
+### HELP ###
+############
 # -g - turn on debugging (so GDB gives more friendly output)
 # -Wall - turns on most warnings
 # -O or -O2 - turn on optimizations

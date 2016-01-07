@@ -7,7 +7,7 @@
 //#include <Signal.h> // https://github.com/pbhogan/Signals
 #include <bass.h>
 
-#include "console.hpp"
+#include "console/console.hpp"
 
 using namespace std;
 using namespace console;

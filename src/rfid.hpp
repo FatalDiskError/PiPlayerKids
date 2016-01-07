@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 //#include <sstream>
+#include "console/console.hpp"
 
 using namespace std;
 using namespace console;

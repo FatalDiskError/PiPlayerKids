@@ -1,6 +1,4 @@
-﻿#define XML_OUT_OUTPUT
-#define XML_LOG_OUTPUT
-#define USE_DEFAULT_DEVICE
+﻿#define USE_DEFAULT_DEVICE
 
 #include <iostream>
 #include <string>
@@ -9,7 +7,7 @@
 #include <bass.h>
 
 #include "player.hpp"
-#include "console.hpp"
+#include "console/console.hpp"
 
 using namespace std;
 using namespace console;
@@ -125,7 +123,6 @@ namespace player {
 		_logStream << "streamHandle [" << streamHandle << "]";
 		(*_pLinkToConsole)->printLog(&_logStream);
 		
-		/*
 		if(streamHandle != 0){
 			BASS_ChannelStop(streamHandle);
 			_logStream << "BASS_ChannelStop [" << streamHandle << "]";
@@ -150,6 +147,5 @@ namespace player {
 			_logStream << " [error: " << BASS_ErrorGetCode() << "]";
 			(*_pLinkToConsole)->printLog(&_logStream);
 		#endif
-		*/
 	}
 }

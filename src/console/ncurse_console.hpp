@@ -1,8 +1,9 @@
-﻿#ifndef CONSOLE_HPP_INCLUDED
-#define CONSOLE_HPP_INCLUDED
+﻿#ifndef NCURSE_CONSOLE_HPP_INCLUDED
+#define NCURSE_CONSOLE_HPP_INCLUDED
 
-#include <sstream>
+//#include <sstream>
 #include <curses.h>
+#include "console.hpp"
 
 using namespace std;
 
@@ -13,11 +14,11 @@ namespace console
 		HORIZONTAL_LAYOUT, VERTICAL_LAYOUT, NO_LOG_LAYOUT
 	};
 
-	class Console
+	class NcurseConsole : public Console
 	{
 		public:
-			Console(ConsoleLayout);
-			~Console(void);
+			NcurseConsole(ConsoleLayout);
+			~NcurseConsole(void);
 			void printOut(string, int = 0);
 			void printOut(ostringstream*, int = 0);
 			void printLog(string);
@@ -29,8 +30,6 @@ namespace console
 			const int Y_OFFSET = 2;
 			const char BORDER_CHAR = '#';
 			const char EMPTY_CHAR = ' ';
-			const string OUT_PREFIX = "> ";
-			const string LOG_PREFIX = "> ";
 			
 			ConsoleLayout layout;
 			WINDOW *window;
