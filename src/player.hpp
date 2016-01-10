@@ -4,13 +4,14 @@
 #include <iostream>
 #include <string>
 
-//#include <Signal.h> // https://github.com/pbhogan/Signals
+#include <sigc++/sigc++.h>
 #include <bass.h>
 
 #include "console/console.hpp"
 
 using namespace std;
 using namespace console;
+using namespace sigc;
 
 namespace player {
 	class Player
@@ -18,7 +19,18 @@ namespace player {
 		public:
 			Player(Console**);
 			~Player(void);
-			void playFile(string, int);
+			/*
+			 * libsigc++ slots
+			 */
+			slot<void, string, int> playFileSlot;
+			slot<int> playPauseSlot;
+			/*
+			 * libsigc++ signals
+			 */
+			signal<void> completedSignal;
+			
+			void endOfFile(void);
+			
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
@@ -28,10 +40,11 @@ namespace player {
 			const int CHAR_CODE_0 = 48;
 			const int DEFAULT_FREQUENCY = 44100;
 			
-			HSTREAM streamHandle;
+			HSTREAM _streamHandle;
 			
 			int getDeviceId(void);
+			void playFile(string, int);
+			int playPause(void);
 	};
 }
-
 #endif

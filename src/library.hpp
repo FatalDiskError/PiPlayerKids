@@ -6,12 +6,13 @@
 #include <vector>
 #include <map>
 #include <string>
+#include <iostream>
+#include <cstring>
 
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
-//#include <boost/signals2.hpp>
-//#include <sigc++/sigc++.h>
-//#include <Signal.h>
+#include <rapidxml_print.hpp>
+#include <sigc++/sigc++.h>
 
 #include "library_tags.hpp"
 #include "player.hpp"
@@ -21,9 +22,7 @@ using namespace std;
 using namespace player;
 using namespace console;
 using namespace rapidxml;
-//using namespace boost::signals2;
-//using namespace sigc;
-//using namespace Gallant;
+using namespace sigc;
 
 namespace library {
 	class Library
@@ -31,20 +30,20 @@ namespace library {
 		public:
 			enum class Navigation
 			{
-				NEXT, PREVIOUS, RESET
+				PLAY_PAUSE, NEXT, PREVIOUS, RESET
 			};
 			
 			Library(string, Console**);
 			~Library(void);
-			void setEpisode(string);
-			void navigate(Navigation);
 			
 			void logOutRfidMap(void);
-			//signal<void (string, int)> playSignal;
-			//signal<void, string, int> playSignal;
-			//slot<void, string> setEpisodeSlot;
-			//slot<void, Navigation> navigateSlot;
-			//Signal2<string, int> playSignal;
+			/*
+			 * libsigc++ slots
+			 */
+			slot<void, string> setEpisodeSlot;
+			slot<void, Navigation> navigateSlot;
+			slot<void> nextFileSlot;
+			
 		private:
 			Player* _pPlayer;
 			Console** _pLinkToConsole;
@@ -61,6 +60,12 @@ namespace library {
 			xml_node<>* _pCurrentEpisodeFiles;
 			xml_node<>* _pCurrentFile;
 			
+			/*
+			 * libsigc++ signals
+			 */
+			signal<void, string, int> playSignal;
+			signal<int> playPauseSignal;
+			
 			
 			void parseLibraryFile(void);
 			void parseSeries(xml_node<>*);
@@ -69,9 +74,13 @@ namespace library {
 			void parseEpisodeNode(xml_node<>*);
 			
 			void setFile();
+			void playPause();
 			void nextFile();
 			void previousFile();
 			void resetFiles();
+			
+			void setEpisode(string);
+			void navigate(Navigation);
 			
 			int getChildCount(xml_node<>*);
 			xml_node<>* getChildAt(xml_node<>*, int);

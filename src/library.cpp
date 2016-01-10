@@ -1,29 +1,9 @@
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <string>
-#include <iostream>
-#include <cstring>
-
-#include <rapidxml.hpp>
-#include <rapidxml_utils.hpp>
-#include <rapidxml_print.hpp>
-//#include <boost/signals2.hpp>
-//#include <sigc++/sigc++.h>
-//#include <Signal.h>
-
 #include "library.hpp"
-#include "library_tags.hpp"
-#include "player.hpp"
-#include "console/console.hpp"
 
 using namespace std;
 using namespace player;
 using namespace console;
 using namespace rapidxml;
-//using namespace boost::signals2;
-//using namespace sigc;
-//using namespace Gallant;
 
 namespace library {
 	/***************
@@ -34,13 +14,27 @@ namespace library {
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing library");
 		
+		/*
+		 * libsigc++ slots
+		 */
+		setEpisodeSlot = mem_fun(this, &Library::setEpisode);
+		navigateSlot = mem_fun(this, &Library::navigate);
+		nextFileSlot = mem_fun(this, &Library::nextFile);
+		
 		_pPlayer = new Player(ppConsole);
 		
-		//playSignal.Connect((*ppPlayer), &Player::playFile);
+		/*
+		 * libsigc++ signals
+		completedSignal.connect(pLibrary->nextFileSlot);
+		 */
+		_pPlayer->completedSignal.connect(nextFileSlot);
 		
-		//setEpisodeSlot = mem_fun(this, &Library::setEpisode);
-		//navigateSlot = mem_fun(this, &Library::navigate);
-
+		/*
+		 * libsigc++ signals
+		 */
+		playSignal.connect(_pPlayer->playFileSlot);
+		playPauseSignal.connect(_pPlayer->playPauseSlot);
+		
 		size_t lastDirectoryDividerPos = applicationPath.rfind(DIRECTORY_DIVIDER);
 		if (lastDirectoryDividerPos!=string::npos)
 		{
@@ -214,8 +208,7 @@ namespace library {
 			// set current-file to found <file>-node
 			_pCurrentFile = pFile;
 			// send signal to play current file at given timestamp
-			_pPlayer->playFile(_pCurrentFile->value(), timestamp);
-			//playSignal(_pCurrentFile->value(), timestamp);
+			playSignal(_pCurrentFile->value(), timestamp);
 		}
 		// <file>-node not found
 		else
@@ -223,6 +216,18 @@ namespace library {
 			_logStream << "not found <file> at index [" << currentFileIndex << "]";
 			(*_pLinkToConsole)->printLog(&_logStream);
 		}
+	}
+	
+	void Library::playPause()
+	{
+		if(_pCurrentEpisodeFiles == NULL)
+		{
+			return;
+		}
+		
+		int timestamp = playPauseSignal();
+		_outStream << "" << timestamp;
+		(*_pLinkToConsole)->printOut(&_outStream);
 	}
 	
 	void Library::nextFile()
@@ -238,6 +243,10 @@ namespace library {
 		{
 			setCurrentFileIndex(nextIndex);
 			setFile();
+		}
+		else
+		{
+			resetFiles();
 		}
 	}
 	
@@ -272,6 +281,9 @@ namespace library {
 	{
 		switch(op)
 		{
+			case Navigation::PLAY_PAUSE:
+				playPause();
+				break;
 			case Navigation::NEXT:
 				nextFile();
 				break;

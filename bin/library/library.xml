@@ -128,6 +128,17 @@
 			</files>
 		</episode>
 	</series>
+	<series>
+		<title>Test</title>
+		<cover></cover>
+		<episode>
+			<title>Test</title>
+			<cover></cover>
+			<files rfid="x99999999" current_file="1" timestamp="0">
+				<file>1.mp3</file>
+			</files>
+		</episode>
+	</series>
 </library>
 <!--
 	1	39877302
