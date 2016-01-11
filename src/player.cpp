@@ -17,9 +17,9 @@ namespace player {
 		
 		/*
 		 * libsigc++ slots
-		 */
 		playFileSlot = mem_fun(this, &Player::playFile);
 		playPauseSlot = mem_fun(this, &Player::playFile);
+		 */
 		
 		//int deviceId = getDeviceId();
 		//bool init = BASS_Init(deviceId, DEFAULT_FREQUENCY, 0, 0, NULL);
@@ -189,7 +189,7 @@ namespace player {
 		pPlayer->endOfFile();
 	}
 	
-	int Player::playPause(void)
+	int Player::playPauseFile(void)
 	{
 		if(_streamHandle != 0)
 		{
@@ -225,7 +225,7 @@ namespace player {
 					BASS_ERROR_ALREADY	The channel is already paused.
 					 */
 				#endif
-				return -1;
+				return 20;
 			}
 			else if(active == BASS_ACTIVE_STOPPED || active == BASS_ACTIVE_PAUSED)
 			{
@@ -245,7 +245,7 @@ namespace player {
 					BASS_ERROR_NOHW		No hardware voices are available (HCHANNEL only). This only occurs if the sample was loaded/created with the BASS_SAMPLE_VAM flag and BASS_VAM_HARDWARE is set in the sample's VAM mode, and there are no hardware voices available to play it.
 					 */
 				#endif
-				return 20;
+				return -1;
 			}
 			/*
 			switch(active)

@@ -52,26 +52,21 @@ BOOST_LIBRARY_PATH = -L/usr/lib/
 BOOST_LIBS = -lboost_filesystem
 #-lboost_locale -lboost_system
 
-LIBEV_PATH = /usr/include/libev
-LIBEV_INCLUDE_PATH = -I$(LIBEV_PATH)
-LIBEV_LIBRARY_PATH = -L$(LIBEV_PATH)
-#LIBEV_LIBS = -llibev
-
-#PBHOGAN_SIGNALS_PATH = ../libraries/pbhogan_signals
-#PBHOGAN_SIGNALS_INCLUDE_PATH = -I$(PBHOGAN_SIGNALS_PATH)
-#PBHOGAN_SIGNALS_LIBRARY_PATH = -L$(PBHOGAN_SIGNALS_PATH)
-#PBHOGAN_SIGNALS_LIBS = 
-
-BASS_PATH = ../libraries/bass_arm
+BASS_PATH = /usr/lib/bass_arm
 BASS_INCLUDE_PATH = -I$(BASS_PATH)
 BASS_LIBRARY_PATH = -L$(BASS_PATH) -L$(BASS_PATH)/hardfp
 BASS_LIBS = -lbass -lm
 BASS_LINKER_FLAGS = -Wl,-rpath,$(BASS_PATH):$(BASS_PATH)/hardfp
 
-RFID_PATH = ../libraries/bcm2835-1.45/src
+BCM2835_PATH = /usr/lib/bcm2835-1.45/src
+BCM2835_INCLUDE_PATH = -I$(BCM2835_PATH)
+BCM2835_LIBRARY_PATH = -L$(BCM2835_PATH)
+BCM2835_LIBS = -lbcm2835
+
+RFID_PATH = ../libraries/rfid
 RFID_INCLUDE_PATH = -I$(RFID_PATH)
 RFID_LIBRARY_PATH = -L$(RFID_PATH)
-RFID_LIBS = -lbcm2835
+#RFID_LIBS =
 
 RAPIDXML_PATH = ../libraries/rapidxml-1.13
 RAPIDXML_INCLUDE_PATH = -I$(RAPIDXML_PATH)
@@ -88,21 +83,17 @@ LIBSIG_LIBRARY_PATH = `pkg-config sigc++-2.0 --libs`
 #############################
 ### COMPILER INCLUDE PATH ###
 #############################
-COMPILER_INCLUDE_PATH = $(BOOST_INCLUDE_PATH) $(BASS_INCLUDE_PATH) $(RFID_INCLUDE_PATH) $(RAPIDXML_INCLUDE_PATH) $(LIBSIG_INCLUDE_PATH)
-# $(PBHOGAN_SIGNALS_INCLUDE_PATH)
-# $(LIBEV_INCLUDE_PATH)
+COMPILER_INCLUDE_PATH = $(BOOST_INCLUDE_PATH) $(BASS_INCLUDE_PATH) $(BCM2835_INCLUDE_PATH) $(RFID_INCLUDE_PATH) $(RAPIDXML_INCLUDE_PATH) $(LIBSIG_INCLUDE_PATH)
 
 ###########################
 ### LINKER LIBRARY PATH ###
 ###########################
-LINKER_LIBRARY_PATH = $(BOOST_LIBRARY_PATH) $(BASS_LIBRARY_PATH) $(RFID_LIBRARY_PATH) $(RAPIDXML_LIBRARY_PATH) $(LIBSIG_LIBRARY_PATH)
-# $(PBHOGAN_SIGNALS_LIBRARY_PATH)
-# $(LIBEV_LIBRARY_PATH)
+LINKER_LIBRARY_PATH = $(BOOST_LIBRARY_PATH) $(BASS_LIBRARY_PATH) $(BCM2835_LIBRARY_PATH) $(RFID_LIBRARY_PATH) $(RAPIDXML_LIBRARY_PATH) $(LIBSIG_LIBRARY_PATH)
 
 ########################
 ### LINKER LIBRARIES ###
 ########################
-LINKER_LIBS = $(BOOST_LIBS) $(BASS_LIBS) $(RFID_LIBS) $(NCURSES_LIBS)
+LINKER_LIBS = $(BOOST_LIBS) $(BASS_LIBS) $(BCM2835_LIBS) $(NCURSES_LIBS)
 
 ####################
 ### LINKER FLAGS ###
@@ -116,7 +107,7 @@ LINKER_FLAGS = $(BASS_LINKER_FLAGS)
 PLAYER_FILES = main library player rfid
 PLAYER_OBJECTS = $(PLAYER_FILES:%=obj/%.o)
 
-start: $(PLAYER_FILES) console linking
+start: $(PLAYER_FILES) console rfidlib linking
 
 %: src/%.cpp
 	g++ $(COMPILER_FLAGS) -g -c $< -o obj/$@.o $(COMPILER_INCLUDE_PATH)
@@ -124,8 +115,12 @@ start: $(PLAYER_FILES) console linking
 console:
 	g++ $(COMPILER_FLAGS) -g -c src/console/$(CONSOLE_TYPE)_console.cpp -o obj/console.o $(COMPILER_INCLUDE_PATH)
 
+rfidlib:
+	g++ $(COMPILER_FLAGS) -g -c $(RFID_PATH)/rc522.c -o $(RFID_PATH)/obj/rc522.o $(COMPILER_INCLUDE_PATH)
+	g++ $(COMPILER_FLAGS) -g -c $(RFID_PATH)/rfid.c -o $(RFID_PATH)/obj/rfid.o $(COMPILER_INCLUDE_PATH)
+
 linking:
-	g++ $(COMPILER_FLAGS) -g $(PLAYER_OBJECTS) obj/console.o -o bin/player $(LINKER_LIBRARY_PATH) $(LINKER_LIBS) $(LINKER_FLAGS)
+	g++ $(COMPILER_FLAGS) -g $(PLAYER_OBJECTS) obj/console.o -o bin/player $(RFID_PATH)/obj/rc522.o $(RFID_PATH)/obj/rfid.o $(LINKER_LIBRARY_PATH) $(LINKER_LIBS) $(LINKER_FLAGS)
 
 
 ############

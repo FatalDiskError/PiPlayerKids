@@ -19,17 +19,20 @@ namespace player {
 		public:
 			Player(Console**);
 			~Player(void);
+			
+			void playFile(string, int);
+			int playPauseFile(void);
+			void endOfFile(void);
+			
 			/*
 			 * libsigc++ slots
-			 */
 			slot<void, string, int> playFileSlot;
-			slot<int> playPauseSlot;
+			slot<void> playPauseSlot;
+			 */
 			/*
 			 * libsigc++ signals
 			 */
 			signal<void> completedSignal;
-			
-			void endOfFile(void);
 			
 		private:
 			Console** _pLinkToConsole;
@@ -43,8 +46,6 @@ namespace player {
 			HSTREAM _streamHandle;
 			
 			int getDeviceId(void);
-			void playFile(string, int);
-			int playPause(void);
 	};
 }
 #endif

@@ -31,9 +31,9 @@ namespace library {
 		
 		/*
 		 * libsigc++ signals
-		 */
 		playSignal.connect(_pPlayer->playFileSlot);
 		playPauseSignal.connect(_pPlayer->playPauseSlot);
+		 */
 		
 		size_t lastDirectoryDividerPos = applicationPath.rfind(DIRECTORY_DIVIDER);
 		if (lastDirectoryDividerPos!=string::npos)
@@ -207,8 +207,10 @@ namespace library {
 			#endif
 			// set current-file to found <file>-node
 			_pCurrentFile = pFile;
+			
 			// send signal to play current file at given timestamp
-			playSignal(_pCurrentFile->value(), timestamp);
+			//playSignal(_pCurrentFile->value(), timestamp);
+			_pPlayer->playFile(_pCurrentFile->value(), timestamp);
 		}
 		// <file>-node not found
 		else
@@ -225,7 +227,9 @@ namespace library {
 			return;
 		}
 		
-		int timestamp = playPauseSignal();
+		//int timestamp = playPauseSignal();
+		int timestamp = _pPlayer->playPauseFile();
+		
 		_outStream << "" << timestamp;
 		(*_pLinkToConsole)->printOut(&_outStream);
 	}
@@ -287,7 +291,7 @@ namespace library {
 			case Navigation::NEXT:
 				nextFile();
 				break;
-			case Navigation::PREVIOUS:
+			case Navigation::BACK:
 				previousFile();
 				break;
 			case Navigation::RESET:

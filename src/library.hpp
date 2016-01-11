@@ -30,13 +30,14 @@ namespace library {
 		public:
 			enum class Navigation
 			{
-				PLAY_PAUSE, NEXT, PREVIOUS, RESET
+				PLAY_PAUSE, NEXT, BACK, RESET
 			};
 			
 			Library(string, Console**);
 			~Library(void);
 			
 			void logOutRfidMap(void);
+			
 			/*
 			 * libsigc++ slots
 			 */
@@ -62,9 +63,9 @@ namespace library {
 			
 			/*
 			 * libsigc++ signals
-			 */
 			signal<void, string, int> playSignal;
 			signal<int> playPauseSignal;
+			 */
 			
 			
 			void parseLibraryFile(void);

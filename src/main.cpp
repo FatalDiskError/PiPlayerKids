@@ -5,7 +5,6 @@
 #include <string>
 
 #include <sigc++/sigc++.h>
-//#include <Signal.h>
 
 #if CONSOLE_TYPE == stdout
 	#include "console/stdout_console.hpp"
@@ -20,10 +19,9 @@
 
 using namespace std;
 using namespace console;
-using namespace rfid;
 using namespace library;
+using namespace rfid;
 using namespace sigc;
-//using namespace Gallant;
 
 void start(string);
 void printHelp(bool = false);
@@ -80,7 +78,6 @@ int main(int argc, char **argv)
 void start(string applicationPath)
 {
 	Console* _pConsole;
-	
 	#if CONSOLE_TYPE == stdout
 		_pConsole = new StdOutConsole();
 	#elif CONSOLE_TYPE == ncurse
@@ -89,30 +86,24 @@ void start(string applicationPath)
 	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
 	_pConsole->printLog(&_logStream);
 	
-	Rfid* _pRfid = new Rfid(&_pConsole);
 	Library* _pLibrary = new Library(applicationPath, &_pConsole);
-	_pLibrary->logOutRfidMap();
+	//_pLibrary->logOutRfidMap();
+	
+	Rfid* _pRfid = new Rfid(&_pConsole);
+	_pRfid->rfidSignal.connect(_pLibrary->setEpisodeSlot);
+	_pRfid->listen();
 	
 	/*
-	 * libsigc++ with slots
+	 * libsigc++
 	 * 
-	 */
 	signal<void, string> rfidSignal;
 	rfidSignal.connect(_pLibrary->setEpisodeSlot);
 	
 	signal<void, Library::Navigation> navigationSignal;
 	navigationSignal.connect(_pLibrary->navigateSlot);
-
-	/*
-	 * pbhogan_signals
-	 * 
-	Signal1<string> rfidSignal;
-	rfidSignal.Connect(_pLibrary, &Library::setEpisode);
-	
-	Signal1<Library::Navigation> navigationSignal;
-	navigationSignal.Connect(_pLibrary, &Library::navigate);
 	 */
 	
+	/*
 	bool isLoop = true;
 	while(isLoop)
 	{
@@ -128,14 +119,14 @@ void start(string applicationPath)
 			case 'q': //113
 				isLoop = false;
 				break;
-			case 'p': //112
+			case 'p': //
 				navigationSignal(Library::Navigation::PLAY_PAUSE);
 				break;
 			case 'n': //110
 				navigationSignal(Library::Navigation::NEXT);
 				break;
-			case 'p': //112
-				navigationSignal(Library::Navigation::PREVIOUS);
+			case 'b': //112
+				navigationSignal(Library::Navigation::BACK);
 				break;
 			case 'r': //114
 				navigationSignal(Library::Navigation::RESET);
@@ -158,27 +149,16 @@ void start(string applicationPath)
 			case '6': //54
 				rfidSignal("x22222222");
 				break;
-			/*
-			case '7': //55
-				_pPlayer->playFile("drei_fragezeichen_kids/01_gefaehrlich_raetsel/placeholder_0_drei_fragezeichen_kids.mp3", 0);
-				break;
-			case '8': //56
-				_pPlayer->playFile("wieso_weshalb_warum/ritter/placeholder_0_wieso_weshalb_warum.mp3", 0);
-				break;
-			case '9': //57
-				_pPlayer->playFile("benjamin_bluemchen/als_wetterelefant/placeholder_0_benjamin_bluemchen.mp3", 0);
-				break;
-			*/
 			case '0': //58
 				rfidSignal("x99999999");
 				break;
 		}
 	}
+	 */
 	
-	//delete _pRfid;
-	//delete _pPlayer;
 	delete _pLibrary;
 	delete _pConsole;
+	delete _pRfid;
 }
 
 void printHelp(bool isArgumentWrong)

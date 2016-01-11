@@ -6,7 +6,7 @@
 		<episode>
 			<title>Der Wetterelefant</title>
 			<cover></cover>
-			<files rfid="x11111111" current_file="3" timestamp="11111111">
+			<files rfid="39877302" current_file="1" timestamp="0">
 				<file>benjamin_bluemchen/als_wetterelefant/placeholder_0_benjamin_bluemchen.mp3</file>
 				<file>benjamin_bluemchen/als_wetterelefant/placeholder_1.mp3</file>
 				<file>benjamin_bluemchen/als_wetterelefant/placeholder_2.mp3</file>
@@ -16,7 +16,7 @@
 		<episode>
 			<title>Als Detektiv</title>
 			<cover></cover>
-			<files rfid="x12121212" current_file="2" timestamp="12121212">
+			<files rfid="fb9eb50b" current_file="1" timestamp="0">
 				<file>benjamin_bluemchen/als_detektiv/placeholder_0_benjamin_bluemchen.mp3</file>
 				<file>benjamin_bluemchen/als_detektiv/placeholder_1.mp3</file>
 				<file>benjamin_bluemchen/als_detektiv/placeholder_3.mp3</file>
@@ -26,7 +26,7 @@
 		<episode>
 			<title>Als Baggerfahrer</title>
 			<cover></cover>
-			<files rfid="x13131313" current_file="1" timestamp="13131313">
+			<files rfid="d856fb0e" current_file="1" timestamp="0">
 				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_0_benjamin_bluemchen.mp3</file>
 				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_1.mp3</file>
 				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_2.mp3</file>
@@ -43,7 +43,7 @@
 		<episode>
 			<title>gefaehrliche Raetsel</title>
 			<cover></cover>
-			<files rfid="x21212121" current_file="1" timestamp="21212121">
+			<files rfid="dbac170b" current_file="1" timestamp="0">
 				<file>drei_fragezeichen_kids/01_gefaehrlich_raetsel/placeholder_0_drei_fragezeichen_kids.mp3</file>
 				<file>drei_fragezeichen_kids/01_gefaehrlich_raetsel/placeholder_1.mp3</file>
 			</files>
@@ -51,7 +51,7 @@
 		<episode>
 			<title>spannende Ferien</title>
 			<cover></cover>
-			<files rfid="x22222222" current_file="1" timestamp="22222222">
+			<files rfid="4933a102" current_file="1" timestamp="0">
 				<file>drei_fragezeichen_kids/02_spannende_ferien/placeholder_0_drei_fragezeichen_kids.mp3</file>
 				<file>drei_fragezeichen_kids/02_spannende_ferien/placeholder_2.mp3</file>
 			</files>
@@ -59,7 +59,7 @@
 		<episode>
 			<title>raetselhafte Kreise</title>
 			<cover></cover>
-			<files rfid="" current_file="1" timestamp="23232323">
+			<files rfid="" current_file="1" timestamp="0">
 				<file>drei_fragezeichen_kids/03_raetselhafte_kreise/placeholder_0_drei_fragezeichen_kids.mp3</file>
 				<file>drei_fragezeichen_kids/03_raetselhafte_kreise/placeholder_3.mp3</file>
 			</files>
@@ -71,7 +71,7 @@
 		<episode>
 			<title>Ritter</title>
 			<cover></cover>
-			<files rfid="x31313131" current_file="1" timestamp="31313131">
+			<files rfid="59f07302" current_file="1" timestamp="0">
 				<file>wieso_weshalb_warum/ritter/placeholder_0_wieso_weshalb_warum.mp3</file>
 				<file>wieso_weshalb_warum/ritter/placeholder_1.mp3</file>
 				<file>wieso_weshalb_warum/ritter/placeholder_2.mp3</file>
@@ -81,7 +81,7 @@
 		<episode>
 			<title>Polizei</title>
 			<cover></cover>
-			<files rfid="x32323232" current_file="5" timestamp="32323232">
+			<files rfid="19ba5302" current_file="1" timestamp="0">
 				<file>wieso_weshalb_warum/polizei/placeholder_0_wieso_weshalb_warum.mp3</file>
 				<file>wieso_weshalb_warum/polizei/placeholder_1.mp3</file>
 				<file>wieso_weshalb_warum/polizei/placeholder_3.mp3</file>
@@ -91,7 +91,7 @@
 		<episode>
 			<title>Weltall</title>
 			<cover></cover>
-			<files rfid="" current_file="2" timestamp="33333333">
+			<files rfid="" current_file="1" timestamp="0">
 				<file>wieso_weshalb_warum/weltall/placeholder_0_wieso_weshalb_warum.mp3</file>
 				<file>wieso_weshalb_warum/weltall/placeholder_3.mp3</file>
 				<file>wieso_weshalb_warum/weltall/placeholder_5.mp3</file>
@@ -102,7 +102,7 @@
 		<episode>
 			<title>Wetter</title>
 			<cover></cover>
-			<files rfid="x33333333" current_file="4" timestamp="34343434">
+			<files rfid="19c57502" current_file="1" timestamp="0">
 				<file>wieso_weshalb_warum/wetter/placeholder_0_wieso_weshalb_warum.mp3</file>
 				<file>wieso_weshalb_warum/wetter/placeholder_1.mp3</file>
 				<file>wieso_weshalb_warum/wetter/placeholder_2.mp3</file>
@@ -115,7 +115,7 @@
 		<episode>
 			<title>Piraten</title>
 			<cover></cover>
-			<files rfid="" current_file="1" timestamp="34343434">
+			<files rfid="" current_file="1" timestamp="0">
 				<file>wieso_weshalb_warum/piraten/placeholder_0_wieso_weshalb_warum.mp3</file>
 				<file>wieso_weshalb_warum/piraten/placeholder_10.mp3</file>
 			</files>
@@ -123,7 +123,7 @@
 		<episode>
 			<title>im Krankenhaus</title>
 			<cover></cover>
-			<files rfid="" current_file="1" timestamp="34343434">
+			<files rfid="" current_file="1" timestamp="0">
 				<file>wieso_weshalb_warum/im_krankenhaus/placeholder_0_wieso_weshalb_warum.mp3</file>
 			</files>
 		</episode>
@@ -134,7 +134,7 @@
 		<episode>
 			<title>Test</title>
 			<cover></cover>
-			<files rfid="x99999999" current_file="1" timestamp="0">
+			<files rfid="fb20f60b" current_file="1" timestamp="0">
 				<file>1.mp3</file>
 			</files>
 		</episode>
