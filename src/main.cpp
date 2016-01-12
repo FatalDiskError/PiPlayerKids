@@ -14,11 +14,13 @@
 	#define TEST "NCURSES"
 #endif
 
+#include "controller.hpp"
 #include "library.hpp"
 #include "rfid.hpp"
 
 using namespace std;
 using namespace console;
+using namespace controller;
 using namespace library;
 using namespace rfid;
 using namespace sigc;
@@ -86,11 +88,14 @@ void start(string applicationPath)
 	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
 	_pConsole->printLog(&_logStream);
 	
+	Controller* _pController = new Controller(&_pConsole);
 	Library* _pLibrary = new Library(applicationPath, &_pConsole);
-	//_pLibrary->logOutRfidMap();
-	
 	Rfid* _pRfid = new Rfid(&_pConsole);
-	_pRfid->rfidSignal.connect(_pLibrary->setEpisodeSlot);
+	
+	_pController->episodeSignal.connect(_pLibrary->episodeSlot);
+	_pController->navigateSignal.connect(_pLibrary->navigateSlot);
+	_pRfid->rfidSignal.connect(_pController->rfidSlot);
+	
 	_pRfid->listen();
 	
 	/*
@@ -156,8 +161,9 @@ void start(string applicationPath)
 	}
 	 */
 	
-	delete _pLibrary;
 	delete _pConsole;
+	delete _pController;
+	delete _pLibrary;
 	delete _pRfid;
 }
 

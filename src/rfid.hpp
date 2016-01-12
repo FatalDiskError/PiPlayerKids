@@ -17,7 +17,6 @@
 
 using namespace std;
 using namespace console;
-//using namespace sigc;
 
 namespace rfid
 {

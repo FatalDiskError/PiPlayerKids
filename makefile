@@ -104,7 +104,7 @@ LINKER_FLAGS = $(BASS_LINKER_FLAGS)
 #################
 ### COMPILING ###
 #################
-PLAYER_FILES = main library player rfid
+PLAYER_FILES = main library player rfid controller
 PLAYER_OBJECTS = $(PLAYER_FILES:%=obj/%.o)
 
 start: $(PLAYER_FILES) console rfidlib linking

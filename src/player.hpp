@@ -20,8 +20,8 @@ namespace player {
 			Player(Console**);
 			~Player(void);
 			
-			void playFile(string, int);
-			int playPauseFile(void);
+			void playFile(string, double);
+			double playPauseFile(void);
 			void endOfFile(void);
 			
 			/*

@@ -78,19 +78,6 @@ namespace rfid
 			(*_pLinkToConsole)->printOut(&_outStream);
 			
 			string serial(sn_str);
-			
-			if(serial == "db9a8e0b")
-			{
-				(*_pLinkToConsole)->printLog("stop Rfid::listen(void)");
-				return;
-			}
-			else if(serial == "c45b133b")
-			{
-				(*_pLinkToConsole)->printLog("stop Rfid::listen(void)");
-				(*_pLinkToConsole)->printLog("### shutdown ###");
-				system("sudo shutdown -h -P now");
-				return;
-			}
 			rfidSignal(serial);
 			
 			p=str;

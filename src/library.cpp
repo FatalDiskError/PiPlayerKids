@@ -17,8 +17,8 @@ namespace library {
 		/*
 		 * libsigc++ slots
 		 */
-		setEpisodeSlot = mem_fun(this, &Library::setEpisode);
 		navigateSlot = mem_fun(this, &Library::navigate);
+		episodeSlot = mem_fun(this, &Library::setEpisode);
 		nextFileSlot = mem_fun(this, &Library::nextFile);
 		
 		_pPlayer = new Player(ppConsole);
@@ -194,7 +194,7 @@ namespace library {
 		int currentFileIndex = getCurrentFileIndex();
 		
 		// get timestamp of current file from xml
-		int timestamp = getCurrentTimestamp();
+		double timestamp = getCurrentTimestamp();
 		
 		// get <file>-node at current-file-index
 		xml_node<>* pFile = getChildAt(_pCurrentEpisodeFiles, currentFileIndex-1);
@@ -227,8 +227,8 @@ namespace library {
 			return;
 		}
 		
-		//int timestamp = playPauseSignal();
-		int timestamp = _pPlayer->playPauseFile();
+		double timestamp = _pPlayer->playPauseFile();
+		setCurrentTimestamp(timestamp);
 		
 		_outStream << "" << timestamp;
 		(*_pLinkToConsole)->printOut(&_outStream);
@@ -300,23 +300,6 @@ namespace library {
 		}
 	}
 	
-	/*************
-	 * DEBUGGING *
-	 *************/
-	void Library::logOutRfidMap(void)
-	{
-		// iterate map and print rfid-serial-numbers to log
-		#ifdef XML_LOG_OUTPUT
-			(*_pLinkToConsole)->printLog("|--- rfid map:");
-			for(map<string, xml_node<>*>::iterator it=_rfidMap.begin(); it!=_rfidMap.end(); ++it)
-			{
-				_logStream << "|  rfid [" << it->first << "]: " << it->second;
-				(*_pLinkToConsole)->printLog(&_logStream);
-			}
-			(*_pLinkToConsole)->printLog("|---------");
-		#endif
-	}
-	
 	
 	/***************
 	 * XML HELPERS *
@@ -361,15 +344,15 @@ namespace library {
 		pCurrentFile->value(text);
 	}
 	
-	int Library::getCurrentTimestamp(void)
+	double Library::getCurrentTimestamp(void)
 	{
 		// get [timestamp]-attribute of <files>-node
 		xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
 		// parse string to int
-		return stoi(pTimestamp->value());
+		return stod(pTimestamp->value());
 	}
 	
-	void Library::setCurrentTimestamp(int timestamp)
+	void Library::setCurrentTimestamp(double timestamp)
 	{
 		xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
 		string newTimestamp = to_string(timestamp);

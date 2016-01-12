@@ -41,8 +41,8 @@ namespace library {
 			/*
 			 * libsigc++ slots
 			 */
-			slot<void, string> setEpisodeSlot;
 			slot<void, Navigation> navigateSlot;
+			slot<void, string> episodeSlot;
 			slot<void> nextFileSlot;
 			
 		private:
@@ -87,8 +87,8 @@ namespace library {
 			xml_node<>* getChildAt(xml_node<>*, int);
 			int getCurrentFileIndex(void);
 			void setCurrentFileIndex(int);
-			int getCurrentTimestamp(void);
-			void setCurrentTimestamp(int);
+			double getCurrentTimestamp(void);
+			void setCurrentTimestamp(double);
 	};
 }
 #endif

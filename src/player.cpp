@@ -116,7 +116,7 @@ namespace player {
 		#endif
 	}
 	
-	void Player::playFile(string fileName, int timestamp)
+	void Player::playFile(string fileName, double timestamp)
 	{
 		_logStream << "fileName [" << fileName << "] ";
 		_logStream << "timestamp [" << timestamp << "] ";
@@ -136,7 +136,7 @@ namespace player {
 		string path = "/home/pi/projects/PiPlayerKids/bin/library/";
 		fileName.insert(0, path);
 		
-		_streamHandle = BASS_StreamCreateFile(false, fileName.c_str(), 0, 0, BASS_STREAM_AUTOFREE);
+		_streamHandle = BASS_StreamCreateFile(false, fileName.c_str(), 0, 0, BASS_STREAM_PRESCAN | BASS_STREAM_AUTOFREE);
 		#ifdef XML_LOG_OUTPUT
 			_logStream << "BASS_StreamCreateFile [" << fileName << "]";
 			_logStream << " " << _streamHandle;
@@ -189,7 +189,7 @@ namespace player {
 		pPlayer->endOfFile();
 	}
 	
-	int Player::playPauseFile(void)
+	double Player::playPauseFile(void)
 	{
 		if(_streamHandle != 0)
 		{
@@ -225,7 +225,10 @@ namespace player {
 					BASS_ERROR_ALREADY	The channel is already paused.
 					 */
 				#endif
-				return 20;
+				
+				QWORD position_byte = BASS_ChannelGetPosition(_streamHandle, BASS_POS_BYTE);
+				double position_time = BASS_ChannelBytes2Seconds(_streamHandle, position_byte);
+				return position_time;
 			}
 			else if(active == BASS_ACTIVE_STOPPED || active == BASS_ACTIVE_PAUSED)
 			{
@@ -247,18 +250,6 @@ namespace player {
 				#endif
 				return -1;
 			}
-			/*
-			switch(active)
-			{
-				case 1: //BASS_ACTIVE_PLAYING:
-					break;
-				case 0: //BASS_ACTIVE_STOPPED:
-				case 3: //BASS_ACTIVE_PAUSED:
-					break;
-				case 2: //BASS_ACTIVE_STALLED:
-					break;
-			}
-			*/
 		}
 		return 0;
 	}
