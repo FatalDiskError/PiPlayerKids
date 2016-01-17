@@ -1,145 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <library>
 	<series>
-		<title>Benjamin Bluemchen</title>
+		<title>Was ist was</title>
 		<cover></cover>
 		<episode>
-			<title>Der Wetterelefant</title>
+			<title>01 - Unsere Erde - Das Wetter</title>
 			<cover></cover>
 			<files rfid="39877302" current_file="1" timestamp="0">
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_0_benjamin_bluemchen.mp3</file>
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_1.mp3</file>
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_2.mp3</file>
-				<file>benjamin_bluemchen/als_wetterelefant/placeholder_3.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 01 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 02 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 03 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 04 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 05 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 06 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 07 - unsere erde.mp3</file>
 			</files>
 		</episode>
 		<episode>
-			<title>Als Detektiv</title>
+			<title>10 - Kriminalistik - Computer und Roboter</title>
 			<cover></cover>
 			<files rfid="fb9eb50b" current_file="1" timestamp="0">
-				<file>benjamin_bluemchen/als_detektiv/placeholder_0_benjamin_bluemchen.mp3</file>
-				<file>benjamin_bluemchen/als_detektiv/placeholder_1.mp3</file>
-				<file>benjamin_bluemchen/als_detektiv/placeholder_3.mp3</file>
-				<file>benjamin_bluemchen/als_detektiv/placeholder_7.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>Als Baggerfahrer</title>
-			<cover></cover>
-			<files rfid="d856fb0e" current_file="1" timestamp="0">
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_0_benjamin_bluemchen.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_1.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_2.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_3.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_4.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_5.mp3</file>
-				<file>benjamin_bluemchen/als_baggerfahrer/placeholder_10.mp3</file>
-			</files>
-		</episode>
-	</series>
-	<series>
-		<title>Drei Fragezeichen Kids</title>
-		<cover></cover>
-		<episode>
-			<title>gefaehrliche Raetsel</title>
-			<cover></cover>
-			<files rfid="dbac170b" current_file="1" timestamp="0">
-				<file>drei_fragezeichen_kids/01_gefaehrlich_raetsel/placeholder_0_drei_fragezeichen_kids.mp3</file>
-				<file>drei_fragezeichen_kids/01_gefaehrlich_raetsel/placeholder_1.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>spannende Ferien</title>
-			<cover></cover>
-			<files rfid="4933a102" current_file="1" timestamp="0">
-				<file>drei_fragezeichen_kids/02_spannende_ferien/placeholder_0_drei_fragezeichen_kids.mp3</file>
-				<file>drei_fragezeichen_kids/02_spannende_ferien/placeholder_2.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>raetselhafte Kreise</title>
-			<cover></cover>
-			<files rfid="" current_file="1" timestamp="0">
-				<file>drei_fragezeichen_kids/03_raetselhafte_kreise/placeholder_0_drei_fragezeichen_kids.mp3</file>
-				<file>drei_fragezeichen_kids/03_raetselhafte_kreise/placeholder_3.mp3</file>
-			</files>
-		</episode>
-	</series>
-	<series>
-		<title>Wieso, Weshalb, Warum</title>
-		<cover></cover>
-		<episode>
-			<title>Ritter</title>
-			<cover></cover>
-			<files rfid="59f07302" current_file="1" timestamp="0">
-				<file>wieso_weshalb_warum/ritter/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/ritter/placeholder_1.mp3</file>
-				<file>wieso_weshalb_warum/ritter/placeholder_2.mp3</file>
-				<file>wieso_weshalb_warum/ritter/placeholder_3.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>Polizei</title>
-			<cover></cover>
-			<files rfid="19ba5302" current_file="1" timestamp="0">
-				<file>wieso_weshalb_warum/polizei/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/polizei/placeholder_1.mp3</file>
-				<file>wieso_weshalb_warum/polizei/placeholder_3.mp3</file>
-				<file>wieso_weshalb_warum/polizei/placeholder_10.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>Weltall</title>
-			<cover></cover>
-			<files rfid="" current_file="1" timestamp="0">
-				<file>wieso_weshalb_warum/weltall/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_3.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_5.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_7.mp3</file>
-				<file>wieso_weshalb_warum/weltall/placeholder_9.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>Wetter</title>
-			<cover></cover>
-			<files rfid="19c57502" current_file="1" timestamp="0">
-				<file>wieso_weshalb_warum/wetter/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_1.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_2.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_3.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_4.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_5.mp3</file>
-				<file>wieso_weshalb_warum/wetter/placeholder_6.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>Piraten</title>
-			<cover></cover>
-			<files rfid="" current_file="1" timestamp="0">
-				<file>wieso_weshalb_warum/piraten/placeholder_0_wieso_weshalb_warum.mp3</file>
-				<file>wieso_weshalb_warum/piraten/placeholder_10.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>im Krankenhaus</title>
-			<cover></cover>
-			<files rfid="" current_file="1" timestamp="0">
-				<file>wieso_weshalb_warum/im_krankenhaus/placeholder_0_wieso_weshalb_warum.mp3</file>
-			</files>
-		</episode>
-	</series>
-	<series>
-		<title>Test</title>
-		<cover></cover>
-		<episode>
-			<title>Test</title>
-			<cover></cover>
-			<files rfid="fb20f60b" current_file="1" timestamp="0">
-				<file>1.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/01 - kriminalistik - track 01.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/02 - kriminalistik - track 02.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/03 - kriminalistik - track 03.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/04 - kriminalistik - track 04.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/05 - kriminalistik - track 05.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/06 - kriminalistik - track 06.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/07 - kriminalistik - track 07.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/08 - kriminalistik - track 08.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/09 - kriminalistik - track 09.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/10 - kriminalistik - track 10.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/11 - kriminalistik - track 11.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/12 - kriminalistik - track 12.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/13 - kriminalistik - track 13.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/14 - kriminalistik - track 14.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/15 - kriminalistik - track 15.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/16 - kriminalistik - track 16.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/17 - computer - roboter - track 01.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/18 - computer - roboter - track 02.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/19 - computer - roboter - track 03.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/20 - computer - roboter - track 04.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/21 - computer - roboter - track 05.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/22 - computer - roboter - track 06.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/23 - computer - roboter - track 07.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/24 - computer - roboter - track 08.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/25 - computer - roboter - track 09.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/26 - computer - roboter - track 10.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/27 - computer - roboter - track 11.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/28 - computer - roboter - track 12.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/29 - computer - roboter - track 13.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/30 - computer - roboter - track 14.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/31 - computer - roboter - track 15.mp3</file>
 			</files>
 		</episode>
 	</series>
 </library>
+
+<!--
+<series>
+	<title>blank</title>
+	<cover></cover>
+	<episode>
+		<title>blank</title>
+		<cover></cover>
+		<files rfid="d856fb0e" current_file="1" timestamp="0">
+		</files>
+		<files rfid="dbac170b" current_file="1" timestamp="0">
+		</files>
+		<files rfid="4933a102" current_file="1" timestamp="0">
+		</files>
+		<files rfid="59f07302" current_file="1" timestamp="0">
+		</files>
+		<files rfid="19ba5302" current_file="1" timestamp="0">
+		</files>
+		<files rfid="19c57502" current_file="1" timestamp="0">
+		</files>
+		<files rfid="fb20f60b" current_file="1" timestamp="0">
+		</files>
+	</episode>
+</series>
+//-->
+
 <!--
 	1	39877302
 	2	fb9eb50b
@@ -149,5 +90,6 @@
 	6	59f07302
 	7	19ba5302
 	8	19c57502
-	9	fb20f60b
+	9	fb20f60b - quit
+	0	db9a8e0b - shutdown
 //-->
