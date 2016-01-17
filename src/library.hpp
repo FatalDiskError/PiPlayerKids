@@ -74,7 +74,9 @@ namespace library {
 			void parseEpisodes(xml_node<>*);
 			void parseEpisodeNode(xml_node<>*);
 			
-			void setFile();
+			void setFile(int);
+			void playFile(void);
+			
 			void playPause();
 			void nextFile();
 			void previousFile();

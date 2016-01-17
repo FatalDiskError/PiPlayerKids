@@ -43,6 +43,12 @@ namespace rfid
 			
 			if(status==TAG_NOTAG)
 			{
+				if(false)
+				{
+					rfidSignal("12345678");
+					continue;
+				}
+				
 				usleep(200000);
 				continue;
 			}

@@ -176,8 +176,12 @@ namespace library {
 			#endif
 			// set current-episode-files to <files>-node of found rfid-serial-number
 			_pCurrentEpisodeFiles = it->second;
-			// set file for current
-			setFile();
+		
+			// set file for current episode with index of current file from xml
+			setFile(getCurrentFileIndex());
+			
+			// play current file
+			playFile();
 		}
 		// entry not found
 		else
@@ -188,14 +192,8 @@ namespace library {
 		return;
 	}
 	
-	void Library::setFile()
+	void Library::setFile(int currentFileIndex)
 	{
-		// get index of current file from xml
-		int currentFileIndex = getCurrentFileIndex();
-		
-		// get timestamp of current file from xml
-		double timestamp = getCurrentTimestamp();
-		
 		// get <file>-node at current-file-index
 		xml_node<>* pFile = getChildAt(_pCurrentEpisodeFiles, currentFileIndex-1);
 		// <file>-node found
@@ -207,10 +205,6 @@ namespace library {
 			#endif
 			// set current-file to found <file>-node
 			_pCurrentFile = pFile;
-			
-			// send signal to play current file at given timestamp
-			//playSignal(_pCurrentFile->value(), timestamp);
-			_pPlayer->playFile(_pCurrentFile->value(), timestamp);
 		}
 		// <file>-node not found
 		else
@@ -220,9 +214,21 @@ namespace library {
 		}
 	}
 	
+	void Library::playFile()
+	{
+		if(_pCurrentFile == null)
+		{
+			return;
+		}
+		
+		// play current file at given timestamp from xml
+		_pPlayer->playFile(_pCurrentFile->value(), getCurrentTimestamp());
+		
+	}
+	
 	void Library::playPause()
 	{
-		if(_pCurrentEpisodeFiles == NULL)
+		if(_pCurrentEpisodeFiles == NULL || _pCurrentFile == null)
 		{
 			return;
 		}
@@ -246,7 +252,8 @@ namespace library {
 		if(nextIndex <= getChildCount(_pCurrentEpisodeFiles))
 		{
 			setCurrentFileIndex(nextIndex);
-			setFile();
+			setFile(nextIndex);
+			playFile();
 		}
 		else
 		{
@@ -266,7 +273,8 @@ namespace library {
 		if(previousIndex > 0)
 		{
 			setCurrentFileIndex(previousIndex);
-			setFile();
+			setFile(previousIndex);
+			playFile();
 		}
 	}
 	
@@ -278,7 +286,7 @@ namespace library {
 		}
 		
 		setCurrentFileIndex(1);
-		setFile();
+		setFile(1);
 	}
 	
 	void Library::navigate(Navigation op)
