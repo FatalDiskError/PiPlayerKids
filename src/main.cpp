@@ -5,6 +5,7 @@
 #include <string>
 
 #include <sigc++/sigc++.h>
+#include <boost/filesystem.hpp>
 
 #if CONSOLE_TYPE == stdout
 	#include "console/stdout_console.hpp"
@@ -14,37 +15,25 @@
 	#define TEST "NCURSES"
 #endif
 
+#include "app_params.hpp"
 #include "controller.hpp"
 #include "library.hpp"
+#include "library_builder.hpp"
 #include "rfid.hpp"
 
 using namespace std;
+using namespace app_params;
 using namespace console;
 using namespace controller;
 using namespace library;
 using namespace rfid;
 using namespace sigc;
+using namespace boost::filesystem;
 
 void start(string);
 void printHelp(bool = false);
-void resetLibrary(string);
-void scanLibrary(void);
+void scanLibrary(path, Operations);
 
-enum class Params
-{
-	HELP, RESET, SCAN
-};
-struct ParamsMap : map<Params, string>
-{
-	ParamsMap()
-	{
-		this->operator[](Params::HELP) = "-h";
-		this->operator[](Params::RESET) = "-reset";
-		this->operator[](Params::SCAN) = "-scan";
-	};
-	~ParamsMap(){};
-};
-static ParamsMap paramsMap;
 
 ostringstream _outStream;
 ostringstream _logStream;
@@ -52,6 +41,7 @@ ostringstream _logStream;
 int main(int argc, char **argv)
 {
 	string applicationPath = argv[0];
+	path appPath = path(argv[0]).parent_path();
 	
 	if(argc==1)
 	{
@@ -62,11 +52,43 @@ int main(int argc, char **argv)
 		string param = argv[1];
 		
 		if(param == paramsMap[Params::HELP])
+		{
 			printHelp();
-		else if(param == paramsMap[Params::RESET])
-			resetLibrary(applicationPath);
+		}
 		else if(param == paramsMap[Params::SCAN])
-			scanLibrary();
+		{
+			scanLibrary(appPath, Operations::FULL);
+		}
+		else
+		{
+			printHelp(true);
+			return -1;
+		}
+	}
+	else if(argc==3)
+	{
+		string param = argv[1];
+		string operation = argv[2];
+		
+		if(param == paramsMap[Params::SCAN])
+		{
+			if(operation == operationsMap[Operations::APPEND])
+				scanLibrary(appPath, Operations::APPEND);
+			else if(operation == operationsMap[Operations::FULL])
+				scanLibrary(appPath, Operations::FULL);
+			else if(operation == operationsMap[Operations::RFID])
+				scanLibrary(appPath, Operations::RFID);
+			else
+			{
+				printHelp(true);
+				return -1;
+			}
+		}
+		else
+		{
+			printHelp(true);
+			return -1;
+		}
 	}
 	else
 	{
@@ -98,73 +120,34 @@ void start(string applicationPath)
 	
 	_pRfid->listen();
 	
-	/*
-	 * libsigc++
-	 * 
-	signal<void, string> rfidSignal;
-	rfidSignal.connect(_pLibrary->setEpisodeSlot);
-	
-	signal<void, Library::Navigation> navigationSignal;
-	navigationSignal.connect(_pLibrary->navigateSlot);
-	 */
-	
-	/*
-	bool isLoop = true;
-	while(isLoop)
-	{
-		int charCode = _pConsole->waitForChar();
-		#ifdef XML_LOG_OUTPUT
-			_logStream << "charCode: " << charCode << " - char: " << (char)charCode;
-			_pConsole->printLog(&_logStream);
-		#endif
-		
-		switch((char)charCode)
-		{
-			case 'c': //99
-			case 'q': //113
-				isLoop = false;
-				break;
-			case 'p': //
-				navigationSignal(Library::Navigation::PLAY_PAUSE);
-				break;
-			case 'n': //110
-				navigationSignal(Library::Navigation::NEXT);
-				break;
-			case 'b': //112
-				navigationSignal(Library::Navigation::BACK);
-				break;
-			case 'r': //114
-				navigationSignal(Library::Navigation::RESET);
-				break;
-			case '1': //49
-				rfidSignal("x11111111");
-				break;
-			case '2': //50
-				rfidSignal("x12121212");
-				break;
-			case '3': //51
-				rfidSignal("x13131313");
-				break;
-			case '4': //52
-				rfidSignal("xxxxxxxxx");
-				break;
-			case '5': //53
-				rfidSignal("x21212121");
-				break;
-			case '6': //54
-				rfidSignal("x22222222");
-				break;
-			case '0': //58
-				rfidSignal("x99999999");
-				break;
-		}
-	}
-	 */
-	
 	delete _pConsole;
 	delete _pController;
 	delete _pLibrary;
 	delete _pRfid;
+}
+
+void scanLibrary(path applicationPath, Operations operation)
+{
+	Console* _pConsole;
+	#if CONSOLE_TYPE == stdout
+		_pConsole = new StdOutConsole();
+	#elif CONSOLE_TYPE == ncurse
+		_pConsole = new NcurseConsole(VERTICAL_LAYOUT);
+	#endif
+	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
+	_pConsole->printLog(&_logStream);
+	
+	LibraryBuilder* _pLibraryBuilder = new LibraryBuilder(applicationPath, &_pConsole);
+	_pLibraryBuilder->buildLibraryFile(operation);
+	
+	/*
+	Rfid* _pRfid = new Rfid(&_pConsole);
+	_pRfid->listen(true);
+	*/
+	
+	delete _pLibraryBuilder;
+	delete _pConsole;
+	//delete _pRfid;
 }
 
 void printHelp(bool isArgumentWrong)
@@ -173,16 +156,11 @@ void printHelp(bool isArgumentWrong)
 	{
 		cout << "Wrong number of arguments. Use \"pi_player_kids -h\" for details" << endl;
 	}
-	cout << "pi_player_kids [-h|-scan|-reset]" << endl;
-	cout << "   -h       This help." << endl;
-	cout << "   -reset   Delete current library. WARNING: all RFID codes will be deleted!" << endl;
-	cout << "   -scan    Scan for new files. Reorder files for episodes. Assign RFID codes to episodes." << endl;
-}
-
-void resetLibrary(string applicationPath)
-{
-}
-
-void scanLibrary(void)
-{
+	cout << "pi_player_kids [-h|-scan [-new|-full|-rfid]]" << endl;
+	cout << "   -h        This help." << endl;
+	cout << "   -scan     Scan for files. Default behaviour is [-scan -new]." << endl;
+	cout << "             Current library-file is backuped before each scan." << endl;
+	cout << "      -append   Scan only for new series/episodes and append in current library." << endl;
+	cout << "      -full     Rescan all files. Directories within library-path represents series, sub-directories episodes." << endl;
+	cout << "      -rfid     Assign RFID-codes to episodes." << endl;
 }

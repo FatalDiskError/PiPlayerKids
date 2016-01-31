@@ -216,7 +216,7 @@ namespace library {
 	
 	void Library::playFile()
 	{
-		if(_pCurrentFile == null)
+		if(_pCurrentFile == NULL)
 		{
 			return;
 		}
@@ -228,7 +228,7 @@ namespace library {
 	
 	void Library::playPause()
 	{
-		if(_pCurrentEpisodeFiles == NULL || _pCurrentFile == null)
+		if(_pCurrentEpisodeFiles == NULL || _pCurrentFile == NULL)
 		{
 			return;
 		}

@@ -26,7 +26,7 @@ namespace rfid
 			Rfid(Console**);
 			~Rfid(void);
 			
-			void listen(void);
+			void listen(bool=false);
 			
 			/*
 			 * libsigc++ signals

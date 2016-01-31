@@ -19,7 +19,7 @@ namespace rfid
 		release_rfid();
 	}
 	
-	void Rfid::listen(void)
+	void Rfid::listen(bool isScanning)
 	{
 		(*_pLinkToConsole)->printLog("start Rfid::listen(void)");
 		
@@ -76,10 +76,13 @@ namespace rfid
 			}
 			*/
 			
-			_outStream << "Tag found ";
-			_outStream << "[type: " << setfill('0') << setw(4) << setbase(16) << CType << ", ";
-			_outStream << "SNlen: " << setbase(10) << int(SN_len) << ", ";
-			_outStream << "SN: " << int(SN) << "] ";
+			if(!isScanning)
+			{
+				_outStream << "Tag found ";
+				_outStream << "[type: " << setfill('0') << setw(4) << setbase(16) << CType << ", ";
+				_outStream << "SNlen: " << setbase(10) << int(SN_len) << ", ";
+				_outStream << "SN: " << int(SN) << "] ";
+			}
 			_outStream << "SN: " << sn_str;
 			(*_pLinkToConsole)->printOut(&_outStream);
 			
