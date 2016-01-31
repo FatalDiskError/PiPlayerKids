@@ -47,9 +47,8 @@ endif
 #################
 BOOST_PATH = /usr/include/boost
 BOOST_INCLUDE_PATH = -I$(BOOST_PATH)/filesystem
-# -I$(BOOST_PATH)/signals2
 BOOST_LIBRARY_PATH = -L/usr/lib/
-BOOST_LIBS = -lboost_filesystem
+BOOST_LIBS = -lboost_filesystem -lboost_system
 #-lboost_locale -lboost_system
 
 BASS_PATH = /usr/lib/bass_arm
@@ -83,12 +82,14 @@ LIBSIG_LIBRARY_PATH = `pkg-config sigc++-2.0 --libs`
 #############################
 ### COMPILER INCLUDE PATH ###
 #############################
-COMPILER_INCLUDE_PATH = $(BOOST_INCLUDE_PATH) $(BASS_INCLUDE_PATH) $(BCM2835_INCLUDE_PATH) $(RFID_INCLUDE_PATH) $(RAPIDXML_INCLUDE_PATH) $(LIBSIG_INCLUDE_PATH)
+GENERIC_INCLUDE_PATH = -I./src/
+COMPILER_INCLUDE_PATH = $(GENERIC_INCLUDE_PATH) $(BOOST_INCLUDE_PATH) $(BASS_INCLUDE_PATH) $(BCM2835_INCLUDE_PATH) $(RFID_INCLUDE_PATH) $(RAPIDXML_INCLUDE_PATH) $(LIBSIG_INCLUDE_PATH)
 
 ###########################
 ### LINKER LIBRARY PATH ###
 ###########################
-LINKER_LIBRARY_PATH = $(BOOST_LIBRARY_PATH) $(BASS_LIBRARY_PATH) $(BCM2835_LIBRARY_PATH) $(RFID_LIBRARY_PATH) $(RAPIDXML_LIBRARY_PATH) $(LIBSIG_LIBRARY_PATH)
+GENERIC_LIBRARY_PATH = -L./src/
+LINKER_LIBRARY_PATH = $(GENERIC_LIBRARY_PATH) $(BOOST_LIBRARY_PATH) $(BASS_LIBRARY_PATH) $(BCM2835_LIBRARY_PATH) $(RFID_LIBRARY_PATH) $(RAPIDXML_LIBRARY_PATH) $(LIBSIG_LIBRARY_PATH)
 
 ########################
 ### LINKER LIBRARIES ###
@@ -104,7 +105,7 @@ LINKER_FLAGS = $(BASS_LINKER_FLAGS)
 #################
 ### COMPILING ###
 #################
-PLAYER_FILES = main library player rfid controller
+PLAYER_FILES = main library library_builder player rfid controller
 PLAYER_OBJECTS = $(PLAYER_FILES:%=obj/%.o)
 
 start: $(PLAYER_FILES) console rfidlib linking
