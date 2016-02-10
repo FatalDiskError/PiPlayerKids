@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 {
 	string applicationPath = argv[0];
 	path appPath = path(argv[0]).parent_path();
-	
+
 	if(argc==1)
 	{
 		start(applicationPath);
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 	else if(argc==2)
 	{
 		string param = argv[1];
-		
+
 		if(param == paramsMap[Params::HELP])
 		{
 			printHelp();
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 	{
 		string param = argv[1];
 		string operation = argv[2];
-		
+
 		if(param == paramsMap[Params::SCAN])
 		{
 			if(operation == operationsMap[Operations::APPEND])
@@ -95,7 +95,7 @@ int main(int argc, char **argv)
 		printHelp(true);
 		return -1;
 	}
-	
+
 	return 0;
 }
 
@@ -109,17 +109,17 @@ void start(string applicationPath)
 	#endif
 	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
 	_pConsole->printLog(&_logStream);
-	
+
 	Controller* _pController = new Controller(&_pConsole);
 	Library* _pLibrary = new Library(applicationPath, &_pConsole);
 	Rfid* _pRfid = new Rfid(&_pConsole);
-	
+
 	_pController->episodeSignal.connect(_pLibrary->episodeSlot);
 	_pController->navigateSignal.connect(_pLibrary->navigateSlot);
 	_pRfid->rfidSignal.connect(_pController->rfidSlot);
-	
+
 	_pRfid->listen();
-	
+
 	delete _pConsole;
 	delete _pController;
 	delete _pLibrary;
@@ -136,15 +136,15 @@ void scanLibrary(path applicationPath, Operations operation)
 	#endif
 	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
 	_pConsole->printLog(&_logStream);
-	
+
 	LibraryBuilder* _pLibraryBuilder = new LibraryBuilder(applicationPath, &_pConsole);
 	_pLibraryBuilder->buildLibraryFile(operation);
-	
+
 	/*
 	Rfid* _pRfid = new Rfid(&_pConsole);
 	_pRfid->listen(true);
 	*/
-	
+
 	delete _pLibraryBuilder;
 	delete _pConsole;
 	//delete _pRfid;

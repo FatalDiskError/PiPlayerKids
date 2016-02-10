@@ -27,6 +27,7 @@ using namespace std;
 using namespace app_params;
 using namespace console;
 using namespace global_exit;
+using namespace rapidxml;
 using namespace boost::filesystem;
 
 namespace library {
@@ -46,7 +47,7 @@ namespace library {
 		~FileExtensionsMap(){};
 	};
 	static FileExtensionsMap fileExtensionMap;
-	
+
 	enum FileNames
 	{
 		LIBRARY, COVER, DEFAULT_COVER
@@ -62,43 +63,58 @@ namespace library {
 		~FileNamesMap(){};
 	};
 	static FileNamesMap fileNamesMap;
-	
+
 	class LibraryBuilder
 	{
 		public:
 			LibraryBuilder(path, Console**);
 			~LibraryBuilder(void);
-			
+
 			void buildLibraryFile(Operations);
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
 			ostringstream _logStream;
-			
+
 			const string LIBRARY_FILE_PATH =		"library";
 			const string LIBRARY_FILE_NAME =		"library.xml";
 			const string DOT =						".";
 			const string BACKUP_FILE_EXTENSION =	".bak";
-			
+
+			vector<xml_node<char>*> _nodeStorage;
+			vector<const char*> _valueStorage;
+
 			path _libraryPath;
 			path _libraryFile;
 			ofstream _libraryFileStream;
-			
-			void writeSeries(bool=false);
+
+			file<>* _pLibraryXmlFile;
+			xml_document<> _libraryDoc;
+
+			xml_node<>* getExistingNode(string, xml_node<>*, const char*);
+
+			void parseSeriesFolders(xml_node<>*);
+			void parseEpisodesFolders(xml_node<>*, path);
+			void parseFilesFolders(xml_node<>*, path);
+
+			xml_node<>* writeSeriesNode(string);
+			xml_node<>* writeEpisodeNode(string);
+			xml_node<>* writeFileNode(string);
+
 			path backupFile(void);
 			void createBackupFileName(path&, int);
-			
-			void writeOpenTag(string, int, bool=true);
+
+			void writeOpenTag(string, int, bool=true, string="");
 			void writeCloseTag(string, int=0);
-			
+
 			void tracePath(string, path);
 			path relativeTo(path, path);
 			path getPath(string);
 			vector<path> getSubDirectories(path);
-			vector<path> getFiles(path, FileExtensions);
-			path getFile(path, FileNames);
+			vector<path> getFiles(path, FileExtensions=CURRENT_PATH);
+			//path getFile(path, FileNames);
 			bool conditional_check(path, FileExtensions);
-			bool conditional_check(path, FileNames);
+			//bool conditional_check(path, FileNames);
 	};
 }
 #endif

@@ -20,6 +20,7 @@ namespace library {
 			static constexpr const char* ATTRIBUTE_RFID = "rfid";
 			static constexpr const char* ATTRIBUTE_CURRENT_FILE = "current_file";
 			static constexpr const char* ATTRIBUTE_TIMESTAMP = "timestamp";
+			static constexpr const char* DEFAULT_ATTRIBUTES_FILES = "rfid=\"\" current_file=\"1\" timestamp=\"0\"";
 	};
 }
 

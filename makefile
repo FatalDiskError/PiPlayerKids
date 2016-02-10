@@ -3,8 +3,8 @@ SHELL = ./report_time.sh
 all: start
 
 clear:
-	rm obj/*.o
 	clear
+#	rm obj/*.o
 
 ##########################
 ### CUSTOM DEFINITIONS ###
@@ -122,6 +122,12 @@ rfidlib:
 
 linking:
 	g++ $(COMPILER_FLAGS) -g $(PLAYER_OBJECTS) obj/console.o -o bin/player $(RFID_PATH)/obj/rc522.o $(RFID_PATH)/obj/rfid.o $(LINKER_LIBRARY_PATH) $(LINKER_LIBS) $(LINKER_FLAGS)
+
+run:
+	sudo bin/player -scan -append
+
+gtfo: clear library_builder linking run
+
 
 
 ############
