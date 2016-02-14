@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 		}
 		else if(param == paramsMap[Params::SCAN])
 		{
-			scanLibrary(appPath, Operations::FULL);
+			scanLibrary(appPath, Operations::RFID);
 		}
 		else
 		{
@@ -137,13 +137,12 @@ void scanLibrary(path applicationPath, Operations operation)
 	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
 	_pConsole->printLog(&_logStream);
 
+	Controller* _pController = new Controller(&_pConsole);
 	LibraryBuilder* _pLibraryBuilder = new LibraryBuilder(applicationPath, &_pConsole);
-	_pLibraryBuilder->buildLibraryFile(operation);
-
-	/*
 	Rfid* _pRfid = new Rfid(&_pConsole);
-	_pRfid->listen(true);
-	*/
+	_pLibraryBuilder->buildLibraryFile(operation);
+	_pRfid->listen();
+
 
 	delete _pLibraryBuilder;
 	delete _pConsole;

@@ -1,3 +1,1259 @@
 <?xml version="1.0" encoding="utf-8"?>
 <library>
+	<series>
+		<title>was_ist_was</title>
+		<cover/>
+		<episode>
+			<title>01 - Unsere Erde - Das Wetter</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 01 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 02 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 03 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 04 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 05 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 06 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 07 - unsere erde.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 08 - das wetter.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 09 - das wetter.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 10 - das wetter.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 11 - das wetter.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 12 - das wetter.mp3</file>
+				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 13 - das wetter.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>02 - Autos - Eisenbahnen</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 01 - autos.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 02 - autos.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 03 - autos.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 04 - autos.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 05 - autos.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 06 - autos.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 07 - autos.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 08 - eisenbahnen.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 09 - eisenbahnen.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 10 - eisenbahnen.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 11 - eisenbahnen.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 12 - eisenbahnen.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 13 - eisenbahnen.mp3</file>
+				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 14 - eisenbahnen.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>03 - Amphibien - Reptilien - Haie</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 01 - amphibien und reptilien.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 02 - amphibien und reptilien.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 03 - amphibien und reptilien.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 04 - amphibien und reptilien.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 05 - amphibien und reptilien.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 06 - amphibien und reptilien.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 07 - amphibien und reptilien.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 08 - haie.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 09 - haie.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 10 - haie.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 11 - haie.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 12 - haie.mp3</file>
+				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 13 - haie.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>04 - Ritter - Burgen - Das alte Rom</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 01 - ritter und burgen.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 02 - ritter und burgen.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 03 - ritter und burgen.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 04 - ritter und burgen.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 05 - ritter und burgen.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 06 - ritter und burgen.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 07 - ritter und burgen.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 08 - das alte rom.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 09 - das alte rom.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 10 - das alte rom.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 11 - das alte rom.mp3</file>
+				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 12 - das alte rom.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>06 - Planeten und Raumfahrt - Fliegerei</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/01 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/02 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/03 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/04 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/05 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/06 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/07 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/08 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/09 - planeten und raumfahrt.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/10 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/11 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/12 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/13 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/14 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/15 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/16 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/17 - fliegerei.mp3</file>
+				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/18 - fliegerei.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>07 - Katzen - Pferde</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/07 - Katzen - Pferde/01 - katzen 1.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/02 - katzen 2.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/03 - katzen 3.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/04 - katzen 4.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/05 - katzen 5.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/06 - katzen 6.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/07 - katzen 7.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/08 - katzen 8.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/09 - katzen 9.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/10 - katzen 10.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/11 - katzen 11.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/12 - katzen 12.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/13 - katzen 13.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/14 - katzen 14.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/15 - katzen 15.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/16 - katzen 16.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/17 - katzen 17.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/18 - katzen 18.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/19 - katzen 19.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/20 - katzen 20.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/21 - pferde 1.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/22 - pferde 2.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/23 - pferde 3.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/24 - pferde 4.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/25 - pferde 5.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/26 - pferde 6.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/27 - pferde 7.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/28 - pferde 8.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/29 - pferde 9.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/30 - pferde 10.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/31 - pferde 11.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/32 - pferde 12.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/33 - pferde 13.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/34 - pferde 14.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/35 - pferde 15.mp3</file>
+				<file>was_ist_was/07 - Katzen - Pferde/36 - pferde 16.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>08 - Dinosaurier - Spinnen</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 01 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 02 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 03 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 04 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 05 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 06 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 07 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 08 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 09 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 10 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 11 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 12 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 13 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 14 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 15 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 16 - dinosaurier.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 17 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 18 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 19 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 20 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 21 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 22 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 23 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 24 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 25 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 26 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 27 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 28 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 29 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 30 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 31 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 32 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 33 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 34 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 35 - spinnen.mp3</file>
+				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 36 - spinnen.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>09 - Seeraeuber - Schiffe</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 01 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 02 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 03 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 04 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 05 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 06 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 07 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 08 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 09 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 10 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 11 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 12 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 13 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 14 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 15 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 16 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 17 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 18 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 19 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 20 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 21 - seeraeuber.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 22 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 23 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 24 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 25 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 26 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 27 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 28 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 29 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 30 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 31 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 32 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 33 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 34 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 35 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 36 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 37 - schiffe.mp3</file>
+				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 38 - schiffe.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>11 - Unser Koerper und Gehirn - Mumien</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/01 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/02 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/03 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/04 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/05 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/06 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/07 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/08 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/09 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/10 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/11 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/12 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/13 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/14 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/15 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/16 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/17 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/18 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/19 - unser koerper - gehirn .mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/20 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/21 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/22 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/23 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/24 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/25 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/26 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/27 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/28 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/29 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/30 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/31 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/32 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/33 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/34 - mumien.mp3</file>
+				<file>was_ist_was/11 - Unser Koerper und Gehirn - Mumien/35 - mumien.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>12 - Film - Fernsehen und Mond - Kosmos</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/01 titel 01.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/02 titel 02.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/03 titel 03.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/04 titel 04.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/05 titel 05.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/06 titel 06.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/07 titel 07.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/08 titel 08.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/09 titel 09.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/10 titel 10.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/11 titel 11.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/12 titel 12.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/13 titel 13.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/14 titel 14.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/15 titel 15.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/16 titel 16.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/17 titel 17.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/18 titel 18.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/19 titel 19.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/20 titel 20.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/21 titel 21.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/22 titel 22.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/23 titel 23.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/24 titel 24.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/25 titel 25.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/26 titel 26.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/27 titel 27.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/28 titel 28.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/29 titel 29.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/30 titel 30.mp3</file>
+				<file>was_ist_was/12 - Film - Fernsehen und Mond - Kosmos/31 titel 31.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>13 - Wale und Delphine - Baeume</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/01 - track 1.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/02 - track 2.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/03 - track 3.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/04 - track 4.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/05 - track 5.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/06 - track 6.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/07 - track 7.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/08 - track 8.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/09 - track 9.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/10 - track 10.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/11 - track 11.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/12 - track 12.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/13 - track 13.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/14 - track 14.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/15 - track 15.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/16 - track 16.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/17 - track 17.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/18 - track 18.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/19 - track 19.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/20 - track 20.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/21 - track 21.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/22 - track 22.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/23 - track 23.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/24 - track 24.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/25 - track 25.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/26 - track 26.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/27 - track 27.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/28 - track 28.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/29 - track 29.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/30 - track 30.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/31 - track 31.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/32 - track 32.mp3</file>
+				<file>was_ist_was/13 - Wale und Delphine - Baeume/33 - track 33.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>14 - Fussball - Formel 1</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/14 - Fussball - Formel 1/01 - track 1.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/02 - track 2.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/03 - track 3.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/04 - track 4.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/05 - track 5.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/06 - track 6.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/07 - track 7.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/08 - track 8.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/09 - track 9.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/10 - track 10.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/11 - track 11.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/12 - track 12.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/13 - track 13.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/14 - track 14.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/15 - track 15.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/16 - track 16.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/17 - track 17.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/18 - track 18.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/19 - track 19.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/20 - track 20.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/21 - track 21.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/22 - track 22.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/23 - track 23.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/24 - track 24.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/25 - track 25.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/26 - track 26.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/27 - track 27.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/28 - track 28.mp3</file>
+				<file>was_ist_was/14 - Fussball - Formel 1/29 - track 29.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>15 - Bauernhof - Hunde</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/15 - Bauernhof - Hunde/01 - track 1.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/02 - track 2.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/03 - track 3.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/04 - track 4.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/05 - track 5.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/06 - track 6.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/07 - track 7.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/08 - track 8.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/09 - track 9.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/10 - track 10.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/11 - track 11.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/12 - track 12.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/13 - track 13.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/14 - track 14.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/15 - track 15.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/16 - track 16.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/17 - track 17.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/18 - track 18.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/19 - track 19.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/20 - track 20.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/21 - track 21.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/22 - track 22.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/23 - track 23.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/24 - track 24.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/25 - track 25.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/26 - track 26.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/27 - track 27.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/28 - track 28.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/29 - track 29.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/30 - track 30.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/31 - track 31.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/32 - track 32.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/33 - track 33.mp3</file>
+				<file>was_ist_was/15 - Bauernhof - Hunde/34 - track 34.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>16 - Schatzsuche - Das alte China</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/01 - track 1.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/02 - track 2.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/03 - track 3.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/04 - track 4.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/05 - track 5.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/06 - track 6.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/07 - track 7.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/08 - track 8.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/09 - track 9.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/10 - track 10.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/11 - track 11.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/12 - track 12.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/13 - track 13.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/14 - track 14.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/15 - track 15.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/16 - track 16.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/17 - track 17.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/18 - track 18.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/19 - track 19.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/20 - track 20.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/21 - track 21.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/22 - track 22.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/23 - track 23.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/24 - track 24.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/25 - track 25.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/26 - track 26.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/27 - track 27.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/28 - track 28.mp3</file>
+				<file>was_ist_was/16 - Schatzsuche - Das alte China/29 - track 29.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>17 - Feuerwehr - Polizei</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/17 - Feuerwehr - Polizei/01 titel 1.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/02 titel 2.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/03 titel 3.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/04 titel 4.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/05 titel 5.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/06 titel 6.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/07 titel 7.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/08 titel 8.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/09 titel 9.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/10 titel 10.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/11 titel 11.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/12 titel 12.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/13 titel 13.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/14 titel 14.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/15 titel 15.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/16 titel 16.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/17 titel 17.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/18 titel 18.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/19 titel 19.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/20 titel 20.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/21 titel 21.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/22 titel 22.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/23 titel 23.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/24 titel 24.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/25 titel 25.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/26 titel 26.mp3</file>
+				<file>was_ist_was/17 - Feuerwehr - Polizei/27 titel 27.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>18 - Mittelalter - Samurai</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/18 - Mittelalter - Samurai/01 was ist was - mittelalter - 1.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/02 was ist was - mittelalter - 2.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/03 was ist was - mittelalter - 3.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/04 was ist was - mittelalter - 4.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/05 was ist was - mittelalter - 5.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/06 was ist was - mittelalter - 6.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/07 was ist was - mittelalter - 7.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/08 was ist was - mittelalter - 8.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/09 was ist was - mittelalter - 9.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/10 was ist was - mittelalter - 10.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/11 was ist was - mittelalter - 11.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/12 was ist was - mittelalter - 12.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/13 was ist was - mittelalter - 13.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/14 was ist was - samurai - 1.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/15 was ist was - samurai - 2.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/16 was ist was - samurai - 3.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/17 was ist was - samurai - 4.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/18 was ist was - samurai - 5.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/19 was ist was - samurai - 6.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/20 was ist was - samurai - 7.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/21 was ist was - samurai - 8.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/22 was ist was - samurai - 9.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/23 was ist was - samurai - 10.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/24 was ist was - samurai - 11.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/25 was ist was - samurai - 12.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/26 was ist was - samurai - 13.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/27 was ist was - samurai - 14.mp3</file>
+				<file>was_ist_was/18 - Mittelalter - Samurai/28 was ist was - samurai - 15.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>19 - Entdecker - Polargebiete</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no01.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no02.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no03.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no04.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no05.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no06.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no07.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no08.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no09.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no10.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no11.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no12.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no13.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no14.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no15.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no16.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no17.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no18.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no19.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no20.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no21.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no22.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no23.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no24.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no25.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no26.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no27.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no28.mp3</file>
+				<file>was_ist_was/19 - Entdecker - Polargebiete/track no29.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>20 - Baeren - Woelfe</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/20 - Baeren - Woelfe/01-01 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-02 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-03 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-04 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-05 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-06 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-07 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-08 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-09 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-10 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-11 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-12 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-13 baeren.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-14 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-15 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-16 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-17 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-18 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-19 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-20 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-21 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-22 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-23 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-24 woelfe.mp3</file>
+				<file>was_ist_was/20 - Baeren - Woelfe/01-25 woelfe.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>21 - Gladiatoren - Die Germanen</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-01 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-02 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-03 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-04 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-05 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-06 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-07 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-08 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-09 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-10 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-11 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-12 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-13 gladiatoren.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-14 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-15 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-16 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-17 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-18 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-19 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-20 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-21 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-22 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-23 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-24 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-25 die germanen.mp3</file>
+				<file>was_ist_was/21 - Gladiatoren - Die Germanen/01-26 die germanen.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>22 - Die Sonne - Energie</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/22 - Die Sonne - Energie/01 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/02 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/03 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/04 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/05 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/06 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/07 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/08 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/09 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/10 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/11 - die sonne.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/12 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/13 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/14 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/15 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/16 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/17 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/18 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/19 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/20 - energie.mp3</file>
+				<file>was_ist_was/22 - Die Sonne - Energie/21 - energie.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>23 - Der Urmensch - Eiszeiten</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/01 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/02 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/03 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/04 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/05 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/06 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/07 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/08 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/09 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/10 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/11 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/12 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/13 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/14 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/15 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/16 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/17 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/18 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/19 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/20 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/21 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/22 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/23 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/24 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/25 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/26 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/27 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/28 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+				<file>was_ist_was/23 - Der Urmensch - Eiszeiten/29 was ist was - teil_23_der urmensch - eiszeiten.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>24 - Der Regenwald - Wuesten</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/01 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/02 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/03 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/04 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/05 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/06 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/07 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/08 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/09 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/10 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/11 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/12 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/13 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/14 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/15 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/16 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/17 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/18 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/19 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/20 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/21 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/22 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/23 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/24 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/25 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/26 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/27 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/28 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/29 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/30 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/31 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+				<file>was_ist_was/24 - Der Regenwald - Wuesten/32 was ist was - teil_24_der regenwald - wuesten.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>25 - Versunkene Staedte - Die Sieben Weltwunder</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/01 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/02 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/03 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/04 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/05 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/06 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/07 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/08 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/09 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/10 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/11 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/12 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/13 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/14 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/15 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/16 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/17 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/18 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/19 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/20 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/21 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/22 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/23 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/24 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/25 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/26 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/27 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/28 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/29 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/30 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/31 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/32 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/33 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+				<file>was_ist_was/25 - Versunkene Staedte - Die Sieben Weltwunder/34 was ist was - teil_25_versunkene staedte - die sieben weltwunder.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>26 - Insekten - Bienen - Ameisen</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-01 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-02 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-03 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-04 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-05 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-06 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-07 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-08 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-09 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-10 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-11 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-12 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-13 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-14 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-15 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-16 insekten.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-17 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-18 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-19 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-20 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-21 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-22 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-23 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-24 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-25 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-26 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-27 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-28 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-29 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-30 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-31 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-32 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-33 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-34 bienen - ameisen.mp3</file>
+				<file>was_ist_was/26 - Insekten - Bienen - Ameisen/01-35 bienen - ameisen.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>27 - Klima - Natur schuetzen</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-01 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-02 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-03 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-04 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-05 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-06 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-07 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-08 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-09 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-10 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-11 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-12 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-13 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-14 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-15 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-16 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-17 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-18 klima.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-19 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-20 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-21 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-22 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-23 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-24 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-25 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-26 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-27 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-28 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-29 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-30 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-31 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-32 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-33 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-34 natur schuetzen.mp3</file>
+				<file>was_ist_was/27 - Klima - Natur schuetzen/01-35 natur schuetzen.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>28 - Die Wikinger - Voelkerwanderung</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-01 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-02 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-03 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-04 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-05 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-06 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-07 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-08 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-09 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-10 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-11 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-12 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-13 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-14 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-15 die wikinger.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-16 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-17 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-18 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-19 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-20 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-21 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-22 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-23 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-24 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-25 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-26 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-27 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-28 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-29 voelkerwanderung.mp3</file>
+				<file>was_ist_was/28 - Die Wikinger - Voelkerwanderung/01-30 voelkerwanderung.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>29 - Zauberer und Hexen - Phaenomene</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-01 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-02 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-03 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-04 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-05 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-06 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-07 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-08 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-09 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-10 zauberer - hexen.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-11 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-12 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-13 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-14 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-15 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-16 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-17 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-18 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-19 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-20 phaenomene.mp3</file>
+				<file>was_ist_was/29 - Zauberer und Hexen - Phaenomene/01-21 phaenomene.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>30 - Die Sterne - Die Zeit</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-01 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-02 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-03 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-04 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-05 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-06 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-07 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-08 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-09 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-10 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-11 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-12 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-13 die sterne.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-14 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-15 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-16 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-17 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-18 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-19 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-20 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-21 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-22 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-23 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-24 die zeit.mp3</file>
+				<file>was_ist_was/30 - Die Sterne - Die Zeit/01-25 die zeit.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>31 - Fische - Meereskunde</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/31 - Fische - Meereskunde/01-01 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-02 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-03 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-04 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-05 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-06 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-07 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-08 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-09 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-10 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-11 fische.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-12 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-13 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-14 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-15 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-16 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-17 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-18 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-19 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-20 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-21 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-22 meereskunde.mp3</file>
+				<file>was_ist_was/31 - Fische - Meereskunde/01-23 meereskunde.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>32 - Deutschland - Europa</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/32 - Deutschland - Europa/01 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/02 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/03 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/04 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/05 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/06 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/07 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/08 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/09 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/10 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/11 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/12 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/13 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/14 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/15 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/16 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/17 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/18 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/19 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/20 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/21 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/22 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/23 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/24 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/25 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/26 was ist was - folge 34_deutschland - europa.mp3</file>
+				<file>was_ist_was/32 - Deutschland - Europa/27 was ist was - folge 34_deutschland - europa.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>33 - Menschenaffen - Elefanten</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/01 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/02 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/03 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/04 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/05 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/06 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/07 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/08 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/09 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/10 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/11 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/12 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/13 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/14 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/15 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/16 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/17 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/18 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/19 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/20 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/21 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/22 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/23 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/24 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/25 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/26 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/27 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/28 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/29 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/30 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/31 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+				<file>was_ist_was/33 - Menschenaffen - Elefanten/32 was ist was - folge 33_menschenaffen - elefanten.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>34 - Weltreligionen - Die Bibel</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/01-was_ist_was-32-01_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/02-was_ist_was-32-02_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/03-was_ist_was-32-03_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/04-was_ist_was-32-04_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/05-was_ist_was-32-05_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/06-was_ist_was-32-06_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/07-was_ist_was-32-07_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/08-was_ist_was-32-08_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/09-was_ist_was-32-09_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/10-was_ist_was-32-10_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/11-was_ist_was-32-11_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/12-was_ist_was-32-12_weltreligionen.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/13-was_ist_was-32-13_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/14-was_ist_was-32-14_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/15-was_ist_was-32-15_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/16-was_ist_was-32-16_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/17-was_ist_was-32-17_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/18-was_ist_was-32-18_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/19-was_ist_was-32-19_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/20-was_ist_was-32-20_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/21-was_ist_was-32-21_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/22-was_ist_was-32-22_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/23-was_ist_was-32-23_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/24-was_ist_was-32-24_die_bibel.mp3</file>
+				<file>was_ist_was/34 - Weltreligionen - Die Bibel/25-was_ist_was-32-25_die_bibel.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>35 - Pinguine - Tiere im Zoo</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/35 - Pinguine - Tiere im Zoo/was ist was - pinguine - tiere im zoo.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>36 - Naturkatastrophen und Luft - Wasser</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/36 - Naturkatastrophen und Luft - Wasser/was ist was - naturkatastrophen - luft und wasser.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>37 - Die Olympischen Spiele - Die alten Griechen</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/37 - Die Olympischen Spiele - Die alten Griechen/was ist was - die olympischen spiele - die alten griechen.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>38 - Sport - Ernaehrung</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-01 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-02 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-03 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-04 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-05 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-06 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-07 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-08 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-09 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-10 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-11 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-12 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-13 sport.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-14 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-15 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-16 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-17 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-18 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-19 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-20 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-21 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-22 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-23 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-24 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-25 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-26 ernaehrung.mp3</file>
+				<file>was_ist_was/38 - Sport - Ernaehrung/01-27 ernaehrung.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>39 - Heimtiere - Wilde Tiere</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-01 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-02 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-03 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-04 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-05 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-06 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-07 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-08 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-09 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-10 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-11 heimtiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-12 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-13 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-14 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-15 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-16 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-17 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-18 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-19 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-20 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-21 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-22 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-23 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-24 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-25 wilde tiere.mp3</file>
+				<file>was_ist_was/39 - Heimtiere - Wilde Tiere/01-26 wilde tiere.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>40 - Das alte aegypten - Pyramiden</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-01 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-02 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-03 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-04 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-05 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-06 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-07 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-08 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-09 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-10 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-11 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-12 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-13 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-14 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-15 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-16 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-17 das alte aegypten.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-18 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-19 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-20 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-21 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-22 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-23 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-24 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-25 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-26 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-27 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-28 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-29 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-30 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-31 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-32 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-33 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-34 pyramiden.mp3</file>
+				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-35 pyramiden.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>05 - Indianer - Vulkane</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/05 - Indianer - Vulkane/01 - indianer und der wilde westen - intro.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/02 - indianer und der wilde westen - indianerstaemme.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/03 - indianer und der wilde westen - flucht nach nordamerika.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/04 - indianer und der wilde westen - der mittlere westen.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/05 - indianer und der wilde westen - das leben der indianer.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/06 - indianer und der wilde westen - der kampf mit den indianern.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/07 - indianer und der wilde westen - zu hause.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/08 - vulkane - intro.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/09 - vulkane - insel monserrat.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/10 - vulkane - kraft der vulkane.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/11 - vulkane - der vesuv.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/12 - vulkane - das leben mit den vulkanen.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/13 - vulkane - der vesuv schlaeft.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/14 - vulkane - zu hause.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>10 - Kriminalistik - Computer und Roboter</title>
+			<cover/>
+			<files rfid="" current_file="1" timestamp="0">
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/01 - kriminalistik - track 01.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/02 - kriminalistik - track 02.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/03 - kriminalistik - track 03.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/04 - kriminalistik - track 04.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/05 - kriminalistik - track 05.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/06 - kriminalistik - track 06.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/07 - kriminalistik - track 07.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/08 - kriminalistik - track 08.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/09 - kriminalistik - track 09.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/10 - kriminalistik - track 10.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/11 - kriminalistik - track 11.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/12 - kriminalistik - track 12.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/13 - kriminalistik - track 13.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/14 - kriminalistik - track 14.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/15 - kriminalistik - track 15.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/16 - kriminalistik - track 16.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/17 - computer - roboter - track 01.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/18 - computer - roboter - track 02.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/19 - computer - roboter - track 03.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/20 - computer - roboter - track 04.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/21 - computer - roboter - track 05.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/22 - computer - roboter - track 06.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/23 - computer - roboter - track 07.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/24 - computer - roboter - track 08.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/25 - computer - roboter - track 09.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/26 - computer - roboter - track 10.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/27 - computer - roboter - track 11.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/28 - computer - roboter - track 12.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/29 - computer - roboter - track 13.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/30 - computer - roboter - track 14.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/31 - computer - roboter - track 15.mp3</file>
+			</files>
+		</episode>
+	</series>
 </library>
+

@@ -65,24 +65,50 @@ namespace library {
 
 		if(operation == Operations::APPEND)
 		{
-			_pLibraryXmlFile = new file<>(_libraryFile.c_str());
-			_libraryDoc.parse<0>(_pLibraryXmlFile->data());
-			xml_node<>* pNodeLibrary = _libraryDoc.first_node(LibraryTags::TAG_LIBRARY);
+			_logStream << "append to " << _libraryFile.filename();
+			(*_pLinkToConsole)->printLog(&_logStream);
 
+			_pLibraryXmlFile = new file<>(_libraryFile.c_str());
+			_libraryDoc.parse<parse_full>(_pLibraryXmlFile->data());
+
+			xml_node<>* pNodeLibrary = _libraryDoc.first_node(LibraryTags::TAG_LIBRARY);
 			parseSeriesFolders(pNodeLibrary);
 
-			string data;
-			print(back_inserter(data), _libraryDoc);
-			_logStream << "modified xml:" << endl;
-			_logStream << data;
-			(*_pLinkToConsole)->printLog(&_logStream);
 		}
 		else if(operation == Operations::FULL)
 		{
+			_logStream << "full create " << _libraryFile.filename();
+			(*_pLinkToConsole)->printLog(&_logStream);
+
+			xml_node<>* pNodeLibrary = writeEmptyLibraryNode();
+			parseSeriesFolders(pNodeLibrary);
 		}
+		else if(operation == Operations::RFID)
+		{
+			_logStream << "add rfid to " << _libraryFile.filename();
+			(*_pLinkToConsole)->printLog(&_logStream);
+
+
+		}
+
+		writeFile();
 
 		_logStream << "build " << _libraryFile.filename() << " done";
 		(*_pLinkToConsole)->printLog(&_logStream);
+	}
+
+	void LibraryBuilder::writeFile(void)
+	{
+		_logStream << "write " << _libraryFile.filename();
+		(*_pLinkToConsole)->printLog(&_logStream);
+
+		string data;
+		print(back_inserter(data), _libraryDoc);
+
+		ofstream newLibraryFile;
+		newLibraryFile.open(_libraryFile.c_str());
+		newLibraryFile << data;
+		newLibraryFile.close();
 	}
 
 	path LibraryBuilder::backupFile(void)
@@ -133,11 +159,6 @@ namespace library {
 		return NULL;
 	}
 
-
-
-
-
-
 	void LibraryBuilder::parseSeriesFolders(xml_node<>* pNodeLibrary)
 	{
 		vector<path> vecSeries = getFiles(_libraryPath);
@@ -154,7 +175,7 @@ namespace library {
 				// found series
 				// update/write episodes
 				// update/write files
-				_logStream << "found " << seriesName;
+				_logStream << "found\t |-series " << seriesName;
 				(*_pLinkToConsole)->printLog(&_logStream);
 			}
 			else
@@ -162,7 +183,7 @@ namespace library {
 				// write series
 				// write episodes
 				// write files
-				_logStream << "write " << seriesName;
+				_logStream << "write\t |-series " << seriesName;
 				(*_pLinkToConsole)->printLog(&_logStream);
 
 				pNodeSeries = writeSeriesNode(seriesName);
@@ -187,14 +208,14 @@ namespace library {
 			if(pNodeEpisode)
 			{
 				// found episode
-				_logStream << "found " << episodeName;
+				_logStream << "found\t |  |-episode " << episodeName;
 				(*_pLinkToConsole)->printLog(&_logStream);
 
 			}
 			else
 			{
 				// write episode
-				_logStream << "write " << episodeName;
+				_logStream << "write\t |  |-episode " << episodeName;
 				(*_pLinkToConsole)->printLog(&_logStream);
 
 				pNodeEpisode = writeEpisodeNode(episodeName);
@@ -218,18 +239,29 @@ namespace library {
 			path pathRelativeFile = relativeTo(_libraryPath, pathFile);
 			//tracePath("pathRelativeFile", pathRelativeFile);
 
-			string fileName = pathRelativeFile.filename().string();
+			string fileName = pathRelativeFile.string();
+
+			_logStream << "write\t |  |  |-file " << fileName;
+			(*_pLinkToConsole)->printLog(&_logStream);
 
 			// write file
-			xml_node<>* pNodeFile = writeEpisodeNode(fileName);
+			xml_node<>* pNodeFile = writeFileNode(fileName);
 			pNodeFiles->append_node(pNodeFile);
 		}
 	}
 
+	xml_node<>* LibraryBuilder::writeEmptyLibraryNode(void)
+	{
+		xml_node<>* pNodeDeclaration = _libraryDoc.allocate_node(node_declaration);
+		pNodeDeclaration->append_attribute(_libraryDoc.allocate_attribute(LibraryTags::DECLARATION_VERSION, LibraryTags::DECLARATION_VERSION_VALUE));
+		pNodeDeclaration->append_attribute(_libraryDoc.allocate_attribute(LibraryTags::DECLARATION_ENCODING, LibraryTags::DECLARATION_ENCODING_VALUE));
+		_libraryDoc.append_node(pNodeDeclaration);
 
+		xml_node<>* pNodeLibrary = _libraryDoc.allocate_node(node_element, LibraryTags::TAG_LIBRARY);
+		_libraryDoc.append_node(pNodeLibrary);
 
-
-
+		return pNodeLibrary;
+	}
 
 	xml_node<>* LibraryBuilder::writeSeriesNode(string seriesName)
 	{
@@ -275,12 +307,8 @@ namespace library {
 		pNodeFile->value(filePath);
 
 		return pNodeFile;
+		//node_cdata
 	}
-
-
-
-
-
 
 	void LibraryBuilder::tracePath(string name, path p)
 	{
@@ -333,11 +361,6 @@ namespace library {
 		return finalPath;
 	}
 
-
-
-
-
-
 	vector<path> LibraryBuilder::getFiles(path p, FileExtensions fileExtension)
 	{
 		vector<path> ret;
@@ -357,26 +380,6 @@ namespace library {
 		return ret;
 	}
 
-	/*
-	path LibraryBuilder::getFile(path p, FileNames fileNames)
-	{
-		try
-		{
-			for(directory_iterator di(p); di!=directory_iterator(); di++){
-				if(conditional_check(di->path(), fileNames))
-				{
-					return di->path();
-				}
-			}
-		}
-		catch (const filesystem_error& ex)
-		{
-			GlobalExit::exit(ErrorCode::EXIT_ERROR_FILESYSTEM, ex.what());
-		}
-		return NULL;
-	}
-	 */
-
 	bool LibraryBuilder::conditional_check(path p, FileExtensions fileExtension)
 	{
 		switch(fileExtension)
@@ -393,22 +396,4 @@ namespace library {
 		}
 		return false;
 	}
-
-	/*
-	bool LibraryBuilder::conditional_check(path p, FileNames fileName)
-	{
-		switch(fileName)
-		{
-			case LIBRARY:
-				return is_regular_file(p) && p.filename()==fileNamesMap[LIBRARY];
-				break;
-			case COVER:
-				return is_regular_file(p) && p.filename()==fileNamesMap[COVER];
-				break;
-			case DEFAULT_COVER:
-				break;
-		}
-		return false;
-	}
-	 */
 }

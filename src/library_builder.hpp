@@ -81,9 +81,6 @@ namespace library {
 			const string DOT =						".";
 			const string BACKUP_FILE_EXTENSION =	".bak";
 
-			vector<xml_node<char>*> _nodeStorage;
-			vector<const char*> _valueStorage;
-
 			path _libraryPath;
 			path _libraryFile;
 			ofstream _libraryFileStream;
@@ -91,30 +88,25 @@ namespace library {
 			file<>* _pLibraryXmlFile;
 			xml_document<> _libraryDoc;
 
+			void writeFile(void);
+			path backupFile(void);
+			void createBackupFileName(path&, int);
+
 			xml_node<>* getExistingNode(string, xml_node<>*, const char*);
 
 			void parseSeriesFolders(xml_node<>*);
 			void parseEpisodesFolders(xml_node<>*, path);
 			void parseFilesFolders(xml_node<>*, path);
 
+			xml_node<>* writeEmptyLibraryNode(void);
 			xml_node<>* writeSeriesNode(string);
 			xml_node<>* writeEpisodeNode(string);
 			xml_node<>* writeFileNode(string);
 
-			path backupFile(void);
-			void createBackupFileName(path&, int);
-
-			void writeOpenTag(string, int, bool=true, string="");
-			void writeCloseTag(string, int=0);
-
 			void tracePath(string, path);
 			path relativeTo(path, path);
-			path getPath(string);
-			vector<path> getSubDirectories(path);
 			vector<path> getFiles(path, FileExtensions=CURRENT_PATH);
-			//path getFile(path, FileNames);
 			bool conditional_check(path, FileExtensions);
-			//bool conditional_check(path, FileNames);
 	};
 }
 #endif
