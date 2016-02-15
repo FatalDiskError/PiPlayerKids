@@ -137,16 +137,14 @@ void scanLibrary(path applicationPath, Operations operation)
 	_logStream << "CONSOLE_TYPE: " << CONSOLE_TYPE;
 	_pConsole->printLog(&_logStream);
 
-	Controller* _pController = new Controller(&_pConsole);
-	LibraryBuilder* _pLibraryBuilder = new LibraryBuilder(applicationPath, &_pConsole);
 	Rfid* _pRfid = new Rfid(&_pConsole);
-	_pLibraryBuilder->buildLibraryFile(operation);
-	_pRfid->listen();
+	LibraryBuilder* _pLibraryBuilder = new LibraryBuilder(applicationPath, &_pConsole);
 
+	_pLibraryBuilder->buildLibraryFile(operation, _pRfid);
 
 	delete _pLibraryBuilder;
+	delete _pRfid;
 	delete _pConsole;
-	//delete _pRfid;
 }
 
 void printHelp(bool isArgumentWrong)

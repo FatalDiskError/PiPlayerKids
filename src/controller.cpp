@@ -13,23 +13,17 @@ namespace controller {
 	{
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing library");
-		
+
 		/*
 		 * libsigc++ slots
 		 */
 		rfidSlot = mem_fun(this, &Controller::execute);
-		
-		/*
-		 * libsigc++ signals
-		playSignal.connect(_pPlayer->playFileSlot);
-		playPauseSignal.connect(_pPlayer->playPauseSlot);
-		 */
 	}
 	Controller::~Controller(void)
 	{
 		(*_pLinkToConsole)->printLog("destructing library");
 	}
-	
+
 	void Controller::execute(string serial)
 	{
 		if(serial == _controllerCodeMap[ControllerCode::PLAY_PAUSE])

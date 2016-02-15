@@ -25,19 +25,20 @@ namespace rfid
 		public:
 			Rfid(Console**);
 			~Rfid(void);
-			
-			void listen(bool=false);
-			
+
+			void listen(void);
+			string listenOnce(void);
+
 			/*
 			 * libsigc++ signals
 			 */
 			sigc::signal<void, string> rfidSignal;
-			
+
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
 			ostringstream _logStream;
-			
+
 			void init_rfid(void);
 			void release_rfid(void);
 	};

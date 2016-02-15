@@ -22,10 +22,12 @@
 #include "console/console.hpp"
 #include "global_exit.hpp"
 #include "library_tags.hpp"
+#include "rfid.hpp"
 
 using namespace std;
 using namespace app_params;
 using namespace console;
+using namespace rfid;
 using namespace global_exit;
 using namespace rapidxml;
 using namespace boost::filesystem;
@@ -70,7 +72,8 @@ namespace library {
 			LibraryBuilder(path, Console**);
 			~LibraryBuilder(void);
 
-			void buildLibraryFile(Operations);
+			void buildLibraryFile(Operations, Rfid*);
+
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;

@@ -3,6 +3,7 @@
 using namespace std;
 using namespace app_params;
 using namespace console;
+using namespace rfid;
 using namespace global_exit;
 using namespace boost::filesystem;
 
@@ -14,25 +15,6 @@ namespace library {
 	{
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing LibraryBuilder");
-
-		/*
-		 * libsigc++ slots
-		navigateSlot = mem_fun(this, &Library::navigate);
-		episodeSlot = mem_fun(this, &Library::setEpisode);
-		nextFileSlot = mem_fun(this, &Library::nextFile);
-		 * /
-
-		/ *
-		 * libsigc++ signals
-		completedSignal.connect(pNodeLibrary->nextFileSlot);
-		_pPlayer->completedSignal.connect(nextFileSlot);
-		 * /
-
-		/ *
-		 * libsigc++ signals
-		playSignal.connect(_pPlayer->playFileSlot);
-		playPauseSignal.connect(_pPlayer->playPauseSlot);
-		 */
 
 		_libraryPath = applicationPath;
 		_libraryPath /= LIBRARY_FILE_PATH;
@@ -46,7 +28,6 @@ namespace library {
 			GlobalExit::exit(ErrorCode::EXIT_ERROR_FILE_NOT_FOUND, "_libraryFile");
 		tracePath("_libraryFile", _libraryFile);
 	}
-
 	LibraryBuilder::~LibraryBuilder(void)
 	{
 		(*_pLinkToConsole)->printLog("destructing LibraryBuilder");
@@ -56,7 +37,7 @@ namespace library {
 	 * BUILD LIBRARY *
 	 *****************/
 	// Library
-	void LibraryBuilder::buildLibraryFile(Operations operation)
+	void LibraryBuilder::buildLibraryFile(Operations operation, Rfid* pRfid)
 	{
 		_logStream << "build " << _libraryFile.filename();
 		(*_pLinkToConsole)->printLog(&_logStream);
@@ -88,7 +69,53 @@ namespace library {
 			_logStream << "add rfid to " << _libraryFile.filename();
 			(*_pLinkToConsole)->printLog(&_logStream);
 
+			_pLibraryXmlFile = new file<>(_libraryFile.c_str());
+			_libraryDoc.parse<parse_full>(_pLibraryXmlFile->data());
 
+			xml_node<>* pNodeLibrary = _libraryDoc.first_node(LibraryTags::TAG_LIBRARY);
+			//_logStream << "pNodeLibrary: " << pNodeLibrary->name();
+			//(*_pLinkToConsole)->printLog(&_logStream);
+
+			for(xml_node<>* pSeriesNode = pNodeLibrary->first_node(LibraryTags::TAG_SERIES); pSeriesNode; pSeriesNode = pSeriesNode->next_sibling())
+			{
+				//_logStream << "pSeriesNode: " << pSeriesNode->name();
+				//(*_pLinkToConsole)->printLog(&_logStream);
+
+				for(xml_node<>* pEpisodeNode = pSeriesNode->first_node(LibraryTags::TAG_EPISODE); pEpisodeNode; pEpisodeNode = pEpisodeNode->next_sibling())
+				{
+					//_logStream << "pEpisodeNode: " << pEpisodeNode->name();
+					//(*_pLinkToConsole)->printLog(&_logStream);
+
+					xml_node<>* pFilesNode = pEpisodeNode->first_node(LibraryTags::TAG_FILES);
+					//_logStream << "pFilesNode: " << pFilesNode->name();
+					//(*_pLinkToConsole)->printLog(&_logStream);
+
+					xml_attribute<>* pRfidAttribute = pFilesNode->first_attribute(LibraryTags::ATTRIBUTE_RFID);
+					_logStream << "pRfidAttribute: " << pRfidAttribute->name() << " [" << pRfidAttribute->value() << "]";
+					(*_pLinkToConsole)->printLog(&_logStream);
+
+					string rfidCodeXML = pRfidAttribute->value();
+					if(rfidCodeXML == "")
+					{
+						string titleSeries = pSeriesNode->first_node(LibraryTags::TAG_TITLE)->value();
+						string titleEpisode = pEpisodeNode->first_node(LibraryTags::TAG_TITLE)->value();
+
+						_outStream << "found unbound episode: " << titleSeries << " / " << titleEpisode << endl;
+						_outStream << "bind episode now? (y/n): ";
+						(*_pLinkToConsole)->printOut(&_outStream);
+
+						int input = (*_pLinkToConsole)->waitForChar();
+
+						if(input == 121) // y=121, n=110
+						{
+							string rfidCode = pRfid->listenOnce();
+
+							_logStream << "rfidCode: " << rfidCode;
+							(*_pLinkToConsole)->printLog(&_logStream);
+						}
+					}
+				}
+			}
 		}
 
 		writeFile();
