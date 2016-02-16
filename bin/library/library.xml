@@ -6,7 +6,7 @@
 		<episode>
 			<title>01 - Unsere Erde - Das Wetter</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="8ebb381a" current_file="1" timestamp="0">
 				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 01 - unsere erde.mp3</file>
 				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 02 - unsere erde.mp3</file>
 				<file>was_ist_was/01 - Unsere Erde - Das Wetter/01 - 03 - unsere erde.mp3</file>
@@ -25,7 +25,7 @@
 		<episode>
 			<title>02 - Autos - Eisenbahnen</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="9e0f491a" current_file="1" timestamp="0">
 				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 01 - autos.mp3</file>
 				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 02 - autos.mp3</file>
 				<file>was_ist_was/02 - Autos - Eisenbahnen/02 - 03 - autos.mp3</file>
@@ -45,7 +45,7 @@
 		<episode>
 			<title>03 - Amphibien - Reptilien - Haie</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="be8d8a1a" current_file="1" timestamp="0">
 				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 01 - amphibien und reptilien.mp3</file>
 				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 02 - amphibien und reptilien.mp3</file>
 				<file>was_ist_was/03 - Amphibien - Reptilien - Haie/03 - 03 - amphibien und reptilien.mp3</file>
@@ -64,7 +64,7 @@
 		<episode>
 			<title>04 - Ritter - Burgen - Das alte Rom</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="be918f1a" current_file="1" timestamp="0">
 				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 01 - ritter und burgen.mp3</file>
 				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 02 - ritter und burgen.mp3</file>
 				<file>was_ist_was/04 - Ritter - Burgen - Das alte Rom/04 - 03 - ritter und burgen.mp3</file>
@@ -80,9 +80,29 @@
 			</files>
 		</episode>
 		<episode>
+			<title>05 - Indianer - Vulkane</title>
+			<cover/>
+			<files rfid="9e0ea51a" current_file="1" timestamp="0">
+				<file>was_ist_was/05 - Indianer - Vulkane/01 - indianer und der wilde westen - intro.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/02 - indianer und der wilde westen - indianerstaemme.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/03 - indianer und der wilde westen - flucht nach nordamerika.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/04 - indianer und der wilde westen - der mittlere westen.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/05 - indianer und der wilde westen - das leben der indianer.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/06 - indianer und der wilde westen - der kampf mit den indianern.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/07 - indianer und der wilde westen - zu hause.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/08 - vulkane - intro.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/09 - vulkane - insel monserrat.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/10 - vulkane - kraft der vulkane.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/11 - vulkane - der vesuv.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/12 - vulkane - das leben mit den vulkanen.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/13 - vulkane - der vesuv schlaeft.mp3</file>
+				<file>was_ist_was/05 - Indianer - Vulkane/14 - vulkane - zu hause.mp3</file>
+			</files>
+		</episode>
+		<episode>
 			<title>06 - Planeten und Raumfahrt - Fliegerei</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="4e7f121a" current_file="1" timestamp="0">
 				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/01 - planeten und raumfahrt.mp3</file>
 				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/02 - planeten und raumfahrt.mp3</file>
 				<file>was_ist_was/06 - Planeten und Raumfahrt - Fliegerei/03 - planeten und raumfahrt.mp3</file>
@@ -106,7 +126,7 @@
 		<episode>
 			<title>07 - Katzen - Pferde</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="6e9eb01a" current_file="1" timestamp="0">
 				<file>was_ist_was/07 - Katzen - Pferde/01 - katzen 1.mp3</file>
 				<file>was_ist_was/07 - Katzen - Pferde/02 - katzen 2.mp3</file>
 				<file>was_ist_was/07 - Katzen - Pferde/03 - katzen 3.mp3</file>
@@ -148,7 +168,7 @@
 		<episode>
 			<title>08 - Dinosaurier - Spinnen</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="6e9eb71a" current_file="1" timestamp="0">
 				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 01 - dinosaurier.mp3</file>
 				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 02 - dinosaurier.mp3</file>
 				<file>was_ist_was/08 - Dinosaurier - Spinnen/08 - 03 - dinosaurier.mp3</file>
@@ -190,7 +210,7 @@
 		<episode>
 			<title>09 - Seeraeuber - Schiffe</title>
 			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
+			<files rfid="9e0ea71a" current_file="1" timestamp="0">
 				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 01 - seeraeuber.mp3</file>
 				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 02 - seeraeuber.mp3</file>
 				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 03 - seeraeuber.mp3</file>
@@ -229,6 +249,43 @@
 				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 36 - schiffe.mp3</file>
 				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 37 - schiffe.mp3</file>
 				<file>was_ist_was/09 - Seeraeuber - Schiffe/09 - 38 - schiffe.mp3</file>
+			</files>
+		</episode>
+		<episode>
+			<title>10 - Kriminalistik - Computer und Roboter</title>
+			<cover/>
+			<files rfid="4e7f091a" current_file="1" timestamp="0">
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/01 - kriminalistik - track 01.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/02 - kriminalistik - track 02.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/03 - kriminalistik - track 03.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/04 - kriminalistik - track 04.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/05 - kriminalistik - track 05.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/06 - kriminalistik - track 06.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/07 - kriminalistik - track 07.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/08 - kriminalistik - track 08.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/09 - kriminalistik - track 09.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/10 - kriminalistik - track 10.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/11 - kriminalistik - track 11.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/12 - kriminalistik - track 12.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/13 - kriminalistik - track 13.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/14 - kriminalistik - track 14.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/15 - kriminalistik - track 15.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/16 - kriminalistik - track 16.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/17 - computer - roboter - track 01.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/18 - computer - roboter - track 02.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/19 - computer - roboter - track 03.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/20 - computer - roboter - track 04.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/21 - computer - roboter - track 05.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/22 - computer - roboter - track 06.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/23 - computer - roboter - track 07.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/24 - computer - roboter - track 08.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/25 - computer - roboter - track 09.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/26 - computer - roboter - track 10.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/27 - computer - roboter - track 11.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/28 - computer - roboter - track 12.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/29 - computer - roboter - track 13.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/30 - computer - roboter - track 14.mp3</file>
+				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/31 - computer - roboter - track 15.mp3</file>
 			</files>
 		</episode>
 		<episode>
@@ -1195,63 +1252,6 @@
 				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-33 pyramiden.mp3</file>
 				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-34 pyramiden.mp3</file>
 				<file>was_ist_was/40 - Das alte aegypten - Pyramiden/01-35 pyramiden.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>05 - Indianer - Vulkane</title>
-			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
-				<file>was_ist_was/05 - Indianer - Vulkane/01 - indianer und der wilde westen - intro.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/02 - indianer und der wilde westen - indianerstaemme.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/03 - indianer und der wilde westen - flucht nach nordamerika.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/04 - indianer und der wilde westen - der mittlere westen.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/05 - indianer und der wilde westen - das leben der indianer.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/06 - indianer und der wilde westen - der kampf mit den indianern.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/07 - indianer und der wilde westen - zu hause.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/08 - vulkane - intro.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/09 - vulkane - insel monserrat.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/10 - vulkane - kraft der vulkane.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/11 - vulkane - der vesuv.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/12 - vulkane - das leben mit den vulkanen.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/13 - vulkane - der vesuv schlaeft.mp3</file>
-				<file>was_ist_was/05 - Indianer - Vulkane/14 - vulkane - zu hause.mp3</file>
-			</files>
-		</episode>
-		<episode>
-			<title>10 - Kriminalistik - Computer und Roboter</title>
-			<cover/>
-			<files rfid="" current_file="1" timestamp="0">
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/01 - kriminalistik - track 01.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/02 - kriminalistik - track 02.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/03 - kriminalistik - track 03.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/04 - kriminalistik - track 04.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/05 - kriminalistik - track 05.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/06 - kriminalistik - track 06.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/07 - kriminalistik - track 07.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/08 - kriminalistik - track 08.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/09 - kriminalistik - track 09.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/10 - kriminalistik - track 10.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/11 - kriminalistik - track 11.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/12 - kriminalistik - track 12.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/13 - kriminalistik - track 13.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/14 - kriminalistik - track 14.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/15 - kriminalistik - track 15.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/16 - kriminalistik - track 16.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/17 - computer - roboter - track 01.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/18 - computer - roboter - track 02.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/19 - computer - roboter - track 03.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/20 - computer - roboter - track 04.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/21 - computer - roboter - track 05.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/22 - computer - roboter - track 06.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/23 - computer - roboter - track 07.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/24 - computer - roboter - track 08.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/25 - computer - roboter - track 09.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/26 - computer - roboter - track 10.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/27 - computer - roboter - track 11.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/28 - computer - roboter - track 12.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/29 - computer - roboter - track 13.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/30 - computer - roboter - track 14.mp3</file>
-				<file>was_ist_was/10 - Kriminalistik - Computer und Roboter/31 - computer - roboter - track 15.mp3</file>
 			</files>
 		</episode>
 	</series>

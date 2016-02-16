@@ -72,50 +72,7 @@ namespace library {
 			_pLibraryXmlFile = new file<>(_libraryFile.c_str());
 			_libraryDoc.parse<parse_full>(_pLibraryXmlFile->data());
 
-			xml_node<>* pNodeLibrary = _libraryDoc.first_node(LibraryTags::TAG_LIBRARY);
-			//_logStream << "pNodeLibrary: " << pNodeLibrary->name();
-			//(*_pLinkToConsole)->printLog(&_logStream);
-
-			for(xml_node<>* pSeriesNode = pNodeLibrary->first_node(LibraryTags::TAG_SERIES); pSeriesNode; pSeriesNode = pSeriesNode->next_sibling())
-			{
-				//_logStream << "pSeriesNode: " << pSeriesNode->name();
-				//(*_pLinkToConsole)->printLog(&_logStream);
-
-				for(xml_node<>* pEpisodeNode = pSeriesNode->first_node(LibraryTags::TAG_EPISODE); pEpisodeNode; pEpisodeNode = pEpisodeNode->next_sibling())
-				{
-					//_logStream << "pEpisodeNode: " << pEpisodeNode->name();
-					//(*_pLinkToConsole)->printLog(&_logStream);
-
-					xml_node<>* pFilesNode = pEpisodeNode->first_node(LibraryTags::TAG_FILES);
-					//_logStream << "pFilesNode: " << pFilesNode->name();
-					//(*_pLinkToConsole)->printLog(&_logStream);
-
-					xml_attribute<>* pRfidAttribute = pFilesNode->first_attribute(LibraryTags::ATTRIBUTE_RFID);
-					_logStream << "pRfidAttribute: " << pRfidAttribute->name() << " [" << pRfidAttribute->value() << "]";
-					(*_pLinkToConsole)->printLog(&_logStream);
-
-					string rfidCodeXML = pRfidAttribute->value();
-					if(rfidCodeXML == "")
-					{
-						string titleSeries = pSeriesNode->first_node(LibraryTags::TAG_TITLE)->value();
-						string titleEpisode = pEpisodeNode->first_node(LibraryTags::TAG_TITLE)->value();
-
-						_outStream << "found unbound episode: " << titleSeries << " / " << titleEpisode << endl;
-						_outStream << "bind episode now? (y/n): ";
-						(*_pLinkToConsole)->printOut(&_outStream);
-
-						int input = (*_pLinkToConsole)->waitForChar();
-
-						if(input == 121) // y=121, n=110
-						{
-							string rfidCode = pRfid->listenOnce();
-
-							_logStream << "rfidCode: " << rfidCode;
-							(*_pLinkToConsole)->printLog(&_logStream);
-						}
-					}
-				}
-			}
+			addRfidCodes(pRfid);
 		}
 
 		writeFile();
@@ -137,7 +94,6 @@ namespace library {
 		newLibraryFile << data;
 		newLibraryFile.close();
 	}
-
 	path LibraryBuilder::backupFile(void)
 	{
 		_logStream << "backup " << _libraryFile.filename();
@@ -154,7 +110,6 @@ namespace library {
 		copy(_libraryFile, backupFile);
 		return backupFile;
 	}
-
 	void LibraryBuilder::createBackupFileName(path& target, int counter)
 	{
 		target = _libraryFile;
@@ -220,7 +175,6 @@ namespace library {
 			parseEpisodesFolders(pNodeSeries, pathSeries);
 		}
 	}
-
 	void LibraryBuilder::parseEpisodesFolders(xml_node<>* pNodeSeries, path pathSeries)
 	{
 		vector<path> vecEpisodes = getFiles(pathSeries);
@@ -253,7 +207,6 @@ namespace library {
 			}
 		}
 	}
-
 	void LibraryBuilder::parseFilesFolders(xml_node<>* pNodeFiles, path pathEpisodes)
 	{
 		vector<path> vecFiles = getFiles(pathEpisodes, MP3);
@@ -289,7 +242,6 @@ namespace library {
 
 		return pNodeLibrary;
 	}
-
 	xml_node<>* LibraryBuilder::writeSeriesNode(string seriesName)
 	{
 		xml_node<>* pNodeSeries = _libraryDoc.allocate_node(node_element, LibraryTags::TAG_SERIES);
@@ -304,7 +256,6 @@ namespace library {
 
 		return pNodeSeries;
 	}
-
 	xml_node<>* LibraryBuilder::writeEpisodeNode(string episodeName)
 	{
 		xml_node<>* pNodeEpisode = _libraryDoc.allocate_node(node_element, LibraryTags::TAG_EPISODE);
@@ -325,7 +276,6 @@ namespace library {
 
 		return pNodeEpisode;
 	}
-
 	xml_node<>* LibraryBuilder::writeFileNode(string fileName)
 	{
 		xml_node<>* pNodeFile = _libraryDoc.allocate_node(node_element, LibraryTags::TAG_FILE);
@@ -335,6 +285,64 @@ namespace library {
 
 		return pNodeFile;
 		//node_cdata
+	}
+
+	void LibraryBuilder::addRfidCodes(Rfid* pRfid)
+	{
+		xml_node<>* pNodeLibrary = _libraryDoc.first_node(LibraryTags::TAG_LIBRARY);
+		//_logStream << "pNodeLibrary: " << pNodeLibrary->name();
+		//(*_pLinkToConsole)->printLog(&_logStream);
+
+		for(xml_node<>* pSeriesNode = pNodeLibrary->first_node(LibraryTags::TAG_SERIES); pSeriesNode; pSeriesNode = pSeriesNode->next_sibling())
+		{
+			//_logStream << "pSeriesNode: " << pSeriesNode->name();
+			//(*_pLinkToConsole)->printLog(&_logStream);
+
+			for(xml_node<>* pEpisodeNode = pSeriesNode->first_node(LibraryTags::TAG_EPISODE); pEpisodeNode; pEpisodeNode = pEpisodeNode->next_sibling())
+			{
+				//_logStream << "pEpisodeNode: " << pEpisodeNode->name();
+				//(*_pLinkToConsole)->printLog(&_logStream);
+
+				xml_node<>* pFilesNode = pEpisodeNode->first_node(LibraryTags::TAG_FILES);
+				//_logStream << "pFilesNode: " << pFilesNode->name();
+				//(*_pLinkToConsole)->printLog(&_logStream);
+
+				xml_attribute<>* pRfidAttribute = pFilesNode->first_attribute(LibraryTags::ATTRIBUTE_RFID);
+				_logStream << "pRfidAttribute: " << pRfidAttribute->name() << " [" << pRfidAttribute->value() << "]";
+				(*_pLinkToConsole)->printLog(&_logStream);
+
+				string rfidCode = pRfidAttribute->value();
+				if(rfidCode == "")
+				{
+					string titleSeries = pSeriesNode->first_node(LibraryTags::TAG_TITLE)->value();
+					string titleEpisode = pEpisodeNode->first_node(LibraryTags::TAG_TITLE)->value();
+
+					_outStream << "found unbound episode: " << titleSeries << " / " << titleEpisode << endl;
+					_outStream << "bind episode now? ([e]nd / [y]es / [n]o): ";
+					(*_pLinkToConsole)->printOut(&_outStream);
+
+					int input = (*_pLinkToConsole)->waitForChar();
+
+					// e=101, y=121, n=110
+					if(input == 101)
+					{
+						return;
+					}
+					else if(input == 121)
+					{
+						rfidCode = pRfid->listenOnce();
+						const char* code = _libraryDoc.allocate_string(rfidCode.c_str());
+
+						pRfidAttribute->value(code);
+
+						_logStream << "rfidCode: " << rfidCode;
+						(*_pLinkToConsole)->printLog(&_logStream);
+					}
+				}
+			}
+		}
+
+		return;
 	}
 
 	void LibraryBuilder::tracePath(string name, path p)

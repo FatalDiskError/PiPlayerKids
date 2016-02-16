@@ -106,6 +106,7 @@ namespace library {
 			xml_node<>* writeEpisodeNode(string);
 			xml_node<>* writeFileNode(string);
 
+			void addRfidCodes(Rfid*);
 			void tracePath(string, path);
 			path relativeTo(path, path);
 			vector<path> getFiles(path, FileExtensions=CURRENT_PATH);
