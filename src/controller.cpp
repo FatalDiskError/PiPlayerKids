@@ -2,8 +2,8 @@
 
 using namespace std;
 using namespace console;
+using namespace rfid;
 using namespace library;
-using namespace sigc;
 
 namespace controller {
 	/***************
@@ -49,13 +49,19 @@ namespace controller {
 		else if(serial == _controllerCodeMap[ControllerCode::QUIT])
 		{
 			(*_pLinkToConsole)->printLog("### QUIT ###");
+			rfidStatusSignal(Rfid::RfidStatusCode::NORMAL_END);
+			/*
 			exit(1);
+			 */
 		}
 		else if(serial == _controllerCodeMap[ControllerCode::SHUTDOWN])
 		{
+			rfidStatusSignal(Rfid::RfidStatusCode::SHUTDOWN_END);
+			/*
 			(*_pLinkToConsole)->printLog("### SHUTDOWN ###");
 			system("sudo shutdown -h -P now");
 			exit(2);
+			 */
 		}
 		else
 		{

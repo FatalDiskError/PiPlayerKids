@@ -30,18 +30,16 @@ using namespace rfid;
 using namespace sigc;
 using namespace boost::filesystem;
 
-void start(string);
-void printHelp(bool = false);
+void start(path);
 void scanLibrary(path, Operations);
-
+void printHelp(bool = false);
 
 ostringstream _outStream;
 ostringstream _logStream;
 
 int main(int argc, char **argv)
 {
-	string applicationPath = argv[0];
-	path appPath = path(argv[0]).parent_path();
+	path applicationPath = path(argv[0]).parent_path();
 
 	if(argc==1)
 	{
@@ -57,7 +55,7 @@ int main(int argc, char **argv)
 		}
 		else if(param == paramsMap[Params::SCAN])
 		{
-			scanLibrary(appPath, Operations::RFID);
+			scanLibrary(applicationPath, Operations::RFID);
 		}
 		else
 		{
@@ -73,11 +71,11 @@ int main(int argc, char **argv)
 		if(param == paramsMap[Params::SCAN])
 		{
 			if(operation == operationsMap[Operations::APPEND])
-				scanLibrary(appPath, Operations::APPEND);
+				scanLibrary(applicationPath, Operations::APPEND);
 			else if(operation == operationsMap[Operations::FULL])
-				scanLibrary(appPath, Operations::FULL);
+				scanLibrary(applicationPath, Operations::FULL);
 			else if(operation == operationsMap[Operations::RFID])
-				scanLibrary(appPath, Operations::RFID);
+				scanLibrary(applicationPath, Operations::RFID);
 			else
 			{
 				printHelp(true);
@@ -99,7 +97,7 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-void start(string applicationPath)
+void start(path applicationPath)
 {
 	Console* _pConsole;
 	#if CONSOLE_TYPE == stdout
@@ -116,14 +114,34 @@ void start(string applicationPath)
 
 	_pController->episodeSignal.connect(_pLibrary->episodeSlot);
 	_pController->navigateSignal.connect(_pLibrary->navigateSlot);
+	_pController->rfidStatusSignal.connect(_pRfid->rfidStatusSlot);
 	_pRfid->rfidSignal.connect(_pController->rfidSlot);
 
-	_pRfid->listen();
+	Rfid::RfidStatusCode statusCode = _pRfid->listen();
 
-	delete _pConsole;
 	delete _pController;
 	delete _pLibrary;
 	delete _pRfid;
+
+	if(statusCode == Rfid::RfidStatusCode::NONE)
+	{
+		_pConsole->printLog("### END BY PROGRAMM ###");
+		delete _pConsole;
+	}
+	else if(statusCode == Rfid::RfidStatusCode::NORMAL_END)
+	{
+		_pConsole->printLog("### END BY USER ###");
+		delete _pConsole;
+		exit(0);
+	}
+	else if(statusCode == Rfid::RfidStatusCode::SHUTDOWN_END)
+	{
+		_pConsole->printLog("### END BY USER ###");
+		_pConsole->printLog("### SHUTDOWN ###");
+		delete _pConsole;
+		system("sudo shutdown -h -P now");
+		exit(2);
+	}
 }
 
 void scanLibrary(path applicationPath, Operations operation)

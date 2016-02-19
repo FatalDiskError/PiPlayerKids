@@ -12,16 +12,22 @@
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
 #include <rapidxml_print.hpp>
+#include <boost/filesystem.hpp>
 #include <sigc++/sigc++.h>
 
+#include "app_params.hpp"
+#include "global_exit.hpp"
+#include "console/console.hpp"
 #include "library_tags.hpp"
 #include "player.hpp"
-#include "console/console.hpp"
 
 using namespace std;
+using namespace app_params;
+using namespace global_exit;
 using namespace player;
 using namespace console;
 using namespace rapidxml;
+using namespace boost::filesystem;
 using namespace sigc;
 
 namespace library {
@@ -32,59 +38,57 @@ namespace library {
 			{
 				PLAY_PAUSE, NEXT, BACK, RESET
 			};
-			
-			Library(string, Console**);
+
+			Library(path, Console**);
 			~Library(void);
-			
+
 			void logOutRfidMap(void);
-			
+
 			/*
 			 * libsigc++ slots
 			 */
 			slot<void, Navigation> navigateSlot;
 			slot<void, string> episodeSlot;
 			slot<void> nextFileSlot;
-			
+
 		private:
 			Player* _pPlayer;
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
 			ostringstream _logStream;
-			
-			const string DIRECTORY_DIVIDER = "/";
-			const string LIBRARY_FILE_NAME = "/library/library.xml";
-			string _libraryPath;
+
+			const string LIBRARY_FILE_PATH =	"library";
+			const string LIBRARY_FILE_NAME =	"library.xml";
+
+			path _libraryPath;
+			path _libraryFile;
+			file<>* _pLibraryXmlFile;
+			xml_document<> _libraryDoc;
+
 			map<string, xml_node<>*> _rfidMap;
-			
-			file<>* _pXmlFile;
-			xml_document<> _doc;
+
 			xml_node<>* _pCurrentEpisodeFiles;
 			xml_node<>* _pCurrentFile;
-			
-			/*
-			 * libsigc++ signals
-			signal<void, string, int> playSignal;
-			signal<int> playPauseSignal;
-			 */
-			
-			
+
 			void parseLibraryFile(void);
+			void saveLibraryFile(void);
 			void parseSeries(xml_node<>*);
 			void parseSeriesNode(xml_node<>*);
 			void parseEpisodes(xml_node<>*);
 			void parseEpisodeNode(xml_node<>*);
-			
+
 			void setFile(int);
 			void playFile(void);
-			
-			void playPause();
-			void nextFile();
-			void previousFile();
-			void resetFiles();
-			
+
+			void playPause(void);
+			void stopFile(void);
+			void nextFile(void);
+			void previousFile(void);
+			void resetFiles(void);
+
 			void setEpisode(string);
 			void navigate(Navigation);
-			
+
 			int getChildCount(xml_node<>*);
 			xml_node<>* getChildAt(xml_node<>*, int);
 			int getCurrentFileIndex(void);

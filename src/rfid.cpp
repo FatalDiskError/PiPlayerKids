@@ -10,6 +10,12 @@ namespace rfid
 		_pLinkToConsole=ppConsole;
 		(*_pLinkToConsole)->printLog("constructing player");
 
+		/*
+		 * libsigc++ slots
+		 */
+		rfidStatusSlot = mem_fun(this, &Rfid::endRfid);
+		_statusCode = RfidStatusCode::NONE;
+
 		init_rfid();
 	}
 	Rfid::~Rfid(void)
@@ -18,7 +24,12 @@ namespace rfid
 		release_rfid();
 	}
 
-	void Rfid::listen()
+	void Rfid::endRfid(RfidStatusCode statusCode)
+	{
+		_statusCode = statusCode;
+	}
+
+	Rfid::RfidStatusCode Rfid::listen(void)
 	{
 		(*_pLinkToConsole)->printLog("start void Rfid::listen(void)");
 
@@ -36,7 +47,7 @@ namespace rfid
 		char *p;
 		char sn_str[23];
 
-		while(true)
+		while(_statusCode == RfidStatusCode::NONE)
 		{
 			status = find_tag(&CType);
 
@@ -89,7 +100,7 @@ namespace rfid
 		(*_pLinkToConsole)->printLog("end void Rfid::listen(void)");
 	}
 
-	string Rfid::listenOnce()
+	string Rfid::listenOnce(void)
 	{
 		(*_pLinkToConsole)->printLog("start string Rfid::listen(void)");
 
@@ -161,7 +172,7 @@ namespace rfid
 		(*_pLinkToConsole)->printLog("end string Rfid::listen(void)");
 	}
 
-	void Rfid::init_rfid()
+	void Rfid::init_rfid(void)
 	{
 		if(geteuid()!=0 || getenv("FAKEROOTKEY"))
 		{
@@ -189,7 +200,7 @@ namespace rfid
 		InitRc522();
 	}
 
-	void Rfid::release_rfid()
+	void Rfid::release_rfid(void)
 	{
 		bcm2835_spi_end();
 		bcm2835_close();

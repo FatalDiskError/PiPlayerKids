@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <functional>
 
 #include <unistd.h>
 #include <sys/wait.h>
@@ -17,17 +18,28 @@
 
 using namespace std;
 using namespace console;
+using namespace sigc;
 
 namespace rfid
 {
 	class Rfid
 	{
 		public:
+			enum class RfidStatusCode
+			{
+				NONE, NORMAL_END, SHUTDOWN_END
+			};
+
 			Rfid(Console**);
 			~Rfid(void);
 
-			void listen(void);
+			RfidStatusCode listen(void);
 			string listenOnce(void);
+
+			/*
+			 * libsigc++ slots
+			 */
+			sigc::slot<void, RfidStatusCode> rfidStatusSlot;
 
 			/*
 			 * libsigc++ signals
@@ -38,6 +50,9 @@ namespace rfid
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
 			ostringstream _logStream;
+			RfidStatusCode _statusCode;
+
+			void endRfid(RfidStatusCode);
 
 			void init_rfid(void);
 			void release_rfid(void);

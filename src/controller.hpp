@@ -5,11 +5,12 @@
 
 #include "console/console.hpp"
 #include "library.hpp"
+#include "rfid.hpp"
 
 using namespace std;
 using namespace console;
+using namespace rfid;
 using namespace library;
-using namespace sigc;
 
 namespace controller
 {
@@ -27,13 +28,14 @@ namespace controller
 			/*
 			 * libsigc++ slots
 			 */
-			slot<void, string> rfidSlot;
+			sigc::slot<void, string> rfidSlot;
 
 			/*
 			 * libsigc++ signals
 			 */
-			signal<void, Library::Navigation> navigateSignal;
-			signal<void, string> episodeSignal;
+			sigc::signal<void, Library::Navigation> navigateSignal;
+			sigc::signal<void, string> episodeSignal;
+			sigc::signal<void, Rfid::RfidStatusCode> rfidStatusSignal;
 
 		private:
 			struct ControllerCodeMap : map<ControllerCode, string>

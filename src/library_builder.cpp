@@ -2,9 +2,9 @@
 
 using namespace std;
 using namespace app_params;
+using namespace global_exit;
 using namespace console;
 using namespace rfid;
-using namespace global_exit;
 using namespace boost::filesystem;
 
 namespace library {
@@ -19,14 +19,18 @@ namespace library {
 		_libraryPath = applicationPath;
 		_libraryPath /= LIBRARY_FILE_PATH;
 		if(!exists(_libraryPath) || !is_directory(_libraryPath))
+		{
 			GlobalExit::exit(ErrorCode::EXIT_ERROR_DIRECTORY_NOT_FOUND, "_libraryPath");
-		tracePath("_libraryPath", _libraryPath);
+		}
+		//tracePath("_libraryPath", _libraryPath);
 
 		_libraryFile = _libraryPath;
 		_libraryFile /= LIBRARY_FILE_NAME;
 		if(!exists(_libraryFile) || !is_regular_file(_libraryFile))
+		{
 			GlobalExit::exit(ErrorCode::EXIT_ERROR_FILE_NOT_FOUND, "_libraryFile");
-		tracePath("_libraryFile", _libraryFile);
+		}
+		//tracePath("_libraryFile", _libraryFile);
 	}
 	LibraryBuilder::~LibraryBuilder(void)
 	{

@@ -15,20 +15,19 @@
 #include <rapidxml.hpp>
 #include <rapidxml_utils.hpp>
 #include <rapidxml_print.hpp>
-
 #include <boost/filesystem.hpp>
 
 #include "app_params.hpp"
-#include "console/console.hpp"
 #include "global_exit.hpp"
+#include "console/console.hpp"
 #include "library_tags.hpp"
 #include "rfid.hpp"
 
 using namespace std;
 using namespace app_params;
+using namespace global_exit;
 using namespace console;
 using namespace rfid;
-using namespace global_exit;
 using namespace rapidxml;
 using namespace boost::filesystem;
 
@@ -86,8 +85,6 @@ namespace library {
 
 			path _libraryPath;
 			path _libraryFile;
-			ofstream _libraryFileStream;
-
 			file<>* _pLibraryXmlFile;
 			xml_document<> _libraryDoc;
 

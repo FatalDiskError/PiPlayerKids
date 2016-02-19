@@ -19,32 +19,28 @@ namespace player {
 		public:
 			Player(Console**);
 			~Player(void);
-			
+
 			void playFile(string, double);
 			double playPauseFile(void);
+			double stopFile(void);
 			void endOfFile(void);
-			
-			/*
-			 * libsigc++ slots
-			slot<void, string, int> playFileSlot;
-			slot<void> playPauseSlot;
-			 */
+
 			/*
 			 * libsigc++ signals
 			 */
 			signal<void> completedSignal;
-			
+
 		private:
 			Console** _pLinkToConsole;
 			ostringstream _outStream;
 			ostringstream _logStream;
-			
+
 			const int DEFAULT_DEVICE_ID = -1;
 			const int CHAR_CODE_0 = 48;
 			const int DEFAULT_FREQUENCY = 44100;
-			
+
 			HSTREAM _streamHandle;
-			
+
 			int getDeviceId(void);
 	};
 }

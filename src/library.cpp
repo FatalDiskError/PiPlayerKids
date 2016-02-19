@@ -1,50 +1,57 @@
 #include "library.hpp"
 
 using namespace std;
+using namespace app_params;
+using namespace global_exit;
 using namespace player;
 using namespace console;
 using namespace rapidxml;
+using namespace boost::filesystem;
+using namespace sigc;
 
 namespace library {
 	/***************
 	 * CONSTRUCTOR *
 	 ***************/
-	Library::Library(string applicationPath, Console** ppConsole=NULL)
+	Library::Library(path applicationPath, Console** ppConsole=NULL)
 	{
 		_pLinkToConsole = ppConsole;
 		(*_pLinkToConsole)->printLog("constructing library");
-		
+
+		_pPlayer = new Player(ppConsole);
+
 		/*
 		 * libsigc++ slots
 		 */
 		navigateSlot = mem_fun(this, &Library::navigate);
 		episodeSlot = mem_fun(this, &Library::setEpisode);
 		nextFileSlot = mem_fun(this, &Library::nextFile);
-		
-		_pPlayer = new Player(ppConsole);
-		
+
 		/*
 		 * libsigc++ signals
-		completedSignal.connect(pLibrary->nextFileSlot);
 		 */
 		_pPlayer->completedSignal.connect(nextFileSlot);
-		
-		/*
-		 * libsigc++ signals
-		playSignal.connect(_pPlayer->playFileSlot);
-		playPauseSignal.connect(_pPlayer->playPauseSlot);
-		 */
-		
-		size_t lastDirectoryDividerPos = applicationPath.rfind(DIRECTORY_DIVIDER);
-		if (lastDirectoryDividerPos!=string::npos)
+
+		_libraryPath = applicationPath;
+		_libraryPath /= LIBRARY_FILE_PATH;
+		if(!exists(_libraryPath) || !is_directory(_libraryPath))
 		{
-			_libraryPath = applicationPath.substr(0, lastDirectoryDividerPos);
-			_libraryPath.append(LIBRARY_FILE_NAME);
+			GlobalExit::exit(ErrorCode::EXIT_ERROR_DIRECTORY_NOT_FOUND, "_libraryPath");
 		}
+
+		_libraryFile = _libraryPath;
+		_libraryFile /= LIBRARY_FILE_NAME;
+		if(!exists(_libraryFile) || !is_regular_file(_libraryFile))
+		{
+			GlobalExit::exit(ErrorCode::EXIT_ERROR_FILE_NOT_FOUND, "_libraryFile");
+		}
+
 		parseLibraryFile();
 	}
 	Library::~Library(void)
 	{
+		stopFile();
+		saveLibraryFile();
 		(*_pLinkToConsole)->printLog("destructing library");
 	}
 
@@ -56,13 +63,13 @@ namespace library {
 	{
 		_logStream << "opening " << _libraryPath;
 		(*_pLinkToConsole)->printLog(&_logStream);
-		
+
 		// open library.xml-file
-		_pXmlFile = new file<>(_libraryPath.c_str());
-		_doc.parse<0>(_pXmlFile->data());
+		_pLibraryXmlFile = new file<>(_libraryFile.c_str());
+		_libraryDoc.parse<parse_full>(_pLibraryXmlFile->data());
 		// get <library>-node
-		xml_node<>* pLibrary = _doc.first_node(LibraryTags::TAG_LIBRARY);
-		
+		xml_node<>* pLibrary = _libraryDoc.first_node(LibraryTags::TAG_LIBRARY);
+
 		#ifdef XML_OUT_OUTPUT
 			_outStream << "+-+ " << pLibrary->name();
 			_outStream << " [numSeries: " << getChildCount(pLibrary) << "]";
@@ -70,6 +77,18 @@ namespace library {
 		#endif
 		// parse <library>-node
 		parseSeries(pLibrary);
+	}
+	void Library::saveLibraryFile(void)
+	{
+		_logStream << "saving " << _libraryFile.filename();
+		(*_pLinkToConsole)->printLog(&_logStream);
+
+		string data;
+		print(back_inserter(data), _libraryDoc);
+		ofstream newLibraryFile;
+		newLibraryFile.open(_libraryFile.c_str());
+		newLibraryFile << data;
+		newLibraryFile.close();
 	}
 
 	// Series
@@ -89,18 +108,13 @@ namespace library {
 	{
 		// get <title>-node of series
 		xml_node<>* pTitle = pSeries->first_node(LibraryTags::TAG_TITLE);
-		
+
 		#ifdef XML_OUT_OUTPUT
 			_outStream << " [";
 			_outStream << pTitle->name() << ": " << pTitle->value() << ", ";
 			_outStream << "numEpisodes: " << (getChildCount(pSeries)-2);
 			_outStream << "]";
 			(*_pLinkToConsole)->printOut(&_outStream);
-			/*
-			xml_node<>* pCover = pSeries->first_node(LibraryTags::TAG_COVER);
-			_outStream << pCover->name() << ": " << pCover->value() << endl;
-			(*_pLinkToConsole)->printOut(&_outStream);
-			*/
 		#endif
 		// parse episodes
 		parseEpisodes(pSeries);
@@ -123,33 +137,28 @@ namespace library {
 	{
 		#ifdef XML_OUT_OUTPUT
 			xml_node<>* pTitle = pEpisode->first_node(LibraryTags::TAG_TITLE);
-			
+
 			_outStream << " [" << pTitle->name() << ": " << pTitle->value() << "]";
 			(*_pLinkToConsole)->printOut(&_outStream);
-			/*
-			xml_node<>* pCover = pEpisode->first_node(LibraryTags::TAG_COVER);
-			_outStream << pCover->name() << ": " << pCover->value() << endl;
-			(*_pLinkToConsole)->printOut(&_outStream);
-			*/
 		#endif
 		// get <files>-node of episode
 		xml_node<>* pFiles = pEpisode->first_node(LibraryTags::TAG_FILES);
-		
+
 		#ifdef XML_OUT_OUTPUT
 			_outStream << "| | | +-- " << pFiles->name() << " [";
 			_outStream << "numFiles: " << getChildCount(pFiles);
-			
+
 			for (xml_attribute<>* pAttribute = pFiles->first_attribute(); pAttribute; pAttribute = pAttribute->next_attribute())
 			{
 				_outStream << " - " << pAttribute->name() << ": " << pAttribute->value();
 			}
-			
+
 			_outStream << "]";
 			(*_pLinkToConsole)->printOut(&_outStream);
 		#endif
 		// get [rfid]-attribute from <files>-node
 		xml_attribute<>* pRfid = pFiles->first_attribute(LibraryTags::ATTRIBUTE_RFID);
-		
+
 		// store <files>-node by rfid-serial-number
 		string rfidSerialNumber = pRfid->value();
 		if(!rfidSerialNumber.empty())
@@ -157,7 +166,7 @@ namespace library {
 			_rfidMap[rfidSerialNumber] = pFiles;
 		}
 	}
-	
+
 	/*******************
 	 * FILE OPERATIONS *
 	 *******************/
@@ -174,12 +183,15 @@ namespace library {
 				_logStream << "found <files> with rfid [" << rfidSerialNumber << "]";
 				(*_pLinkToConsole)->printLog(&_logStream);
 			#endif
+			// save state of current episode
+			stopFile();
+
 			// set current-episode-files to <files>-node of found rfid-serial-number
 			_pCurrentEpisodeFiles = it->second;
-		
+
 			// set file for current episode with index of current file from xml
 			setFile(getCurrentFileIndex());
-			
+
 			// play current file
 			playFile();
 		}
@@ -191,7 +203,7 @@ namespace library {
 		}
 		return;
 	}
-	
+
 	void Library::setFile(int currentFileIndex)
 	{
 		// get <file>-node at current-file-index
@@ -213,40 +225,65 @@ namespace library {
 			(*_pLinkToConsole)->printLog(&_logStream);
 		}
 	}
-	
+
 	void Library::playFile()
 	{
 		if(_pCurrentFile == NULL)
 		{
 			return;
 		}
-		
+
 		// play current file at given timestamp from xml
-		_pPlayer->playFile(_pCurrentFile->value(), getCurrentTimestamp());
-		
+		double timestamp = getCurrentTimestamp();
+		_outStream << "play from pos: " << timestamp;
+		(*_pLinkToConsole)->printOut(&_outStream);
+
+		_pPlayer->playFile(_pCurrentFile->value(), timestamp);
 	}
-	
+
+	void Library::stopFile()
+	{
+		if(_pCurrentEpisodeFiles == NULL || _pCurrentFile == NULL)
+		{
+			return;
+		}
+
+		double timestamp = _pPlayer->stopFile();
+		if(timestamp >= 0)
+		{
+			setCurrentTimestamp(timestamp);
+		}
+
+		_outStream << "current pos: " << timestamp;
+		(*_pLinkToConsole)->printOut(&_outStream);
+	}
+
 	void Library::playPause()
 	{
 		if(_pCurrentEpisodeFiles == NULL || _pCurrentFile == NULL)
 		{
 			return;
 		}
-		
+
 		double timestamp = _pPlayer->playPauseFile();
-		setCurrentTimestamp(timestamp);
-		
-		_outStream << "" << timestamp;
+		if(timestamp >= 0)
+		{
+			setCurrentTimestamp(timestamp);
+		}
+
+		_outStream << "current pos: " << timestamp;
 		(*_pLinkToConsole)->printOut(&_outStream);
 	}
-	
+
 	void Library::nextFile()
 	{
 		if(_pCurrentEpisodeFiles == NULL)
 		{
 			return;
 		}
-		
+		setCurrentTimestamp(0);
+
+
 		int nextIndex = getCurrentFileIndex();
 		++nextIndex;
 		if(nextIndex <= getChildCount(_pCurrentEpisodeFiles))
@@ -260,14 +297,15 @@ namespace library {
 			resetFiles();
 		}
 	}
-	
+
 	void Library::previousFile()
 	{
 		if(_pCurrentEpisodeFiles == NULL)
 		{
 			return;
 		}
-		
+		setCurrentTimestamp(0);
+
 		int previousIndex = getCurrentFileIndex();
 		--previousIndex;
 		if(previousIndex > 0)
@@ -277,18 +315,21 @@ namespace library {
 			playFile();
 		}
 	}
-	
+
 	void Library::resetFiles()
 	{
 		if(_pCurrentEpisodeFiles == NULL)
 		{
 			return;
 		}
-		
+
 		setCurrentFileIndex(1);
+		setCurrentTimestamp(0);
 		setFile(1);
+		playFile();
+		stopFile();
 	}
-	
+
 	void Library::navigate(Navigation op)
 	{
 		switch(op)
@@ -307,8 +348,8 @@ namespace library {
 				break;
 		}
 	}
-	
-	
+
+
 	/***************
 	 * XML HELPERS *
 	 ***************/
@@ -318,10 +359,10 @@ namespace library {
 		for (xml_node<>* pChild = pNode->first_node(); pChild != NULL; pChild = pChild->next_sibling())
 		{
 			i++;
-		} 
+		}
 		return i;
 	}
-	
+
 	xml_node<>* Library::getChildAt(xml_node<>* pNode, int index)
 	{
 		int i = 0;
@@ -332,10 +373,10 @@ namespace library {
 				return pChild;
 			}
 			i++;
-		} 
+		}
 		return NULL;
 	}
-	
+
 	int Library::getCurrentFileIndex(void)
 	{
 		// get [current_file]-attribute of <files>-node
@@ -343,15 +384,15 @@ namespace library {
 		// parse string to int
 		return stoi(pCurrentFile->value());
 	}
-	
+
 	void Library::setCurrentFileIndex(int index)
 	{
 		xml_attribute<>* pCurrentFile = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_CURRENT_FILE);
 		string newIndex = to_string(index);
-		const char* text = _doc.allocate_string(newIndex.c_str(), strlen(newIndex.c_str()));
+		const char* text = _libraryDoc.allocate_string(newIndex.c_str());
 		pCurrentFile->value(text);
 	}
-	
+
 	double Library::getCurrentTimestamp(void)
 	{
 		// get [timestamp]-attribute of <files>-node
@@ -359,12 +400,12 @@ namespace library {
 		// parse string to int
 		return stod(pTimestamp->value());
 	}
-	
+
 	void Library::setCurrentTimestamp(double timestamp)
 	{
 		xml_attribute<>* pTimestamp = _pCurrentEpisodeFiles->first_attribute(LibraryTags::ATTRIBUTE_TIMESTAMP);
 		string newTimestamp = to_string(timestamp);
-		const char* text = _doc.allocate_string(newTimestamp.c_str(), strlen(newTimestamp.c_str()));
+		const char* text = _libraryDoc.allocate_string(newTimestamp.c_str());
 		pTimestamp->value(text);
 	}
 }
