@@ -119,18 +119,19 @@ void start(path applicationPath)
 
 	Rfid::RfidStatusCode statusCode = _pRfid->listen();
 
-	delete _pController;
 	delete _pLibrary;
 	delete _pRfid;
 
 	if(statusCode == Rfid::RfidStatusCode::NONE)
 	{
 		_pConsole->printLog("### END BY PROGRAMM ###");
+		delete _pController;
 		delete _pConsole;
 	}
 	else if(statusCode == Rfid::RfidStatusCode::NORMAL_END)
 	{
 		_pConsole->printLog("### END BY USER ###");
+		delete _pController;
 		delete _pConsole;
 		exit(0);
 	}
@@ -138,6 +139,7 @@ void start(path applicationPath)
 	{
 		_pConsole->printLog("### END BY USER ###");
 		_pConsole->printLog("### SHUTDOWN ###");
+		delete _pController;
 		delete _pConsole;
 		system("sudo shutdown -h -P now");
 		exit(2);

@@ -56,12 +56,13 @@ namespace controller {
 		}
 		else if(serial == _controllerCodeMap[ControllerCode::SHUTDOWN])
 		{
-			rfidStatusSignal(Rfid::RfidStatusCode::SHUTDOWN_END);
-			/*
 			(*_pLinkToConsole)->printLog("### SHUTDOWN ###");
+			rfidStatusSignal(Rfid::RfidStatusCode::SHUTDOWN_END);
+			/**/
+			(*_pLinkToConsole)->printLog("### SHUTDOWN2 ###");
 			system("sudo shutdown -h -P now");
 			exit(2);
-			 */
+			/* */
 		}
 		else
 		{
